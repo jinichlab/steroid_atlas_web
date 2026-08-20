@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Steroid Atlas — Web
 
-## Getting Started
+A **Next.js + deck.gl** frontend for the [Steroid Atlas](https://github.com/jinichlab/steroid_atlas):
+an interactive UMAP of **14,089 steroid-interacting proteins**, **677 steroid
+molecules**, and **2,889 natural + synthetic steroid entries**, curated from
+UniProt, Rhea, ChEBI, RefSeq, and hand-audited 2024–2026 literature
+recruitments.
 
-First, run the development server:
+Companion to the marimo notebook viewer in `jinichlab/steroid_atlas` — same
+underlying data, redesigned as a clone-and-deploy web app with faster WebGL
+rendering, richer hover cards, structure thumbnails on every steroid tile,
+and a multi-column search bar.
+
+## Features
+
+- **WebGL UMAP** (deck.gl `ScatterplotLayer` + `IconLayer`) — 14 k points
+  in a single frame, smooth pan + zoom, no jank
+- **Three views**: *Protein centric* (82 clusters), *Steroid centric*
+  (8 family-labeled clusters), *Natural + synthetic* (2 groups)
+- **Zoom-conditional cluster labels** at each centroid (family stem +
+  cluster id), just like the marimo Vega version
+- **Marimo-style hover tooltip**: name · accession · gene · organism ·
+  cluster · EC, with a `★ NEW` badge for literature-recruited proteins
+- **Free-text search** across name, gene, accession, GO, EC, ChEBI, Rhea,
+  keyword, and sequence — matches stay lit on the map, everything else
+  greys out, and the pool below the map narrows to the matches
+- **Pan / Select toggle** (top-left of the plot) — drag = pan (default) or
+  drag = lasso rectangle; the last drawn rectangle **persists** on the map
+  for reference until you clear it
+- **Steroid catalogue tiles** with pre-rendered 2D structure PNGs (RDKit
+  → 2,441 unique files) — click a tile → per-compound protein list → tick
+  any rows to open their full detail cards side-by-side
+- **Multi-select detail cards** with EC badges, Rhea links, GO / Keyword
+  chips, PubMed refs, UniProt + AlphaFold links, and a 3-column grid of
+  interacting-steroid thumbnails per protein
+- **Spatially-aware distinct color palette** — clusters that are neighbors
+  on the map get maximally-contrasting hues (greedy graph coloring)
+- **Newly-recruited proteins render as stars**, tinted by their cluster
+  color so you still see which cluster they belong to
+
+## Quickstart
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:jinichlab/steroid_atlas_web.git
+cd steroid_atlas_web
+npm install
+npm run dev -- --port 3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. On a remote machine, tunnel the port from your
+laptop:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+ssh -N -L 3000:localhost:3000 <user>@<server>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Routes
 
-## Learn More
+| URL                  | Page                                                 |
+|----------------------|------------------------------------------------------|
+| `/`                  | Landing — stats + three view cards                   |
+| `/explore/protein`   | UMAP + catalogue for the 14,089-protein view         |
+| `/explore/molecule`  | UMAP + catalogue for the 677-steroid view            |
+| `/explore/natsyn`    | UMAP + catalogue for the 2,889 nat + syn entries     |
 
-To learn more about Next.js, take a look at the following resources:
+## Repo layout
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/
+    page.tsx                        Landing page
+    explore/[view]/                 Three views share one dynamic route
+      page.tsx                      Loads per-view cluster metadata
+      explore-client.tsx            All interaction logic (client component)
+  components/
+    UmapPlot.tsx                    deck.gl scatter + icon + text layers
+  lib/
+    palette.ts                      Golden-angle palette + spatial re-mapping
+    types.ts                        Protein / Molecule / ClusterMeta types
+public/
+  atlas/
+    proteins.json                   14,089 rows  (~23 MB)
+    molecules.json                    677 rows   (~3 MB)
+    natsyn.json                     2,889 rows   (~4 MB)
+    protein_clusters.json              82 clusters (fingerprint stems + top GO)
+    molecule_clusters.json              8 clusters (Bile acids, Estrogens, …)
+    natsyn_clusters.json                2 clusters (natural / synthetic)
+    structures/                    ~2,441 pre-rendered 260×260 PNGs
+    structures_index.json          name / CHEBI → PNG filename lookup
+    summary.json                   Landing-page counts
+scripts/
+  build_atlas_data.py              CSV → JSON pre-processing
+  build_structures.py              RDKit renders 2D structure PNGs
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Rebuilding the data
 
-## Deploy on Vercel
+The bundled JSON + PNGs are regenerated from the marimo repo's CSVs whenever
+they change. Clone both repos side-by-side and run:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# from steroid_atlas_web/
+LD_LIBRARY_PATH=~/miniconda3/lib ~/miniconda3/bin/python3 scripts/build_atlas_data.py
+LD_LIBRARY_PATH=~/miniconda3/lib ~/miniconda3/bin/python3 scripts/build_structures.py
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`build_atlas_data.py` reads from `../steroid_atlas/data/` and writes to
+`public/atlas/`; `build_structures.py` needs RDKit (available in the
+project's miniconda env).
+
+## UMAP interactions
+
+- **drag** — pan the map (default). Toggle to **Select** in the top-left
+  to switch drag → lasso rectangle
+- **scroll** — zoom in / out. Cluster labels appear at moderate zoom
+- **click a dot** — open the summary card with UniProt / AlphaFold links
+- **hover** — rich tooltip with name / accession / gene / organism /
+  cluster / EC
+- **type in the search bar** — instantly filter the map + the catalogue
+- **cluster sidebar** — click any chip to highlight that cluster's dots;
+  the family name is next to the id, so you always know what you picked
+- **catalogue tiles** — click a steroid tile → panel of proteins that act
+  on it → tick any protein to append its detail card to the stack below
+
+## Stack
+
+- Next.js 14 (App Router) · TypeScript · Tailwind CSS
+- deck.gl (ScatterplotLayer + IconLayer + TextLayer) for WebGL scatter
+- lucide-react (Pan / Select icons)
+- Node.js 20 LTS
+
+## Related
+
+- [`jinichlab/steroid_atlas`](https://github.com/jinichlab/steroid_atlas) —
+  canonical data, marimo visualizer, analysis scripts. All data changes
+  happen there first; this repo re-imports via `scripts/build_atlas_data.py`.
+
+## License
+
+MIT

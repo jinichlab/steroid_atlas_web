@@ -1,101 +1,100 @@
-import Image from "next/image";
+import Link from "next/link";
+import summary from "@/../public/atlas/summary.json";
+import type { Summary } from "@/lib/types";
+
+const S = summary as Summary;
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="mx-auto max-w-5xl px-6 py-14">
+      <div className="mb-3 flex items-center gap-3 text-sm font-medium text-slate-500">
+        <span className="text-lg">🧭</span> STEROID ATLAS
+      </div>
+      <h1 className="mb-6 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+        Explore steroids and the proteins they interact with.
+      </h1>
+      <p className="mb-8 max-w-2xl text-lg text-slate-600">
+        An interactive UMAP atlas of steroid- and bile-acid-metabolizing enzymes
+        and their small-molecule substrates, curated from public databases
+        (UniProt, Rhea, ChEBI, RefSeq) and hand-audited literature recruitments.
+      </p>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <div className="mb-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {[
+          ["Proteins", S.n_proteins.toLocaleString()],
+          ["Steroids", S.n_molecules.toLocaleString()],
+          ["Nat + Syn", S.n_natsyn.toLocaleString()],
+          ["Clusters", S.n_clusters.toString()],
+        ].map(([label, val]) => (
+          <div
+            key={label}
+            className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+            <div className="text-2xl font-bold text-slate-900">{val}</div>
+            <div className="text-xs uppercase tracking-wide text-slate-500">
+              {label}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <h2 className="mb-4 text-2xl font-semibold text-slate-900">Pick a view</h2>
+      <div className="grid gap-4 sm:grid-cols-3">
+        <ViewCard
+          href="/explore/protein"
+          title="Protein centric"
+          desc="Each point is a steroid-binding protein. Pick a cluster to see the family and its substrates."
+          accent="from-sky-500 to-cyan-400"
+        />
+        <ViewCard
+          href="/explore/molecule"
+          title="Steroid centric"
+          desc="Each point is a steroid molecule. Focus one to see the proteins that act on it."
+          accent="from-amber-500 to-orange-400"
+        />
+        <ViewCard
+          href="/explore/natsyn"
+          title="Natural + synthetic"
+          desc="Compare 2,889 natural and synthetic steroid entries in one shared chemical space."
+          accent="from-emerald-500 to-lime-400"
+        />
+      </div>
+
+      <footer className="mt-16 text-center text-xs text-slate-500">
+        <span className="inline-flex items-center gap-1">
+          <span className="text-amber-500">★</span>
+          {S.n_new} newly-recruited from 2024–2026 literature.
+        </span>{" "}
+        · Built with Next.js + deck.gl.
       </footer>
-    </div>
+    </main>
+  );
+}
+
+function ViewCard({
+  href,
+  title,
+  desc,
+  accent,
+}: {
+  href: string;
+  title: string;
+  desc: string;
+  accent: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-lg"
+    >
+      <div
+        className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accent}`}
+      />
+      <div className="text-lg font-semibold text-slate-900">{title}</div>
+      <p className="mt-2 text-sm text-slate-600">{desc}</p>
+      <div className="mt-4 text-sm font-medium text-sky-600 group-hover:underline">
+        Explore →
+      </div>
+    </Link>
   );
 }
