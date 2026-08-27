@@ -28,6 +28,14 @@ yarn-error.log*
 # local env files
 .env*.local
 
+# RAG vector store — large binaries, never commit
+/rag_data/
+/public/atlas/RAG/
+
+# python
+__pycache__/
+*.pyc
+
 # vercel
 .vercel
 

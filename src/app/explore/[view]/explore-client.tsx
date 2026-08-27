@@ -12,6 +12,11 @@ import type {
 } from "@/lib/types";
 import type { UmapPoint, ClusterCentroidLabel } from "@/components/UmapPlot";
 import { clusterPalette, distinctPaletteForCentroids } from "@/lib/palette";
+import { useSelection, type SelectionItem } from "@/lib/selection-context";
+
+// Cap on how many selected items we hand to the chat assistant — keeps the
+// /api/chat payload and prompt size bounded on huge lasso selections.
+const MAX_SELECTION_ITEMS = 80;
 
 const UmapPlot = dynamic(() => import("@/components/UmapPlot"), { ssr: false });
 
@@ -104,6 +109,7 @@ function splitList(s: string): string[] {
 type StructIndex = Record<string, string>;
 
 export default function ExploreClient({ kind, clusters }: Props) {
+  const { setSelection, clearSelection } = useSelection();
   const [rows, setRows] = useState<Row[]>([]);
   const [loading, setLoading] = useState(true);
   const [structIdx, setStructIdx] = useState<StructIndex>({});
@@ -287,6 +293,47 @@ export default function ExploreClient({ kind, clusters }: Props) {
     }
     return [];
   }, [rows, highlight, selectionSet, searchMatchKeys, kind]);
+
+  // ── Share the current selection with the chat assistant ────────────────
+  useEffect(() => {
+    if (!pool.length) {
+      clearSelection();
+      return;
+    }
+    const origin =
+      searchMatchKeys && searchMatchKeys.size
+        ? "search"
+        : selectionSet && selectionSet.size
+          ? "lasso"
+          : "cluster";
+    const items: SelectionItem[] = pool
+      .slice(0, MAX_SELECTION_ITEMS)
+      .map((r) => {
+        if (kind === "protein") {
+          const p = r as Protein;
+          return {
+            kind: "protein",
+            name: p.protein_names || p.accession,
+            accession: p.accession,
+            gene: p.gene_names || null,
+            organism: p.organism || null,
+            cluster: p.cluster ?? null,
+          };
+        }
+        const m = r as Molecule & NatsynEntry;
+        return {
+          kind: "molecule",
+          name: m.compound_name,
+          chebi: m.chebi_id || null,
+          smiles: m.smiles || null,
+          cluster: m.cluster ?? null,
+        };
+      });
+    setSelection({ view: kind, origin, items, total: pool.length });
+  }, [pool, kind, searchMatchKeys, selectionSet, setSelection, clearSelection]);
+
+  // Drop the shared selection when leaving the Explore page.
+  useEffect(() => () => clearSelection(), [clearSelection]);
 
   const compoundTiles = useMemo(() => {
     if (kind !== "protein" || !pool.length) return [];

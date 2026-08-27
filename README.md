@@ -54,6 +54,33 @@ laptop:
 ssh -N -L 3000:localhost:3000 <user>@<server>
 ```
 
+## Chatbot / RAG
+
+"Ask the Atlas" (floating widget, bottom-right) answers questions grounded in a
+prebuilt corpus of ChEBI compound records and UniProt protein literature. On an
+Explore page it also sees your current selection (lasso / search / cluster), so
+"what are these?" works — the selected items are shared with the chat via
+`src/lib/selection-context.tsx` and shown as a "N selected" chip in the widget.
+
+Two processes:
+
+1. **Retrieval sidecar** — a local Python service that owns the 2 GB FAISS index.
+   ```bash
+   npm run dev:rag          # loads the index (~20 s), serves 127.0.0.1:8000
+   ```
+2. **Next.js** — `npm run dev` as usual. `/api/chat` embeds each question, asks
+   the sidecar for the top passages, and prompts OpenAI with them + a
+   cite-your-sources instruction. If the sidecar is down the chat still answers,
+   flagged as ungrounded.
+
+Setup:
+
+- `cp .env.example .env.local` and set `OPENAI_API_KEY`.
+- The vector store lives in `rag_data/rag_store/` (`index.faiss` + `catalog.jsonl`,
+  ~2.2 GB, gitignored — copy it in out of band). Details and a systemd unit for
+  deployment: [`scripts/rag/README.md`](scripts/rag/README.md).
+- Needs a persistent host (~4 GB RAM) — **not** Vercel serverless.
+
 ## Routes
 
 | URL                  | Page                                                 |
@@ -91,6 +118,8 @@ public/
 scripts/
   build_atlas_data.py              CSV → JSON pre-processing
   build_structures.py              RDKit renders 2D structure PNGs
+  rag/rag_server.py                RAG retrieval sidecar (FAISS + OpenAI embeddings)
+rag_data/rag_store/                index.faiss + catalog.jsonl (gitignored, ~2.2 GB)
 ```
 
 ## Rebuilding the data

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:rag": "export $(grep -E '^(OPENAI_API_KEY|EMBEDDING_MODEL|RAG_)' .env.local | xargs) && LD_LIBRARY_PATH=$HOME/miniconda3/lib RAG_STORE_DIR=$PWD/rag_data/rag_store $HOME/miniconda3/bin/python3 scripts/rag/rag_server.py",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -25,6 +26,7 @@
     "framer-motion": "^13.1.0",
     "lucide-react": "^1.33.0",
     "next": "14.2.35",
+    "openai": "^7.8.0",
     "react": "^18",
     "react-dom": "^18",
     "react-map-gl": "^8.1.2",

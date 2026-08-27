@@ -1,0 +1,7 @@
+# RAG retrieval sidecar (scripts/rag/rag_server.py).
+# HTTP layer is stdlib (http.server) — these are the only third-party deps.
+# The project's conda env already has all three; this file targets a clean
+# venv on the lab server: `pip install -r scripts/rag/requirements.txt`.
+faiss-cpu>=1.8
+numpy>=1.26
+openai>=1.40
