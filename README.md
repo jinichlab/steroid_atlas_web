@@ -41,7 +41,7 @@ and a multi-column search bar.
 ## Quickstart
 
 ```bash
-git clone git@github.com:jinichlab/steroid_atlas_web.git
+git clone https://github.com/jinichlab/steroid_atlas_web.git
 cd steroid_atlas_web
 npm install
 npm run dev -- --port 3000
