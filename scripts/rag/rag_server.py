@@ -44,12 +44,12 @@ _VALID_KINDS = {"molecule", "protein"}
 # ── State (populated by load()) ──────────────────────────────────────────
 _index: faiss.Index | None = None
 _catalog: list[str] = []          # raw JSONL lines, index i ↔ vector i
-_client: openai.OpenAI | None = None
+_default_client: openai.OpenAI | None = None  # from server env, if any
 _scores_logged = False
 
 
 def load() -> None:
-    global _index, _catalog, _client
+    global _index, _catalog, _default_client
 
     if not INDEX_PATH.exists():
         raise FileNotFoundError(f"FAISS index not found: {INDEX_PATH}")
@@ -71,20 +71,43 @@ def load() -> None:
             f"catalog lines={len(_catalog)} — rebuild the store"
         )
 
-    _client = openai.OpenAI()  # reads OPENAI_API_KEY
+    # A server-wide key is optional: each /search request may instead carry
+    # its own `api_key` (forwarded from the visitor's browser). The index
+    # itself needs no OpenAI access to load.
+    if os.getenv("OPENAI_API_KEY"):
+        _default_client = openai.OpenAI()
+        key_note = "server key configured"
+    else:
+        _default_client = None
+        key_note = "no server key — each request must supply api_key"
 
     print(
         f"[rag] loaded index: ntotal={_index.ntotal} dim={_index.d} "
-        f"model={EMBEDDING_MODEL} threads={FAISS_THREADS} "
+        f"model={EMBEDDING_MODEL} threads={FAISS_THREADS} ({key_note}) "
         f"({time.time() - t0:.1f}s)",
         flush=True,
     )
 
 
-def _embed(query: str) -> np.ndarray:
-    assert _client is not None
+class MissingApiKey(Exception):
+    """Neither the request nor the sidecar's own env has an OpenAI key."""
+
+
+def _client_for(api_key: str | None) -> openai.OpenAI:
+    if api_key:
+        return openai.OpenAI(api_key=api_key)
+    if _default_client is not None:
+        return _default_client
+    raise MissingApiKey(
+        "no OpenAI API key available (pass api_key in the request, or set "
+        "OPENAI_API_KEY on the sidecar)"
+    )
+
+
+def _embed(query: str, api_key: str | None) -> np.ndarray:
+    client = _client_for(api_key)
     emb = (
-        _client.embeddings.create(model=EMBEDDING_MODEL, input=[query])
+        client.embeddings.create(model=EMBEDDING_MODEL, input=[query])
         .data[0]
         .embedding
     )
@@ -98,12 +121,12 @@ def _embed(query: str) -> np.ndarray:
     return v
 
 
-def do_search(query: str, k: int, kind: str | None) -> dict:
+def do_search(query: str, k: int, kind: str | None, api_key: str | None) -> dict:
     global _scores_logged
     assert _index is not None
 
     t0 = time.time()
-    v = _embed(query)
+    v = _embed(query, api_key)
 
     over = k * 5 if kind else k
     over = min(over, _index.ntotal)
@@ -216,8 +239,14 @@ class Handler(BaseHTTPRequestHandler):
             self._send(422, {"error": "kind must be 'molecule', 'protein' or null"})
             return
 
+        # Per-request key (forwarded from the visitor's browser via Next.js).
+        # Falls back to the sidecar's own OPENAI_API_KEY when omitted.
+        api_key = (body.get("api_key") or "").strip() or None
+
         try:
-            self._send(200, do_search(query, k, kind))
+            self._send(200, do_search(query, k, kind, api_key))
+        except MissingApiKey as exc:
+            self._send(401, {"error": str(exc)})
         except ValueError as exc:  # dim mismatch
             self._send(500, {"error": str(exc)})
         except Exception as exc:  # noqa: BLE001 — embedding / search failure

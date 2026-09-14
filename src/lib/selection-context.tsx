@@ -10,10 +10,13 @@ import {
 import type { ViewKind } from "@/lib/types";
 
 /**
- * Shares the Explore page's current selection (lasso / search / cluster) with
- * the globally-mounted ChatWidget so the assistant can answer questions about
- * "what I have selected". The Explore client pushes a compact projection of its
- * `pool` into here; ChatWidget reads it and forwards it to /api/chat.
+ * Shares the Explore page's current selection (lasso / search / cluster) across
+ * things that outlive a single view:
+ *  - the globally-mounted ChatWidget (answers "what have I selected");
+ *  - the *other* Explore views — switching protein ↔ molecule carries the
+ *    selection over and highlights the interacting entities. The bridge is
+ *    `proteinAccessions`: for a protein selection it's the selected accessions;
+ *    for a molecule selection it's the union of their interacting proteins.
  */
 
 export type SelectionItem = {
@@ -36,6 +39,12 @@ export type SelectionState = {
   items: SelectionItem[];
   /** True count in the selection — may exceed items.length when capped. */
   total: number;
+  /** Cross-view bridge (uncapped). Protein selection → the selected accessions;
+   *  molecule selection → the union of their interacting protein accessions. */
+  proteinAccessions: string[];
+  /** Uncapped rowKeys of the selected molecules, for exact same-view restore
+   *  (empty for a protein selection). */
+  moleculeKeys: string[];
 };
 
 export const EMPTY_SELECTION: SelectionState = {
@@ -43,6 +52,8 @@ export const EMPTY_SELECTION: SelectionState = {
   origin: null,
   items: [],
   total: 0,
+  proteinAccessions: [],
+  moleculeKeys: [],
 };
 
 type SelectionContextValue = {

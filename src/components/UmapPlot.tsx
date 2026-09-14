@@ -97,7 +97,7 @@ export default function UmapPlot({
   }, [bounds]);
 
   // ── Mode toggle: pan vs select ─────────────────────────────────────────
-  const [selectMode, setSelectMode] = useState(false);
+  const [selectMode, setSelectMode] = useState(true);
 
   // ── Palette ─────────────────────────────────────────────────────────────
   const nClusters = useMemo(

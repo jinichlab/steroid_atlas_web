@@ -33,7 +33,7 @@ type SearchResponse = {
 
 export async function retrieve(
   query: string,
-  opts?: { k?: number; kind?: RagKind },
+  opts?: { k?: number; kind?: RagKind; apiKey?: string },
 ): Promise<RagResult> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
@@ -46,6 +46,9 @@ export async function retrieve(
         query,
         k: opts?.k ?? 6,
         kind: opts?.kind ?? null,
+        // Per-request key for the embedding call. Falls back to the sidecar's
+        // own OPENAI_API_KEY (if configured) when omitted.
+        api_key: opts?.apiKey || undefined,
       }),
       signal: controller.signal,
       cache: "no-store",

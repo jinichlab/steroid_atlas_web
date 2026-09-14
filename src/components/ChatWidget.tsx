@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { MessageCircle, Minus } from "lucide-react";
 import { useSelection } from "@/lib/selection-context";
+import { useApiKey } from "@/lib/api-key-context";
+import ApiKeyForm from "@/components/ApiKeyForm";
 
 type Source = { n: number; label: string };
 type Message = {
@@ -13,13 +15,14 @@ type Message = {
 
 export default function ChatWidget() {
   const { selection } = useSelection();
+  const { hasKey } = useApiKey();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   async function sendMessage() {
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || !hasKey) return;
     const query = input.trim();
     const history = messages;
     const userMsg: Message = { role: "user", content: query };
@@ -34,7 +37,16 @@ export default function ChatWidget() {
         body: JSON.stringify({
           query,
           history,
-          selection: selection.items.length ? selection : undefined,
+          // Only the chat-relevant fields — not the (potentially large)
+          // cross-view bridge arrays.
+          selection: selection.items.length
+            ? {
+                view: selection.view,
+                origin: selection.origin,
+                items: selection.items,
+                total: selection.total,
+              }
+            : undefined,
         }),
       });
       const data = await res.json();
@@ -85,6 +97,15 @@ export default function ChatWidget() {
         </div>
       </div>
 
+      {!hasKey && (
+        <div className="border-b bg-amber-50 p-2 text-xs text-amber-800">
+          <div className="mb-1">
+            🔑 Chat is disabled — no OpenAI API key is configured.
+          </div>
+          <ApiKeyForm compact />
+        </div>
+      )}
+
       <div className="flex-1 space-y-2 overflow-y-auto p-3">
         {messages.map((m, i) => (
           <div
@@ -123,12 +144,17 @@ export default function ChatWidget() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          placeholder="Ask about a compound or protein..."
-          className="flex-1 rounded-md border px-3 py-2 text-sm"
+          placeholder={
+            hasKey
+              ? "Ask about a compound or protein..."
+              : "Add an API key to start chatting"
+          }
+          disabled={!hasKey}
+          className="flex-1 rounded-md border px-3 py-2 text-sm disabled:bg-neutral-100"
         />
         <button
           onClick={sendMessage}
-          disabled={isLoading}
+          disabled={isLoading || !hasKey}
           className="rounded-md bg-black px-3 py-2 text-sm text-white disabled:opacity-50"
         >
           Send

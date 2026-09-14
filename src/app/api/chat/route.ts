@@ -86,11 +86,16 @@ function formatSelection(sel: Selection): string {
 }
 
 export async function POST(req: Request) {
-  const apiKey = process.env.OPENAI_API_KEY;
+  // The key lives only on the server (.env.local, set via /api/config or by
+  // hand). It is never accepted from the request body.
+  const apiKey = process.env.OPENAI_API_KEY?.trim();
   if (!apiKey) {
     return NextResponse.json(
-      { error: "OPENAI_API_KEY is not set. Add it to .env.local and restart the dev server." },
-      { status: 500 },
+      {
+        error:
+          "Chat is disabled: no OpenAI API key is configured. Add one on the home page.",
+      },
+      { status: 503 },
     );
   }
 
@@ -126,7 +131,12 @@ export async function POST(req: Request) {
 
   const ragEnabled = process.env.RAG_ENABLED !== "false";
   const { hits, ok } = ragEnabled
-    ? await retrieve(retrievalQuery, { k: Number(process.env.RAG_TOP_K) || 6 })
+    ? await retrieve(retrievalQuery, {
+        k: Number(process.env.RAG_TOP_K) || 6,
+        // Forward the key so the sidecar picks up a newly-saved one without
+        // needing its own env or a restart.
+        apiKey,
+      })
     : { hits: [], ok: true };
 
   let systemContent: string;
