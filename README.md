@@ -47,13 +47,6 @@ npm install
 npm run dev -- --port 3000
 ```
 
-Open http://localhost:3000. On a remote machine, tunnel the port from your
-laptop:
-
-```bash
-ssh -N -L 3000:localhost:3000 <user>@<server>
-```
-
 ## Chatbot / RAG
 
 "Ask the Atlas" (floating widget, bottom-right) answers questions grounded in a
