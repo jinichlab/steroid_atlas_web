@@ -117,6 +117,15 @@ function parseAccessionList(s: string): string[] {
     .filter(Boolean);
 }
 
+/** "CHEBI:17263", "17263.0", 17263 → "17263"; anything else → "". */
+function chebiNum(c: string | number | null | undefined): string {
+  const s = String(c ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/^chebi:/, "");
+  return /^\d+(\.\d+)?$/.test(s) ? String(parseInt(s, 10)) : "";
+}
+
 type StructIndex = Record<string, string>;
 
 export default function ExploreClient({ kind, clusters }: Props) {
@@ -139,6 +148,11 @@ export default function ExploreClient({ kind, clusters }: Props) {
   const isProteinFocused = (acc: string) =>
     focusedProteins.some((x) => x.accession === acc);
   const clearFocusedProteins = () => setFocusedProteins([]);
+  // Protein view: the interacting-steroid tile the user clicked in a detail card.
+  const [focusedSteroid, setFocusedSteroid] = useState<{
+    name: string;
+    chebi: string;
+  } | null>(null);
   const [legendOpen, setLegendOpen] = useState(true);
   // Free-text search across names / accessions / gene / GO / EC / keywords /
   // ChEBI / compound / sequence.
@@ -151,6 +165,11 @@ export default function ExploreClient({ kind, clusters }: Props) {
   const resultsRef = useRef<HTMLDivElement | null>(null);
   const scrollToResults = () =>
     resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  // The steroid detail card renders below the structure grid, out of view of
+  // the tile that was clicked — scroll to it after a tile click (not after a
+  // map-dot click, which would yank the user away from the plot).
+  const steroidCardRef = useRef<HTMLDivElement | null>(null);
+  const scrollToSteroidCard = useRef(false);
 
   useEffect(() => {
     let alive = true;
@@ -263,6 +282,12 @@ export default function ExploreClient({ kind, clusters }: Props) {
 
   const focusedPointKey = focusedPoint ? rowKey(kind, focusedPoint) : null;
 
+  useEffect(() => {
+    if (!focusedPoint || !scrollToSteroidCard.current) return;
+    scrollToSteroidCard.current = false;
+    steroidCardRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [focusedPoint]);
+
   // Cluster centroids drive on-plot labels AND the distinct-color palette
   // (so neighbors on the map don't end up as similar shades of green).
   const centroids = useMemo(() => {
@@ -320,15 +345,57 @@ export default function ExploreClient({ kind, clusters }: Props) {
     if (kind === "protein") return null;
     const map = new Map<string, string[]>();
     for (const r of rows) {
-      map.set(
-        rowKey(kind, r),
-        parseAccessionList(
-          (r as Molecule).interacting_protein_accessions ?? "",
-        ),
-      );
+      // natsyn.json stores the same Python-list string under a different key.
+      const raw =
+        kind === "natsyn"
+          ? (r as NatsynEntry).protein_entries
+          : (r as Molecule).interacting_protein_accessions;
+      map.set(rowKey(kind, r), parseAccessionList(raw ?? ""));
     }
     return map;
   }, [rows, kind]);
+
+  // Protein view: compound → proteins that interact with it, inverted from
+  // each protein's interacting_compounds / interacting_chebi_ids.
+  const proteinsByCompound = useMemo(() => {
+    if (kind !== "protein") return null;
+    const map = new Map<string, Protein[]>();
+    const add = (k: string, p: Protein) => {
+      const cur = map.get(k);
+      if (cur) cur.push(p);
+      else map.set(k, [p]);
+    };
+    for (const r of rows) {
+      const p = r as Protein;
+      for (const nm of splitList(p.interacting_compounds ?? ""))
+        add(`n:${nm.toLowerCase()}`, p);
+      for (const c of splitList(p.interacting_chebi_ids ?? "")) {
+        const n = chebiNum(c);
+        if (n) add(`c:${n}`, p);
+      }
+    }
+    return map;
+  }, [rows, kind]);
+
+  // Molecule / natsyn views: accession → Protein, fetched lazily the first
+  // time a steroid card needs protein names.
+  const [proteinByAcc, setProteinByAcc] = useState<Map<string, Protein> | null>(
+    null,
+  );
+  const proteinFetchStarted = useRef(false);
+  useEffect(() => {
+    if (kind === "protein" || !focusedPoint || proteinFetchStarted.current)
+      return;
+    proteinFetchStarted.current = true;
+    fetch(DATA_URL.protein)
+      .then((r) => r.json())
+      .then((d: Protein[]) =>
+        setProteinByAcc(new Map(d.map((p) => [p.accession, p]))),
+      )
+      .catch(() => {
+        proteinFetchStarted.current = false;
+      });
+  }, [kind, focusedPoint]);
 
   // ── Cross-view highlight ──────────────────────────────────────────────
   // The keys this view should light up given a selection made in another
@@ -459,6 +526,7 @@ export default function ExploreClient({ kind, clusters }: Props) {
   // Clear the open detail cards when the user jumps to a different cluster.
   useEffect(() => {
     clearFocusedProteins();
+    setFocusedSteroid(null);
   }, [highlight]);
 
   return (
@@ -647,7 +715,7 @@ export default function ExploreClient({ kind, clusters }: Props) {
               }}
               height={640}
             />
-            {focusedPoint && (
+            {focusedPoint && kind === "protein" && (
               <div className="mt-3 rounded-xl border-2 border-sky-500 bg-sky-50 p-4">
                 <div className="text-xs uppercase tracking-wide text-sky-700">
                   {kind === "protein" ? "Selected protein" : "Selected"}
@@ -876,7 +944,10 @@ export default function ExploreClient({ kind, clusters }: Props) {
                   return (
                     <button
                       key={rowKey(kind, m as any)}
-                      onClick={() => setFocusedPoint(m as any)}
+                      onClick={() => {
+                        setFocusedPoint(m as any);
+                        scrollToSteroidCard.current = true;
+                      }}
                       className={`overflow-hidden rounded-xl border bg-white p-3 text-left text-xs transition ${
                         isPick
                           ? "border-sky-500 ring-2 ring-sky-400"
@@ -920,6 +991,22 @@ export default function ExploreClient({ kind, clusters }: Props) {
           </div>
         )}
 
+        {/* Molecule / natsyn view — the clicked steroid's detail card sits
+            below the whole structure grid. */}
+        {focusedPoint && kind !== "protein" && (
+          <div ref={steroidCardRef} className="mt-6 scroll-mt-4">
+            <SteroidDetailCard
+              name={(focusedPoint as Molecule).compound_name}
+              chebi={(focusedPoint as Molecule).chebi_id}
+              smiles={(focusedPoint as Molecule).smiles}
+              structUrl={structUrl}
+              accessions={molAccByKey?.get(rowKey(kind, focusedPoint)) ?? []}
+              proteinByAcc={proteinByAcc}
+              onClose={() => setFocusedPoint(null)}
+            />
+          </div>
+        )}
+
         {focusedProteins.length > 0 && (
           <div className="mt-6 space-y-4">
             <div className="flex flex-wrap items-baseline gap-3">
@@ -939,8 +1026,29 @@ export default function ExploreClient({ kind, clusters }: Props) {
                 protein={p}
                 structUrl={structUrl}
                 onClose={() => toggleProtein(p)}
+                onPickSteroid={(name, chebi) => setFocusedSteroid({ name, chebi })}
               />
             ))}
+          </div>
+        )}
+
+        {kind === "protein" && focusedSteroid && (
+          <div className="mt-6">
+            <SteroidDetailCard
+              name={focusedSteroid.name}
+              chebi={focusedSteroid.chebi}
+              structUrl={structUrl}
+              proteins={
+                proteinsByCompound?.get(
+                  `n:${focusedSteroid.name.trim().toLowerCase()}`,
+                ) ??
+                proteinsByCompound?.get(`c:${chebiNum(focusedSteroid.chebi)}`) ??
+                []
+              }
+              isProteinOpen={isProteinFocused}
+              onPickProtein={toggleProtein}
+              onClose={() => setFocusedSteroid(null)}
+            />
           </div>
         )}
       </div>
@@ -953,10 +1061,12 @@ function ProteinDetailCard({
   protein,
   structUrl,
   onClose,
+  onPickSteroid,
 }: {
   protein: Protein;
   structUrl: (n: string, c?: string) => string | null;
   onClose: () => void;
+  onPickSteroid: (name: string, chebi: string) => void;
 }) {
   const compounds = splitList(protein.interacting_compounds ?? "");
   const chebis = splitList(protein.interacting_chebi_ids ?? "");
@@ -1100,9 +1210,11 @@ function ProteinDetailCard({
               const cb = chebis[i] ?? "";
               const src = structUrl(nm, cb);
               return (
-                <div
+                <button
                   key={nm + i}
-                  className="overflow-hidden rounded-md border border-slate-200 bg-white p-2 text-center text-[10px]"
+                  onClick={() => onPickSteroid(nm, cb)}
+                  title="Show proteins that interact with this steroid"
+                  className="overflow-hidden rounded-md border border-slate-200 bg-white p-2 text-center text-[10px] transition hover:border-sky-400 hover:shadow-md"
                 >
                   <div
                     className="flex items-center justify-center"
@@ -1122,7 +1234,7 @@ function ProteinDetailCard({
                   <div className="mt-1 line-clamp-2 min-h-[2.2em] text-slate-700">
                     {nm.slice(0, 40)}
                   </div>
-                </div>
+                </button>
               );
             })}
             {compounds.length > 12 && (
@@ -1131,6 +1243,175 @@ function ProteinDetailCard({
               </div>
             )}
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+/** Steroid detail: structure, ChEBI / SMILES, and the proteins it interacts
+ *  with. Pass `proteins` when they're already resolved (protein view), or
+ *  `accessions` + `proteinByAcc` (molecule / natsyn views, where the protein
+ *  table loads lazily — bare accessions show until it arrives). */
+function SteroidDetailCard({
+  name,
+  chebi,
+  smiles,
+  structUrl,
+  proteins,
+  accessions,
+  proteinByAcc,
+  isProteinOpen,
+  onPickProtein,
+  onClose,
+}: {
+  name: string;
+  chebi?: string | number | null;
+  smiles?: string | null;
+  structUrl: (n: string, c?: string) => string | null;
+  proteins?: Protein[];
+  accessions?: string[];
+  proteinByAcc?: Map<string, Protein> | null;
+  isProteinOpen?: (acc: string) => boolean;
+  onPickProtein?: (p: Protein) => void;
+  onClose: () => void;
+}) {
+  const LIMIT = 50;
+  const cb = chebiNum(chebi);
+  const src = structUrl(name, cb);
+  const list: { acc: string; p?: Protein }[] = proteins
+    ? proteins.map((p) => ({ acc: p.accession, p }))
+    : (accessions ?? []).map((acc) => ({ acc, p: proteinByAcc?.get(acc) }));
+  const loadingNames = !proteins && list.length > 0 && !proteinByAcc;
+
+  return (
+    <div className="mt-3 rounded-xl border-2 border-sky-500 bg-white p-5 shadow-md">
+      <div className="mb-3 flex flex-wrap items-baseline gap-3">
+        <div className="text-xs uppercase tracking-wide text-sky-700">
+          Selected steroid
+        </div>
+        <div className="text-lg font-bold text-slate-900">{name.trim()}</div>
+        <button
+          className="ml-auto rounded-md border border-slate-300 bg-white px-2 py-1 text-xs text-slate-700 hover:bg-slate-100"
+          onClick={onClose}
+        >
+          ✕ close
+        </button>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-[220px_1fr]">
+        <div>
+          <div
+            className="flex items-center justify-center rounded-lg border border-slate-200 bg-white"
+            style={{ height: 200, padding: 6 }}
+          >
+            {src ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={src}
+                alt={name}
+                className="max-h-full max-w-full object-contain"
+              />
+            ) : (
+              <span className="text-[11px] text-slate-400">no structure</span>
+            )}
+          </div>
+          {cb && (
+            <a
+              href={`https://www.ebi.ac.uk/chebi/searchId.do?chebiId=CHEBI:${cb}`}
+              target="_blank"
+              className="mt-2 inline-block rounded border border-sky-500 px-2 py-1 text-xs text-sky-700 hover:bg-sky-50"
+            >
+              ChEBI:{cb}
+            </a>
+          )}
+          {smiles && (
+            <div
+              className="mt-2 break-all font-mono text-[10px] text-slate-500"
+              title={smiles}
+            >
+              {smiles.length > 160 ? `${smiles.slice(0, 160)}…` : smiles}
+            </div>
+          )}
+        </div>
+
+        <div>
+          <div className="mb-2 text-sm font-semibold text-slate-900">
+            Interacting proteins ({list.length.toLocaleString()})
+            {loadingNames && (
+              <span className="ml-2 text-xs font-normal text-slate-400">
+                loading names…
+              </span>
+            )}
+            {onPickProtein && list.length > 0 && (
+              <span className="ml-2 text-xs font-normal text-slate-500">
+                click one to open its detail card
+              </span>
+            )}
+          </div>
+          {list.length === 0 ? (
+            <div className="text-sm text-slate-500">
+              No known interacting proteins.
+            </div>
+          ) : (
+            <div className="max-h-[320px] overflow-y-auto rounded-lg border border-slate-200">
+              {list.slice(0, LIMIT).map(({ acc, p }) => {
+                const open = isProteinOpen?.(acc) ?? false;
+                const body = (
+                  <>
+                    <span className="font-mono font-semibold text-sky-700">
+                      {acc}
+                    </span>
+                    {p && (
+                      <>
+                        <span className="text-slate-900">
+                          {(p.protein_names || "").slice(0, 70)}
+                        </span>
+                        <span className="text-slate-500">
+                          · <em>{(p.organism || "").slice(0, 34)}</em> · cl{" "}
+                          {(p.cluster ?? 0) + 1}
+                        </span>
+                      </>
+                    )}
+                  </>
+                );
+                return (
+                  <div
+                    key={acc}
+                    className={`flex items-baseline gap-2 border-b border-slate-100 px-3 py-1.5 text-[12px] ${
+                      open ? "bg-sky-100" : ""
+                    }`}
+                  >
+                    {onPickProtein && p ? (
+                      <button
+                        onClick={() => onPickProtein(p)}
+                        className="flex flex-1 flex-wrap items-baseline gap-x-2 text-left hover:underline"
+                      >
+                        {body}
+                      </button>
+                    ) : (
+                      <div className="flex flex-1 flex-wrap items-baseline gap-x-2">
+                        {body}
+                      </div>
+                    )}
+                    <a
+                      href={`https://www.uniprot.org/uniprotkb/${acc}/entry`}
+                      target="_blank"
+                      className="flex-shrink-0 text-[11px] text-sky-700 hover:underline"
+                    >
+                      UniProt ↗
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+          {list.length > LIMIT && (
+            <div className="mt-1 text-xs text-slate-500">
+              …and {(list.length - LIMIT).toLocaleString()} more
+            </div>
+          )}
         </div>
       </div>
     </div>

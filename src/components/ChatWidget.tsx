@@ -5,6 +5,7 @@ import { MessageCircle, Minus } from "lucide-react";
 import { useSelection } from "@/lib/selection-context";
 import { useApiKey } from "@/lib/api-key-context";
 import ApiKeyForm from "@/components/ApiKeyForm";
+import ChatMarkdown from "@/components/ChatMarkdown";
 
 type Source = { n: number; label: string };
 type Message = {
@@ -112,13 +113,15 @@ export default function ChatWidget() {
             key={i}
             className={m.role === "user" ? "text-right" : "text-left"}
           >
-            <span
-              className={`inline-block whitespace-pre-wrap rounded-lg px-3 py-2 text-sm ${
-                m.role === "user" ? "bg-black text-white" : "bg-neutral-100"
-              }`}
-            >
-              {m.content}
-            </span>
+            {m.role === "user" ? (
+              <span className="inline-block whitespace-pre-wrap rounded-lg bg-black px-3 py-2 text-sm text-white">
+                {m.content}
+              </span>
+            ) : (
+              <div className="inline-block max-w-full rounded-lg bg-neutral-100 px-3 py-2 text-sm">
+                <ChatMarkdown>{m.content}</ChatMarkdown>
+              </div>
+            )}
             {m.sources && m.sources.length > 0 && (
               <ul className="mt-1 space-y-0.5 text-xs text-neutral-500">
                 {m.sources.map((s) => (

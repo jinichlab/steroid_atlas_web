@@ -1,6 +1,6 @@
 """Pre-render 2D structure PNGs from SMILES with RDKit.
 
-Reads:   ../steroid_atlas/data/molecules.csv (677 rows w/ SMILES + ChEBI)
+Reads:   ../steroid_atlas/data/molecules.csv (676 rows w/ SMILES + ChEBI)
          ../steroid_atlas/data/natural_synthetic_steroids.csv
 Writes:  public/atlas/structures/<safe_id>.png
 

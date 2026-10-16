@@ -48,6 +48,33 @@ export function clusterRgb(n: number): [number, number, number][] {
 }
 
 /**
+ * Categorical palette for views with ≤ 8 clusters. Checked across ALL pairs
+ * (not just neighbours) on a white surface: normal-vision OKLab ΔE ≥ 18 and
+ * protan / deutan / tritan ΔE ≥ 9, so every cluster is distinguishable,
+ * including for colour-blind readers. #ccaa44 and #11aaaa sit below 3:1
+ * contrast on white — fine here because every cluster is also named by its
+ * on-plot label and the sidebar legend.
+ */
+const SMALL_CATEGORICAL = [
+  "#4400ee", // indigo
+  "#ff0066", // rose
+  "#11aaaa", // teal
+  "#ccaa44", // ochre
+  "#008300", // green
+  "#ff00ff", // magenta
+  "#773388", // plum
+  "#8877cc", // lavender
+];
+
+function hexToRgb(h: string): [number, number, number] {
+  return [
+    parseInt(h.slice(1, 3), 16),
+    parseInt(h.slice(3, 5), 16),
+    parseInt(h.slice(5, 7), 16),
+  ];
+}
+
+/**
  * Perceptual distance between two RGB colors — cheap-and-good enough
  * (sum of squared component differences).
  */
@@ -75,6 +102,16 @@ export function distinctPaletteForCentroids(
   nColorsHint = 200,
 ): Map<number, [number, number, number]> {
   const n = centroids.length;
+
+  // Few clusters (steroid view = 8, natsyn = 2): every cluster gets its own
+  // fixed categorical color, assigned by cluster id. The greedy pass below
+  // only keeps *map neighbours* apart, so with a small view it could hand
+  // two non-adjacent clusters near-identical shades.
+  if (n <= SMALL_CATEGORICAL.length) {
+    const ids = centroids.map((c) => c.id).sort((a, b) => a - b);
+    return new Map(ids.map((id, i) => [id, hexToRgb(SMALL_CATEGORICAL[i])]));
+  }
+
   const pool = clusterRgb(Math.max(nColorsHint, n * 2));
   const assigned = new Map<number, [number, number, number]>();
 

@@ -58,7 +58,7 @@ export default function Home() {
         <ViewCard
           href="/explore/natsyn"
           title="Natural + synthetic"
-          desc="Compare 2,889 natural and synthetic steroid entries in one shared chemical space."
+          desc="Compare 2,976 natural and synthetic steroid entries in one shared chemical space."
           accent="from-emerald-500 to-lime-400"
         />
       </div>

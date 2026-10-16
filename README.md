@@ -1,8 +1,8 @@
 # Steroid Atlas — Web
 
 A **Next.js + deck.gl** frontend for the [Steroid Atlas](https://github.com/jinichlab/steroid_atlas):
-an interactive UMAP of **14,089 steroid-interacting proteins**, **677 steroid
-molecules**, and **2,889 natural + synthetic steroid entries**, curated from
+an interactive UMAP of **14,089 steroid-interacting proteins**, **676 steroid
+molecules**, and **2,976 natural + synthetic steroid entries**, curated from
 UniProt, Rhea, ChEBI, RefSeq, and hand-audited 2024–2026 literature
 recruitments.
 
@@ -80,8 +80,8 @@ Setup:
 |----------------------|------------------------------------------------------|
 | `/`                  | Landing — stats + three view cards                   |
 | `/explore/protein`   | UMAP + catalogue for the 14,089-protein view         |
-| `/explore/molecule`  | UMAP + catalogue for the 677-steroid view            |
-| `/explore/natsyn`    | UMAP + catalogue for the 2,889 nat + syn entries     |
+| `/explore/molecule`  | UMAP + catalogue for the 676-steroid view            |
+| `/explore/natsyn`    | UMAP + catalogue for the 2,976 nat + syn entries     |
 
 ## Repo layout
 
@@ -100,8 +100,8 @@ src/
 public/
   atlas/
     proteins.json                   14,089 rows  (~23 MB)
-    molecules.json                    677 rows   (~3 MB)
-    natsyn.json                     2,889 rows   (~4 MB)
+    molecules.json                    676 rows   (~3 MB)
+    natsyn.json                     2,976 rows   (~4 MB)
     protein_clusters.json              82 clusters (fingerprint stems + top GO)
     molecule_clusters.json              8 clusters (Bile acids, Estrogens, …)
     natsyn_clusters.json                2 clusters (natural / synthetic)
