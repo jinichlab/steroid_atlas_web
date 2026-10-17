@@ -3,10 +3,11 @@
 import { useState } from "react";
 import { useApiKey } from "@/lib/api-key-context";
 
-/** Save / change / remove the server's OpenAI key. Used by ApiKeyGate on the
- *  home page and, compactly, inside ChatWidget when no key is configured. */
+/** Save / change / remove the OpenAI key — the server's, or in "user" key mode
+ *  the visitor's own (kept in this tab only). Used by ApiKeyGate on the home
+ *  page and, compactly, inside ChatWidget when no key is configured. */
 export default function ApiKeyForm({ compact = false }: { compact?: boolean }) {
-  const { hasKey, hint, canEdit, saveKey, clearKey } = useApiKey();
+  const { mode, hasKey, hint, canEdit, saveKey, clearKey } = useApiKey();
   const [input, setInput] = useState("");
   const [editing, setEditing] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -49,7 +50,9 @@ export default function ApiKeyForm({ compact = false }: { compact?: boolean }) {
   if (hasKey && !editing) {
     return (
       <div className={`flex flex-wrap items-center gap-2 ${text}`}>
-        <span className="text-slate-600">🔑 Key saved ({hint})</span>
+        <span className="text-slate-600">
+          🔑 {mode === "user" ? "Using your key" : "Key saved"} ({hint})
+        </span>
         <button
           className="rounded border border-slate-300 bg-white px-2 py-0.5 text-slate-700 hover:bg-slate-100 disabled:opacity-50"
           onClick={() => setEditing(true)}
@@ -89,7 +92,7 @@ export default function ApiKeyForm({ compact = false }: { compact?: boolean }) {
             compact ? "px-2 py-1.5 text-xs" : "px-3 py-1.5 text-sm"
           }`}
         >
-          {busy ? "Saving…" : "Save"}
+          {busy ? "Saving…" : mode === "user" ? "Use key" : "Save"}
         </button>
         {hasKey && (
           <button

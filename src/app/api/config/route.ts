@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { writeEnvVar, isSafeEnvValue } from "@/lib/env-file";
+import { keyMode } from "@/lib/key-mode";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -8,11 +9,16 @@ const KEY = "OPENAI_API_KEY";
 
 /** Whether saving a key from the UI is allowed. Set ALLOW_KEY_SETUP=false on a
  *  publicly-reachable deployment — otherwise any visitor could replace the key. */
-const setupAllowed = process.env.ALLOW_KEY_SETUP !== "false";
+// In "user" key mode there is no server key to edit.
+const setupAllowed =
+  process.env.ALLOW_KEY_SETUP !== "false" && keyMode() === "server";
 
 function status() {
-  const key = process.env[KEY]?.trim();
+  // "user" mode: the server key (if any) is ignored, so report none — the
+  // browser tracks the visitor's own key.
+  const key = keyMode() === "server" ? process.env[KEY]?.trim() : undefined;
   return {
+    mode: keyMode(),
     hasKey: !!key,
     // Enough to recognise which key is configured, never enough to use it.
     hint: key ? `····${key.slice(-4)}` : null,
@@ -29,7 +35,7 @@ export async function GET() {
 export async function POST(req: Request) {
   if (!setupAllowed) {
     return NextResponse.json(
-      { error: "Key setup is disabled on this deployment (ALLOW_KEY_SETUP=false)." },
+      { error: "Key setup is disabled on this deployment." },
       { status: 403 },
     );
   }
@@ -72,7 +78,7 @@ export async function POST(req: Request) {
 export async function DELETE() {
   if (!setupAllowed) {
     return NextResponse.json(
-      { error: "Key setup is disabled on this deployment (ALLOW_KEY_SETUP=false)." },
+      { error: "Key setup is disabled on this deployment." },
       { status: 403 },
     );
   }

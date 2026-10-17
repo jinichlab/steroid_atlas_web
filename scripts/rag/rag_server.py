@@ -250,7 +250,9 @@ class Handler(BaseHTTPRequestHandler):
         except ValueError as exc:  # dim mismatch
             self._send(500, {"error": str(exc)})
         except Exception as exc:  # noqa: BLE001 — embedding / search failure
-            print(f"[rag] search failed: {exc}", flush=True)
+            # Log only the error type: OpenAI auth errors echo a fragment of
+            # the (possibly visitor-supplied) API key in their message.
+            print(f"[rag] search failed: {type(exc).__name__}", flush=True)
             self._send(502, {"error": f"search failed: {exc}"})
 
 

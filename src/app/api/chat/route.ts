@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import OpenAI from "openai";
 import { retrieve, formatContext, sourceLabel } from "@/lib/rag";
+import { keyMode, USER_KEY_HEADER } from "@/lib/key-mode";
 
 export const runtime = "nodejs";
 
@@ -86,16 +87,28 @@ function formatSelection(sel: Selection): string {
 }
 
 export async function POST(req: Request) {
-  // The key lives only on the server (.env.local, set via /api/config or by
-  // hand). It is never accepted from the request body.
-  const apiKey = process.env.OPENAI_API_KEY?.trim();
+  // "server" mode: the key lives only on the server (.env.local or a secret)
+  // and is never accepted from the request. "user" mode: the visitor's own key
+  // arrives in a header, is used for this request only, and is never stored
+  // or logged; the server key is ignored.
+  const userMode = keyMode() === "user";
+  const apiKey = userMode
+    ? req.headers.get(USER_KEY_HEADER)?.trim()
+    : process.env.OPENAI_API_KEY?.trim();
   if (!apiKey) {
     return NextResponse.json(
       {
-        error:
-          "Chat is disabled: no OpenAI API key is configured. Add one on the home page.",
+        error: userMode
+          ? "Add your OpenAI API key on the home page to use the chat."
+          : "Chat is disabled: no OpenAI API key is configured. Add one on the home page.",
       },
-      { status: 503 },
+      { status: userMode ? 401 : 503 },
+    );
+  }
+  if (userMode && !/^sk-[\w-]{10,}$/.test(apiKey)) {
+    return NextResponse.json(
+      { error: "That doesn't look like an OpenAI key — it should start with 'sk-'." },
+      { status: 400 },
     );
   }
 
@@ -133,8 +146,8 @@ export async function POST(req: Request) {
   const { hits, ok } = ragEnabled
     ? await retrieve(retrievalQuery, {
         k: Number(process.env.RAG_TOP_K) || 6,
-        // Forward the key so the sidecar picks up a newly-saved one without
-        // needing its own env or a restart.
+        // Forward the key: the sidecar embeds the query with the same key
+        // (the visitor's own in "user" mode) — no sidecar env or restart.
         apiKey,
       })
     : { hits: [], ok: true };
@@ -178,6 +191,13 @@ export async function POST(req: Request) {
     const answer = completion.choices[0]?.message?.content?.trim() ?? "";
     return NextResponse.json({ answer, sources });
   } catch (err) {
+    const status = (err as { status?: number })?.status;
+    if (userMode && status === 401) {
+      return NextResponse.json(
+        { error: "OpenAI rejected this API key. Check it on the home page." },
+        { status: 401 },
+      );
+    }
     const message = err instanceof Error ? err.message : "Unknown error calling OpenAI.";
     return NextResponse.json({ error: message }, { status: 502 });
   }

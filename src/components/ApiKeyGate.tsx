@@ -6,7 +6,7 @@ import { useApiKey } from "@/lib/api-key-context";
 /** Home-page box for the OpenAI key that powers "Ask the Atlas". The atlas
  *  itself needs no key, so this never blocks the rest of the page. */
 export default function ApiKeyGate() {
-  const { hasKey, ready } = useApiKey();
+  const { hasKey, ready, mode } = useApiKey();
   if (!ready) return null; // avoid a flash before /api/config responds
 
   return (
@@ -21,7 +21,26 @@ export default function ApiKeyGate() {
           : "🔑 Add an OpenAI API key to enable Ask the Atlas"}
       </div>
       <p className="mb-3 text-sm text-slate-600">
-        {hasKey ? (
+        {mode === "user" ? (
+          <>
+            {hasKey
+              ? "The chat widget (bottom-right) is ready to use. "
+              : "The chat widget is disabled until you add your own key. "}
+            Your key stays in this browser tab — it&rsquo;s sent only with
+            your chat questions, never stored on the server, and forgotten
+            when you close the tab. Usage is billed to your OpenAI account.
+            Get a key at{" "}
+            <a
+              href="https://platform.openai.com/api-keys"
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-sky-700"
+            >
+              platform.openai.com/api-keys
+            </a>
+            .
+          </>
+        ) : hasKey ? (
           <>
             The chat widget (bottom-right) is ready to use. The key is stored in
             this server&rsquo;s <code className="text-xs">.env.local</code>, so

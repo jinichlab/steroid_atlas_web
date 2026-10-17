@@ -16,7 +16,7 @@ type Message = {
 
 export default function ChatWidget() {
   const { selection } = useSelection();
-  const { hasKey } = useApiKey();
+  const { hasKey, mode, chatHeaders } = useApiKey();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -34,7 +34,7 @@ export default function ChatWidget() {
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json", ...chatHeaders() },
         body: JSON.stringify({
           query,
           history,
@@ -101,7 +101,9 @@ export default function ChatWidget() {
       {!hasKey && (
         <div className="border-b bg-amber-50 p-2 text-xs text-amber-800">
           <div className="mb-1">
-            🔑 Chat is disabled — no OpenAI API key is configured.
+            {mode === "user"
+              ? "🔑 Add your OpenAI API key to use the chat. It stays in this tab and is never stored on the server."
+              : "🔑 Chat is disabled — no OpenAI API key is configured."}
           </div>
           <ApiKeyForm compact />
         </div>
