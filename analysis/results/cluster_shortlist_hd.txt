@@ -1,0 +1,236 @@
+==============================================================================
+CLUSTER CASE-STUDY SHORTLIST — top 15 of 82 clusters
+==============================================================================
+Ranking heuristic:
+  score = 0.55·stem_coherence + 0.15·go_coherence + 0.25·outlier_reward - 0.2·size_penalty
+  outlier_reward peaks when a cluster has 3–40 members whose protein-name
+  first token differs from the dominant stem (interesting to write about).
+
+--- CLUSTER 38  (size 178, score 0.873) ---
+  Dominant identity : Cholesterol 24-hydroxylase  (153/178 = 86%)
+  Dominant GO term  : heme binding  (100%)
+  Dominant keyword  : Heme  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (25):
+      · steroid 11beta-monooxygenase (EC 1.14.15.4)
+      · Cholesterol side-chain cleavage enzyme, mitochondrial (EC 1.
+      · Cholesterol side-chain cleavage enzyme, mitochondrial (EC 1.
+      · Cytochrome P450 11B1, mitochondrial (CYPXIB1) (Cytochrome P4
+      · Cytochrome P450 11B1, mitochondrial (CYPXIB1) (Cytochrome P4
+      · Cytochrome P450 11B1, mitochondrial (CYP11B1) (CYPXIB1) (Cyt
+      · Cytochrome P450 11B2, mitochondrial (Aldosterone synthase) (
+      · Sterol 26-hydroxylase, mitochondrial (EC 1.14.15.15) (5-beta
+      · ... (+17 more)
+
+--- CLUSTER 19  (size 116, score 0.841) ---
+  Dominant identity : Multidrug resistance-associated protein 4  (93/116 = 80%)
+  Dominant GO term  : ATP hydrolysis activity  (100%)
+  Dominant keyword  : Repeat  (100%)
+  Outliers (23):
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · Phospholipid-transporting ATPase ABCA3 (EC 7.6.2.1) (ATP-bin
+      · ATP-binding cassette sub-family C member 5 (EC 7.6.2.2) (EC 
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · ATP-binding cassette sub-family C member 4 (EC 7.6.2.-) (EC 
+      · ATP-binding cassette sub-family A member 17
+      · ... (+15 more)
+
+--- CLUSTER 23  (size 320, score 0.824) ---
+  Dominant identity : 24-hydroxycholesterol 7-alpha-hydroxylase  (297/320 = 93%)
+  Dominant GO term  : heme binding  (100%)
+  Dominant keyword  : Heme  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (22):
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154)
+      · Cucurbitadienol 11-hydroxylase (EC 1.14.14.71) (Cytochrome P
+      · ... (+14 more)
+
+--- CLUSTER 3  (size 183, score 0.804) ---
+  Dominant identity : Steroid 17-alpha-hydroxylase  (172/183 = 94%)
+  Dominant GO term  : heme binding  (100%)
+  Dominant keyword  : Heme  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (11):
+      · Cytochrome P450 1A (EC 1.14.14.1)
+      · Cytochrome P450 1A (EC 1.14.14.1)
+      · Cytochrome P450 1A (EC 1.14.14.1)
+      · Cytochrome P450 1A (EC 1.14.14.1)
+      · 3-ketosteroid oxygenase (EC 1.14.14.-) (Cytochrome P450 daf-
+      · Cytochrome P450 1A (EC 1.14.14.1)
+      · Cytochrome P450 1A (EC 1.14.14.1)
+      · Cytochrome P450 302a1, mitochondrial (EC 1.14.15.44) (Protei
+      · ... (+3 more)
+
+--- CLUSTER 28  (size 126, score 0.793) ---
+  Dominant identity : 3-keto-steroid reductase  (96/126 = 76%)
+  Dominant GO term  : 3-beta-hydroxysteroid 3-dehydrogenase (NADP+) activity  (82%)
+  Dominant keyword  : Oxidoreductase  (100%)
+  Dominant EC       : EC 1.-.-.-  (98% of EC-carriers)
+  Outliers (30):
+      · Carbonyl reductase (NADPH) (EC 1.1.1.184)
+      · Carbonyl reductase [NADPH] 1 (EC 1.1.1.189) (EC 1.1.1.196) (
+      · Carbonyl reductase [NADPH] 1 (EC 1.1.1.189) (EC 1.1.1.196) (
+      · Carbonyl reductase [NADPH] 1 (EC 1.1.1.189) (EC 1.1.1.196) (
+      · Carbonyl reductase [NADPH] 1 (EC 1.1.1.189) (EC 1.1.1.196) (
+      · Carbonyl reductase [NADPH] 1 (EC 1.1.1.189) (EC 1.1.1.196) (
+      · Carbonyl reductase [NADPH] 1 (EC 1.1.1.189) (EC 1.1.1.196) (
+      · Carbonyl reductase (NADPH) (EC 1.1.1.184)
+      · ... (+22 more)
+
+--- CLUSTER 72  (size 110, score 0.79) ---
+  Dominant identity : Carboxylic ester hydrolase  (98/110 = 89%)
+  Dominant GO term  : acetylesterase activity  (100%)
+  Dominant keyword  : Hydrolase  (100%)
+  Dominant EC       : EC 3.-.-.-  (100% of EC-carriers)
+  Outliers (12):
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · ... (+4 more)
+
+--- CLUSTER 55  (size 75, score 0.789) ---
+  Dominant identity : Carboxylic ester hydrolase  (53/75 = 71%)
+  Dominant GO term  : acetylesterase activity  (100%)
+  Dominant keyword  : Hydrolase  (100%)
+  Dominant EC       : EC 3.-.-.-  (100% of EC-carriers)
+  Outliers (22):
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.6) (Bile 
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · Bile salt-activated lipase (EC 3.1.1.13) (EC 3.1.1.3) (EC 3.
+      · ... (+14 more)
+
+--- CLUSTER 64  (size 219, score 0.772) ---
+  Dominant identity : Hedgehog protein  (206/219 = 94%)
+  Dominant GO term  : patched binding  (100%)
+  Dominant keyword  : Autocatalytic cleavage  (100%)
+  Outliers (12):
+      · Sonic hedgehog protein
+      · Sonic hedgehog protein
+      · Indian hedgehog signaling molecule
+      · Indian hedgehog protein (IHH) (EC 3.1.-.-) (HHG-2) [Cleaved 
+      · Indian hedgehog protein (IHH) (EC 3.1.-.-) (HHG-2) [Cleaved 
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (HHG-1) (Shh unpro
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (HHG-1) (Shh unpro
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (Shh unprocessed N
+      · ... (+4 more)
+
+--- CLUSTER 37  (size 83, score 0.77) ---
+  Dominant identity : Patched 1  (58/83 = 70%)
+  Dominant GO term  : cholesterol binding  (90%)
+  Dominant keyword  : Receptor  (78%)
+  Dominant EC       : EC 2.-.-.-  (100% of EC-carriers)
+  Outliers (25):
+      · NPC intracellular cholesterol transporter 1 precursor (Niema
+      · NPC intracellular cholesterol transporter 1 isoform X1 (Niem
+      · Phosphatidylcholine-sterol acyltransferase (EC 2.3.1.43) (EC
+      · NPC intracellular cholesterol transporter 1 isoform X2 (Niem
+      · NPC intracellular cholesterol transporter 1
+      · NPC intracellular cholesterol transporter 1 (Niemann-Pick C1
+      · NPC intracellular cholesterol transporter 1 (Niemann-Pick C1
+      · Phospholipid-transporting ATPase ABCA1 (EC 7.6.2.1) (ATP-bin
+      · ... (+17 more)
+
+--- CLUSTER 30  (size 73, score 0.77) ---
+  Dominant identity : Caveolin  (58/73 = 81%)
+  Dominant GO term  : endosome  (100%)
+  Dominant keyword  : Golgi apparatus  (100%)
+  Outliers (14):
+      · Caveolin-1
+      · Caveolin-1
+      · Caveolin-1
+      · Caveolin-1
+      · Caveolin-1
+      · Caveolin-1
+      · Caveolin-1
+      · Caveolin-1
+      · ... (+6 more)
+
+--- CLUSTER 50  (size 101, score 0.754) ---
+  Dominant identity : Cytochrome P450 3A  (65/101 = 64%)
+  Dominant GO term  : heme binding  (100%)
+  Dominant keyword  : Heme  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (36):
+      · Thromboxane-A synthase (EC 1.14.14.1) (EC 4.2.1.152) (EC 5.3
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · ... (+28 more)
+
+--- CLUSTER 10  (size 89, score 0.751) ---
+  Dominant identity : Androgen receptor  (80/89 = 91%)
+  Dominant GO term  : DNA-templated transcription  (100%)
+  Dominant keyword  : DNA-binding  (100%)
+  Outliers (8):
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+      · Progesterone receptor (PR) (Nuclear receptor subfamily 3 gro
+
+--- CLUSTER 67  (size 294, score 0.75) ---
+  Dominant identity : Broad substrate specificity ATP-binding cassette transporter ABCG2  (281/294 = 96%)
+  Dominant GO term  : ATP hydrolysis activity  (100%)
+  Dominant keyword  : Transport  (100%)
+  Outliers (12):
+      · ATP binding cassette subfamily G member 1
+      · ATP-binding cassette subfamily G member 4 (EC 7.6.2.-) (ATP-
+      · ATP-binding cassette sub-family G member 1 (EC 7.6.2.-) (ATP
+      · ATP-binding cassette sub-family G member 8 (EC 7.6.2.-) (Ste
+      · ATP-binding cassette sub-family G member 1 (EC 7.6.2.-) (ATP
+      · ATP-binding cassette subfamily G member 4 (EC 7.6.2.-) (ATP-
+      · ATP-binding cassette sub-family G member 5 (EC 7.6.2.-) (Ste
+      · ATP-binding cassette sub-family G member 5 (EC 7.6.2.-) (Ste
+      · ... (+4 more)
+
+--- CLUSTER 20  (size 177, score 0.747) ---
+  Dominant identity : Cholesterol 24-hydroxylase  (172/177 = 97%)
+  Dominant GO term  : heme binding  (100%)
+  Dominant keyword  : Heme  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (5):
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · CCR4-NOT transcription complex subunit 3 (EC 1.14.14.25) (CC
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+
+--- CLUSTER 16  (size 74, score 0.741) ---
+  Dominant identity : Apolipoprotein A-I  (66/74 = 89%)
+  Dominant GO term  : endocytic vesicle  (100%)
+  Dominant keyword  : Cholesterol metabolism  (100%)
+  Outliers (8):
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+      · Apolipoprotein A1
+

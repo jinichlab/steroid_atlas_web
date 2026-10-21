@@ -1,0 +1,169 @@
+==================================================================================
+PER-CLUSTER GO ENRICHMENT — 14,089 proteins · 82 clusters
+==================================================================================
+
+Clarity buckets:
+  clear    : top GO enrichment ≥ 10×  AND  -log10(p) ≥ 20
+  moderate : top GO enrichment ≥ 3×   AND  -log10(p) ≥ 10
+  unclear  : below both thresholds
+  no_go    : no annotated members with GO terms
+
+   71  clear
+   10  moderate
+    1  unclear
+    0  no_go
+
+--- TOP 20 CLUSTERS (strongest to weakest enrichment story) ---
+
+cluster 0  size=224  [clear]
+    top: intein-mediated protein splicing
+         enrichment = 31.2×    -log10(p) = 300.0    terms ≥10×: 5
+    also: peptidase activity  (31.1×, -log10p=300.0)
+    also: protein autoprocessing  (31.1×, -log10p=300.0)
+    also: cell-cell signaling  (30.8×, -log10p=300.0)
+
+cluster 1  size=368  [clear]
+    top: acetylesterase activity
+         enrichment = 12.4×    -log10(p) = 300.0    terms ≥10×: 3
+    also: lipid catabolic process  (11.9×, -log10p=300.0)
+    also: sterol ester esterase activity  (6.5×, -log10p=285.0)
+    also: triacylglycerol lipase activity  (6.5×, -log10p=281.2)
+
+cluster 4  size=265  [clear]
+    top: riboflavin transmembrane transporter activity
+         enrichment = 17.6×    -log10(p) = 300.0    terms ≥10×: 5
+    also: efflux transmembrane transporter activity  (15.7×, -log10p=300.0)
+    also: mitochondrial membrane  (14.7×, -log10p=300.0)
+    also: ABC-type xenobiotic transporter activity  (12.9×, -log10p=266.0)
+
+cluster 5  size=713  [clear]
+    top: cholesterol 24-hydroxylase activity
+         enrichment = 11.7×    -log10(p) = 300.0    terms ≥10×: 5
+    also: presynapse  (11.6×, -log10p=300.0)
+    also: postsynapse  (11.6×, -log10p=300.0)
+    also: cholesterol catabolic process  (11.3×, -log10p=300.0)
+
+cluster 8  size=268  [clear]
+    top: 24S-hydroxycholesterol 7-alpha-hydroxylase activity
+         enrichment = 42.6×    -log10(p) = 300.0    terms ≥10×: 5
+    also: oxysterol 7-alpha-hydroxylase activity  (42.6×, -log10p=300.0)
+    also: digestion  (41.3×, -log10p=300.0)
+    also: bile acid biosynthetic process  (30.7×, -log10p=300.0)
+
+cluster 9  size=388  [clear]
+    top: nucleoside diphosphate metabolic process
+         enrichment = 34.0×    -log10(p) = 300.0    terms ≥10×: 5
+    also: manganese ion binding  (33.9×, -log10p=300.0)
+    also: magnesium ion binding  (29.1×, -log10p=300.0)
+    also: coenzyme A catabolic process  (27.9×, -log10p=300.0)
+
+cluster 10  size=572  [clear]
+    top: acetoacetyl-CoA hydrolase activity
+         enrichment = 24.4×    -log10(p) = 300.0    terms ≥10×: 5
+    also: acetyl-CoA hydrolase activity  (24.4×, -log10p=300.0)
+    also: hydroxymethylglutaryl-CoA hydrolase activity  (24.4×, -log10p=300.0)
+    also: succinyl-CoA hydrolase activity  (24.4×, -log10p=300.0)
+
+cluster 14  size=383  [clear]
+    top: triglyceride catabolic process
+         enrichment = 13.7×    -log10(p) = 300.0    terms ≥10×: 4
+    also: monoacylglycerol lipase activity  (13.7×, -log10p=300.0)
+    also: lipid droplet  (13.2×, -log10p=300.0)
+    also: caveola  (11.8×, -log10p=300.0)
+
+cluster 19  size=445  [clear]
+    top: hydroperoxy icosatetraenoate dehydratase activity
+         enrichment = 27.7×    -log10(p) = 300.0    terms ≥10×: 5
+    also: retinol metabolic process  (26.5×, -log10p=300.0)
+    also: hormone biosynthetic process  (21.0×, -log10p=300.0)
+    also: steroid 17-alpha-monooxygenase activity  (19.9×, -log10p=300.0)
+
+cluster 22  size=252  [clear]
+    top: 11-beta-hydroxysteroid dehydrogenase (NADP+) activity
+         enrichment = 33.9×    -log10(p) = 300.0    terms ≥10×: 5
+    also: 7-beta-hydroxysteroid dehydrogenase (NADP+) activity  (33.5×, -log10p=300.0)
+    also: steroid catabolic process  (29.9×, -log10p=300.0)
+    also: steroid binding  (17.8×, -log10p=300.0)
+
+cluster 27  size=313  [clear]
+    top: 3-hydroxy-2-methylbutyryl-CoA dehydrogenase activity
+         enrichment = 31.5×    -log10(p) = 300.0    terms ≥10×: 5
+    also: cholate 7-alpha-dehydrogenase (NAD+) activity  (31.3×, -log10p=300.0)
+    also: androstan-3-alpha,17-beta-diol dehydrogenase (NAD+) activity  (29.1×, -log10p=300.0)
+    also: (3S)-3-hydroxyacyl-CoA dehydrogenase (NAD+) activity  (27.4×, -log10p=300.0)
+
+cluster 29  size=159  [clear]
+    top: dendritic spine membrane
+         enrichment = 75.5×    -log10(p) = 300.0    terms ≥10×: 5
+    also: early endosome  (74.2×, -log10p=300.0)
+    also: cytoplasmic vesicle membrane  (73.0×, -log10p=300.0)
+    also: recycling endosome  (72.2×, -log10p=300.0)
+
+cluster 32  size=563  [clear]
+    top: acetylesterase activity
+         enrichment = 12.9×    -log10(p) = 300.0    terms ≥10×: 3
+    also: lipid catabolic process  (12.5×, -log10p=300.0)
+    also: triacylglycerol lipase activity  (6.7×, -log10p=300.0)
+    also: sterol ester esterase activity  (6.7×, -log10p=300.0)
+
+cluster 40  size=342  [clear]
+    top: riboflavin transmembrane transporter activity
+         enrichment = 18.4×    -log10(p) = 300.0    terms ≥10×: 5
+    also: efflux transmembrane transporter activity  (15.6×, -log10p=300.0)
+    also: mitochondrial membrane  (14.4×, -log10p=300.0)
+    also: apical plasma membrane  (12.2×, -log10p=300.0)
+
+cluster 44  size=385  [clear]
+    top: regulation of protein catabolic process
+         enrichment = 11.0×    -log10(p) = 300.0    terms ≥10×: 5
+    also: regulation of TOR signaling  (10.9×, -log10p=300.0)
+    also: lysosome organization  (10.9×, -log10p=300.0)
+    also: regulation of macroautophagy  (10.8×, -log10p=300.0)
+
+cluster 57  size=299  [clear]
+    top: triglyceride catabolic process
+         enrichment = 13.1×    -log10(p) = 300.0    terms ≥10×: 4
+    also: monoacylglycerol lipase activity  (12.9×, -log10p=300.0)
+    also: lipid droplet  (12.4×, -log10p=298.0)
+    also: caveola  (11.2×, -log10p=283.3)
+
+cluster 59  size=324  [clear]
+    top: negative regulation of macromolecule metabolic process
+         enrichment = 11.5×    -log10(p) = 300.0    terms ≥10×: 5
+    also: protein catabolic process  (11.5×, -log10p=300.0)
+    also: regulation of membrane potential  (11.5×, -log10p=300.0)
+    also: regulation of macroautophagy  (10.9×, -log10p=300.0)
+
+cluster 60  size=212  [clear]
+    top: striated muscle cell development
+         enrichment = 61.5×    -log10(p) = 300.0    terms ≥10×: 5
+    also: regulation of developmental process  (54.2×, -log10p=300.0)
+    also: animal organ development  (52.5×, -log10p=300.0)
+    also: tissue development  (52.5×, -log10p=300.0)
+
+cluster 11  size=252  [clear]
+    top: coenzyme A diphosphatase activity
+         enrichment = 15.3×    -log10(p) = 286.5    terms ≥10×: 1
+    also: lipid metabolic process  (0.4×, -log10p=0.0)
+
+cluster 64  size=148  [clear]
+    top: 3-alpha-hydroxysteroid 3-dehydrogenase [NAD(P)+] activity
+         enrichment = 87.5×    -log10(p) = 269.4    terms ≥10×: 5
+    also: hormone metabolic process  (89.3×, -log10p=224.3)
+    also: alcohol metabolic process  (84.8×, -log10p=215.5)
+    also: 5-alpha-androstane-3-beta,17-beta-diol dehydrogenase (NADP+) activity  (46.3×, -log10p=204.3)
+
+
+--- BOTTOM 10 CLUSTERS (weakest — potential 'mixed/unclear' case study) ---
+
+cluster 21  size=381  [moderate]  top: lipid binding  (9.2×, -log10p=300.0)
+cluster 69  size=310  [moderate]  top: acetyl-CoA C-acyltransferase activity  (9.2×, -log10p=280.6)
+cluster 67  size=311  [moderate]  top: acetyl-CoA C-myristoyltransferase activity  (8.3×, -log10p=224.3)
+cluster 47  size=199  [moderate]  top: heme binding  (5.0×, -log10p=120.5)
+cluster 17  size=182  [moderate]  top: cholesterol 24-hydroxylase activity  (8.1×, -log10p=90.3)
+cluster 54  size=46  [moderate]  top: lysosomal membrane  (9.1×, -log10p=33.0)
+cluster 68  size=69  [moderate]  top: lipid metabolic process  (5.8×, -log10p=22.2)
+cluster 61  size=63  [moderate]  top: bile acid catabolic process  (118.4×, -log10p=17.0)
+cluster 76  size=13  [moderate]  top: acrosomal membrane  (118.5×, -log10p=13.3)
+cluster 70  size=16  [unclear]  top: fatty acid biosynthetic process  (24.9×, -log10p=9.6)
+

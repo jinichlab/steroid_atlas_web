@@ -1,18 +1,18 @@
 """Convert Steroid Atlas CSVs into optimized JSON for the Next.js app.
 
 Reads:
-    ../steroid_atlas/data/proteins.csv
-    ../steroid_atlas/data/molecules.csv
-    ../steroid_atlas/data/natural_synthetic_steroids.csv
-    ../steroid_atlas/analysis/cluster_fingerprints.tsv
-    ../steroid_atlas/analysis/cluster_go_top_terms.tsv (optional)
+    data/proteins.csv
+    data/molecules.csv
+    data/natural_synthetic_steroids.csv
+    analysis/results/cluster_fingerprints.tsv
+    analysis/results/cluster_go_top_terms.tsv (optional)
 
 Writes:
-    public/atlas/proteins.json          slim per-protein rows, sorted by cluster
-    public/atlas/molecules.json         per-molecule rows with SMILES
-    public/atlas/natsyn.json            natural + synthetic entries
-    public/atlas/clusters.json          per-cluster metadata (name, GO, size)
-    public/atlas/summary.json           top-level stats for the landing page
+    web/public/atlas/proteins.json          slim per-protein rows, sorted by cluster
+    web/public/atlas/molecules.json         per-molecule rows with SMILES
+    web/public/atlas/natsyn.json            natural + synthetic entries
+    web/public/atlas/clusters.json          per-cluster metadata (name, GO, size)
+    web/public/atlas/summary.json           top-level stats for the landing page
 
 The JSON is chunked and slim (numeric fields as short floats, no huge free-text
 where possible) so the initial page load stays snappy. Structure images are
@@ -27,8 +27,8 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-SRC = ROOT.parent / "steroid_atlas"
-OUT = ROOT / "public" / "atlas"
+SRC = ROOT  # data/ and analysis/ live in this repo
+OUT = ROOT / "web" / "public" / "atlas"
 OUT.mkdir(parents=True, exist_ok=True)
 
 # ── PROTEINS ─────────────────────────────────────────────────────────────
@@ -55,6 +55,12 @@ for _c in ("umap_1", "umap_2"):
 prot["cluster"] = prot["cluster"].astype(int)
 prot["is_literature_recruited"] = prot["is_literature_recruited"].astype(int)
 prot["length_aa"] = prot["length_aa"].astype(int)
+# High-dimensional k-means labels (analysis/scripts/19_highdim_kmeans.py) for
+# the web app's cluster toggle; -1 = no ProtT5 vector. Absent → no toggle.
+_prot_hd = SRC / "analysis" / "results" / "protein_clusters_hd.tsv"
+if _prot_hd.exists():
+    prot = prot.merge(pd.read_csv(_prot_hd, sep="\t"), on="accession", how="left")
+    prot["cluster_hd"] = prot["cluster_hd"].fillna(-1).astype(int)
 
 (OUT / "proteins.json").write_text(
     prot.to_json(orient="records", double_precision=3), encoding="utf-8"
@@ -80,6 +86,13 @@ if "cluster" in mol.columns:
     mol["cluster"] = mol["cluster"].astype(int)
 if "is_literature_recruited" in mol.columns:
     mol["is_literature_recruited"] = mol["is_literature_recruited"].astype(int)
+_mol_hd = SRC / "analysis" / "results" / "molecule_clusters_hd.tsv"
+if _mol_hd.exists():
+    # Row-aligned with molecules.csv (a compound can lack a name, so no join key).
+    _h = pd.read_csv(_mol_hd, sep="\t", keep_default_na=False)
+    assert len(_h) == len(mol) and (_h["smiles"].values == mol["smiles"].values).all(), \
+        "molecule_clusters_hd.tsv is out of date — re-run analysis/scripts/19_highdim_kmeans.py"
+    mol["cluster_hd"] = _h["cluster_hd"].astype(int).values
 
 (OUT / "molecules.json").write_text(
     mol.to_json(orient="records", double_precision=3), encoding="utf-8"
@@ -111,7 +124,7 @@ print(f"  wrote natsyn.json ({(OUT / 'natsyn.json').stat().st_size / 1e6:.1f} MB
 
 # ── CLUSTERS: PROTEIN ─────────────────────────────────────────────────────
 print("Reading cluster_fingerprints.tsv (protein clusters)...")
-fp = pd.read_csv(SRC / "analysis" / "cluster_fingerprints.tsv",
+fp = pd.read_csv(SRC / "analysis" / "results" / "cluster_fingerprints.tsv",
                  sep="\t", low_memory=False)
 clusters = fp[["cluster", "size", "dominant_stem", "dominant_go"]].copy()
 clusters.columns = ["id", "n", "name", "top_go"]
@@ -124,6 +137,19 @@ clusters = clusters.sort_values("id")
     clusters.to_json(orient="records"), encoding="utf-8"
 )
 print(f"  wrote protein_clusters.json ({(OUT / 'protein_clusters.json').stat().st_size / 1e3:.1f} KB)")
+
+# High-dim clusters, named by 07_cluster_fingerprints.py --labels cluster_hd.
+# Always written ([] when absent) so the web app's static import resolves.
+_fp_hd = SRC / "analysis" / "results" / "cluster_fingerprints_hd.tsv"
+clusters_hd = []
+if _fp_hd.exists() and "cluster_hd" in prot.columns:
+    _c = pd.read_csv(_fp_hd, sep="\t")[["cluster", "size", "dominant_stem", "dominant_go"]]
+    _c.columns = ["id", "n", "name", "top_go"]
+    _c = _c.astype({"id": int, "n": int}).sort_values("id")
+    _c["display_id"] = _c["id"] + 1
+    clusters_hd = _c.to_dict(orient="records")
+(OUT / "protein_clusters_hd.json").write_text(json.dumps(clusters_hd), encoding="utf-8")
+print(f"  wrote protein_clusters_hd.json ({len(clusters_hd)} clusters)")
 
 # ── CLUSTERS: MOLECULE (steroid centric) ──────────────────────────────────
 # Molecules have their own clusters (many fewer than proteins). Label each
@@ -151,9 +177,12 @@ def _family_of(name: str) -> str:
             return _lbl
     return ""
 
-mol_clusters_out = []
-if "cluster" in mol.columns:
-    for _cid, _sub in mol.groupby("cluster"):
+def _molecule_cluster_meta(col: str) -> list[dict]:
+    """One entry per cluster in `col`, named by its dominant steroid family."""
+    out = []
+    if col not in mol.columns:
+        return out
+    for _cid, _sub in mol[mol[col] >= 0].groupby(col):
         _cid_int = int(_cid)
         _n = len(_sub)
         _fams = {}
@@ -167,13 +196,19 @@ if "cluster" in mol.columns:
             _name = f"{_top_fam} · {_cov}%"
         else:
             _name = "Mixed steroids"
-        mol_clusters_out.append({
+        out.append({
             "id": _cid_int,
             "display_id": _cid_int + 1,
             "n": _n,
             "name": _name,
             "top_go": "",
         })
+    return out
+
+mol_clusters_out = _molecule_cluster_meta("cluster")
+mol_clusters_hd = _molecule_cluster_meta("cluster_hd")  # [] when absent
+(OUT / "molecule_clusters_hd.json").write_text(json.dumps(mol_clusters_hd), encoding="utf-8")
+print(f"  wrote molecule_clusters_hd.json ({len(mol_clusters_hd)} clusters)")
 
 (OUT / "molecule_clusters.json").write_text(
     json.dumps(sorted(mol_clusters_out, key=lambda r: r["id"])),

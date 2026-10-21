@@ -1,0 +1,24 @@
+============================================================
+Curation diff — pragmatic audit applied
+============================================================
+Before:   35,349 entries
+Dropped:  231 entries (DROP_VITD + DROP_NONE)
+After:    35,118 entries
+
+New/updated columns:
+  sequence_source   — corrected per entry (Rhea vs binder-search)
+  binder_evidence   — specific KW/GO/ligand annotations that caught each binder-search entry
+  audit_decision    — KEEP / KEEP_BY_NAME / KEEP_WEAK / REVIEW / (empty for Rhea entries)
+  audit_reason      — human-readable evidence string
+
+sequence_source distribution (after):
+  32,869  Rhea catalytic reaction (rhea2uniprot mapping)
+   2,249  UniProt binder search (KW-0754 / GO:0005496 hierarchy)
+
+audit_decision distribution (kept binder-search entries only):
+   1,952  KEEP
+     143  REVIEW
+      98  KEEP_BY_NAME
+      56  KEEP_WEAK
+
+Backup:   proteins.csv.pre_audit_backup

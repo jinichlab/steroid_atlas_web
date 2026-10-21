@@ -1,0 +1,24 @@
+============================================================================
+ANNOTATION-SCORE + STATUS AUDIT — all 35,117 atlas entries
+============================================================================
+
+Decision counts:
+   17,299  DROP_LOWSCORE
+   14,466  KEEP
+    3,352  DROP_INACTIVE
+
+Annotation score distribution (all entries):
+  score 0.0:    3,360
+  score 1.0:        5
+  score 2.0:       16
+  score 3.0:    1,715
+  score 4.0:   15,555
+  score 5.0:   14,466
+
+Entry type distribution:
+   30,425  UniProtKB unreviewed (TrEMBL)
+    3,352  Inactive
+    1,332  UniProtKB reviewed (Swiss-Prot)
+        8  MISSING
+
+Recommended action (score-5-only + active): drop 20,651 → atlas 35,117 → 14,466

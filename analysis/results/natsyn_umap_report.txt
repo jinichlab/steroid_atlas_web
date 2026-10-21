@@ -1,0 +1,17 @@
+==========================================================================
+STEROID SET SYNC + NATURAL/SYNTHETIC UMAP REFIT
+==========================================================================
+molecules.csv:   676 → 676 rows
+
+natural_synthetic_steroids.csv:   2,976 → 2,976 rows
+  natural:    676 → 676  (rebuilt from molecules.csv)
+  synthetic:  2,300 (unchanged)
+  alkaloid ChEBIs removed from natural: none
+  natural compounds added: 0 distinct ChEBI ids (+ compounds without a ChEBI id)
+  synthetic rows whose canonical SMILES equals a natural one: 0
+
+UMAP refit (all rows, standard initialization):
+  fingerprints:  Morgan radius 2, 2048 bits
+  params:        {'n_neighbors': 15, 'min_dist': 0.1, 'metric': 'jaccard', 'random_state': 42}
+  model:         natsyn_umap.joblib
+  versions:      umap-learn 0.5.9.post2, rdkit 2026.3.4, numpy 2.2.6, scikit-learn 1.7.1

@@ -1,14 +1,13 @@
 """Pre-render 2D structure PNGs from SMILES with RDKit.
 
-Reads:   ../steroid_atlas/data/molecules.csv (676 rows w/ SMILES + ChEBI)
-         ../steroid_atlas/data/natural_synthetic_steroids.csv
-Writes:  public/atlas/structures/<safe_id>.png
+Reads:   data/molecules.csv (676 rows w/ SMILES + ChEBI)
+         data/natural_synthetic_steroids.csv
+Writes:  web/public/atlas/structures/<safe_id>.png
 
 `<safe_id>` = urllib-safe slug of the compound name (lower-cased). Also
-writes an alias index `public/atlas/structures/index.json` that maps
+writes an alias index `web/public/atlas/structures_index.json` that maps
 both compound-name (lowercased) and `chebi:<id>` → PNG filename, so the
-web app can look up a structure by either key exactly like the marimo
-`structure_cache`.
+web app can look up a structure by either key.
 
 Requires: rdkit (via miniconda), pandas. Run under:
     LD_LIBRARY_PATH=~/miniconda3/lib ~/miniconda3/bin/python3 scripts/build_structures.py
@@ -29,8 +28,8 @@ except ImportError as e:
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-SRC = ROOT.parent / "steroid_atlas"
-OUT = ROOT / "public" / "atlas" / "structures"
+SRC = ROOT  # data/ and analysis/ live in this repo
+OUT = ROOT / "web" / "public" / "atlas" / "structures"
 OUT.mkdir(parents=True, exist_ok=True)
 
 _SLUG_RE = re.compile(r"[^a-z0-9]+")

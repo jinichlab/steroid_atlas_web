@@ -1,6 +1,12 @@
-node_modules
-.next
-rag_data
-.env*
-*.tsbuildinfo
+# Only web/ (the Next.js app), rag/ and scripts/start_space.sh go into the
+# image; the research side (data, analysis, docs) is not part of the deployment.
+**/node_modules
+**/.next
+**/.env*
+**/*.tsbuildinfo
 .git
+rag_data
+data
+analysis
+docs
+.venv

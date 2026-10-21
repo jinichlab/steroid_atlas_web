@@ -1,0 +1,243 @@
+==============================================================================
+CLUSTER CASE-STUDY SHORTLIST — top 15 of 82 clusters
+==============================================================================
+Ranking heuristic:
+  score = 0.55·stem_coherence + 0.15·go_coherence + 0.25·outlier_reward - 0.2·size_penalty
+  outlier_reward peaks when a cluster has 3–40 members whose protein-name
+  first token differs from the dominant stem (interesting to write about).
+
+--- CLUSTER 8  (size 268, score 0.824) ---
+  Dominant identity : 24-hydroxycholesterol 7-alpha-hydroxylase  (248/268 = 93%)
+  Dominant GO term  : heme binding  (95%)
+  Dominant keyword  : Lipid metabolism  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (19):
+      · Aldo-keto reductase family 1 member D1
+      · Aldo-keto reductase family 1 member D1
+      · Aldo-keto reductase family 1 member D1
+      · Aldo-keto reductase family 1 member D1
+      · Cytochrome P450 2D6 (CYPIID6) (Cholesterol 25-hydroxylase) (
+      · Cytochrome P450 2D6 (CYPIID6) (Cholesterol 25-hydroxylase) (
+      · Glutathione S-transferase alpha-1 (EC 2.5.1.18) (13-hydroper
+      · Glutathione S-transferase alpha-3 (EC 2.5.1.18) (GST 2-2) (G
+      · ... (+11 more)
+
+--- CLUSTER 57  (size 299, score 0.821) ---
+  Dominant identity : Hormone-sensitive lipase  (278/299 = 93%)
+  Dominant GO term  : caveola  (93%)
+  Dominant keyword  : Cholesterol metabolism  (97%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (21):
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · 11-beta-hydroxysteroid dehydrogenase 1 (EC 1.1.1.146) (EC 1.
+      · 11-beta-hydroxysteroid dehydrogenase 1 (EC 1.1.1.146) (EC 1.
+      · ... (+13 more)
+
+--- CLUSTER 7  (size 281, score 0.821) ---
+  Dominant identity : Glucosylceramidase  (257/281 = 92%)
+  Dominant GO term  : lysosome organization  (92%)
+  Dominant keyword  : Lipid metabolism  (100%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (23):
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · ... (+15 more)
+
+--- CLUSTER 45  (size 144, score 0.809) ---
+  Dominant identity : Steroid 17-alpha-hydroxylase  (130/144 = 90%)
+  Dominant GO term  : heme binding  (92%)
+  Dominant keyword  : Heme  (92%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (14):
+      · 3-ketosteroid oxygenase (EC 1.14.14.-) (Cytochrome P450 daf-
+      · Cytochrome P450 306a1 (CYPCCCVIA1) (EC 1.14.15.-) (Protein p
+      · Estrogen receptor (ER) (ER-alpha) (Estradiol receptor) (Nucl
+      · Estrogen receptor beta (ER-beta) (Nuclear receptor subfamily
+      · Estrogen receptor (ER) (ER-alpha) (Estradiol receptor) (Nucl
+      · Estrogen receptor (ER) (ER-alpha) (Estradiol receptor) (Nucl
+      · Estrogen receptor (ER) (ER-alpha) (Estradiol receptor) (Nucl
+      · Estrogen receptor beta (ER-beta) (Nuclear receptor subfamily
+      · ... (+6 more)
+
+--- CLUSTER 66  (size 105, score 0.801) ---
+  Dominant identity : Androgen receptor  (80/105 = 77%)
+  Dominant GO term  : DNA-templated transcription  (85%)
+  Dominant keyword  : DNA-binding  (85%)
+  Dominant EC       : EC 3.-.-.-  (67% of EC-carriers)
+  Outliers (24):
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · Glucosylceramidase (EC 3.2.1.45)
+      · ... (+16 more)
+
+--- CLUSTER 1  (size 368, score 0.797) ---
+  Dominant identity : Carboxylic ester hydrolase  (348/368 = 95%)
+  Dominant GO term  : sterol ester esterase activity  (97%)
+  Dominant keyword  : Lipid metabolism  (100%)
+  Dominant EC       : EC 3.-.-.-  (97% of EC-carriers)
+  Outliers (19):
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · Sterol carrier protein 2 (EC 2.3.1.155) (EC 2.3.1.16) (EC 2.
+      · ... (+11 more)
+
+--- CLUSTER 58  (size 104, score 0.787) ---
+  Dominant identity : 3-keto-steroid reductase  (89/104 = 86%)
+  Dominant GO term  : 3-beta-hydroxysteroid 3-dehydrogenase (NADP+) activity  (86%)
+  Dominant keyword  : Lipid metabolism  (99%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (15):
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · ... (+7 more)
+
+--- CLUSTER 21  (size 381, score 0.777) ---
+  Dominant identity : Sterol carrier protein 2  (347/381 = 91%)
+  Dominant GO term  : acetyl-CoA C-acyltransferase activity  (92%)
+  Dominant keyword  : Lipid metabolism  (100%)
+  Dominant EC       : EC 2.-.-.-  (96% of EC-carriers)
+  Outliers (33):
+      · Steroid 17-alpha-hydroxylase/17,20 lyase (EC 1.14.14.19) (EC
+      · Carboxylic ester hydrolase (EC 3.1.1.-)
+      · Carboxylic ester hydrolase (EC 3.1.1.-)
+      · Carboxylic ester hydrolase (EC 3.1.1.-)
+      · 3-hydroxyacyl-CoA dehydrogenase type-2 (EC 1.1.1.53) (EC 1.1
+      · 17-alpha-hydroxyprogesterone aldolase
+      · Carboxylic ester hydrolase (EC 3.1.1.-)
+      · Carboxylic ester hydrolase (EC 3.1.1.-)
+      · ... (+25 more)
+
+--- CLUSTER 30  (size 104, score 0.774) ---
+  Dominant identity : Hormone-sensitive lipase  (92/104 = 88%)
+  Dominant GO term  : cholesterol metabolic process  (91%)
+  Dominant keyword  : Lipid metabolism  (97%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (12):
+      · Cytosolic beta-glucosidase (EC 3.2.1.21) (EC 3.2.1.45) (EC 3
+      · Sterol 14-alpha demethylase rstn2 (EC 1.14.14.154) (Cytochro
+      · Bile salt export pump (ATP-binding cassette sub-family B mem
+      · Sterol 14-alpha demethylase (EC 1.14.14.154) (Cytochrome P45
+      · Sterol 14-alpha demethylase CYP51A (EC 1.14.14.154) (Cytochr
+      · Sterol 14-alpha demethylase resB (EC 1.14.14.154) (Cytochrom
+      · Cytosolic beta-glucosidase (EC 3.2.1.21) (Cytosolic galactos
+      · Eburicol 14-alpha-demethylase (EC 1.14.14.154) (CYPLI) (Cyto
+      · ... (+4 more)
+
+--- CLUSTER 20  (size 103, score 0.772) ---
+  Dominant identity : Multidrug resistance-associated protein 4  (93/103 = 90%)
+  Dominant GO term  : basolateral plasma membrane  (100%)
+  Dominant keyword  : Repeat  (100%)
+  Outliers (10):
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · ATP-binding cassette sub-family C member 5 (EC 7.6.2.2) (EC 
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · Cystic fibrosis transmembrane conductance regulator (EC 5.6.
+      · ATP-binding cassette sub-family C member 4 (EC 7.6.2.-) (EC 
+      · ATP-binding cassette sub-family C member 4 (EC 7.6.2.-) (EC 
+      · ATP-binding cassette subfamily C member 4 (EC 7.6.2.-) (EC 7
+      · ... (+2 more)
+
+--- CLUSTER 13  (size 186, score 0.763) ---
+  Dominant identity : Glucosylceramidase  (178/186 = 96%)
+  Dominant GO term  : lysosomal membrane  (97%)
+  Dominant keyword  : Hydrolase  (99%)
+  Dominant EC       : EC 3.-.-.-  (100% of EC-carriers)
+  Outliers (7):
+      · Lysosomal acid lipase/cholesteryl ester hydrolase (Acid chol
+      · Lysosomal acid lipase/cholesteryl ester hydrolase (Acid chol
+      · Lipase member N (EC 3.1.1.13) (EC 3.1.1.3) (Lipase-like abhy
+      · Lysosomal acid lipase/cholesteryl ester hydrolase (Acid chol
+      · Lysosomal acid lipase/cholesteryl ester hydrolase (Acid chol
+      · Lysosome membrane protein 2 (85 kDa lysosomal membrane sialo
+      · Lysosome membrane protein 2 (85 kDa lysosomal membrane sialo
+
+--- CLUSTER 0  (size 224, score 0.761) ---
+  Dominant identity : Hedgehog protein  (213/224 = 95%)
+  Dominant GO term  : patched binding  (100%)
+  Dominant keyword  : Autocatalytic cleavage  (100%)
+  Outliers (11):
+      · Sonic hedgehog protein
+      · Indian hedgehog signaling molecule
+      · Indian hedgehog protein (IHH) (EC 3.1.-.-) (HHG-2) [Cleaved 
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (HHG-1) (Shh unpro
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (HHG-1) (Shh unpro
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (Shh unprocessed N
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) [Cleaved into: Son
+      · Sonic hedgehog protein (SHH) (EC 3.1.-.-) (Shh unprocessed N
+      · ... (+3 more)
+
+--- CLUSTER 38  (size 93, score 0.76) ---
+  Dominant identity : Glucosylceramidase  (81/93 = 87%)
+  Dominant GO term  : lysosomal membrane  (87%)
+  Dominant keyword  : Lipid metabolism  (88%)
+  Dominant EC       : EC 1.-.-.-  (100% of EC-carriers)
+  Outliers (12):
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Lanosterol 14-alpha demethylase (EC 1.14.14.154) (CYPLI) (Cy
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Cytochrome P450 4V2 (EC 1.14.14.14) (EC 1.14.14.79) (EC 1.14
+      · Estrogen receptor (ER) (ER-alpha) (Estradiol receptor) (Nucl
+      · ... (+4 more)
+
+--- CLUSTER 69  (size 310, score 0.759) ---
+  Dominant identity : Sterol carrier protein 2  (296/310 = 96%)
+  Dominant GO term  : acetyl-CoA C-acyltransferase activity  (96%)
+  Dominant keyword  : Lipid metabolism  (100%)
+  Dominant EC       : EC 2.-.-.-  (100% of EC-carriers)
+  Outliers (14):
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · Hormone-sensitive lipase (EC 3.1.1.23) (EC 3.1.1.79) (Monoac
+      · ... (+6 more)
+
+--- CLUSTER 26  (size 77, score 0.75) ---
+  Dominant identity : Caveolin  (51/77 = 68%)
+  Dominant GO term  : endosome  (86%)
+  Dominant keyword  : Golgi apparatus  (86%)
+  Outliers (25):
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · unspecific monooxygenase (EC 1.14.14.1)
+      · ... (+17 more)
+

@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/web/node_modules
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -10,8 +10,8 @@
 /coverage
 
 # next.js
-/.next/
-/out/
+/web/.next/
+/web/out/
 
 # production
 /build
@@ -30,7 +30,7 @@ yarn-error.log*
 
 # RAG vector store — large binaries, never commit
 /rag_data/
-/public/atlas/RAG/
+/web/public/atlas/RAG/
 
 # python
 __pycache__/
@@ -42,3 +42,13 @@ __pycache__/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# ── analysis (regenerable / large) ────────────────────────────────────────
+analysis/**/*_cache.json
+analysis/results/natsyn_umap.joblib
+analysis/historical/results/tmp_cdhit/
+data/*.bak
+data/*.pre_*_backup
+.venv/
+# ProtT5 vectors (~160 MB) — fetch separately, see analysis/README.md
+data/embeddings/

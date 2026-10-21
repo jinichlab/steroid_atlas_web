@@ -1,0 +1,63 @@
+========================================================================
+ORGANISM BREAKDOWN — all 14,089 atlas proteins
+========================================================================
+
+Distinct species (organism strings, sans common name): 1,281
+Distinct genera (first word of organism):              1,010
+
+Broad lineage groups (from manual genus dictionary):
+   5,283  ( 37.5%)  Mammals
+   3,530  ( 25.1%)  Fish
+   2,544  ( 18.1%)  Other / unclassified
+   1,418  ( 10.1%)  Birds
+     592  (  4.2%)  Reptiles
+     349  (  2.5%)  Invertebrates
+     208  (  1.5%)  Amphibians
+      60  (  0.4%)  Fungi
+      55  (  0.4%)  Bacteria
+      44  (  0.3%)  Plants
+       6  (  0.0%)  Protists
+
+Top 20 species:
+    268  Homo sapiens
+    205  Mus musculus
+    192  Rattus norvegicus
+     95  Oncorhynchus mykiss
+     90  Macaca fascicularis
+     84  Bos taurus
+     81  Oryctolagus cuniculus
+     79  Salmo trutta
+     78  Macaca mulatta
+     77  Oncorhynchus kisutch
+     76  Oncorhynchus tshawytscha
+     71  Papio anubis
+     69  Sus scrofa
+     66  Equus caballus
+     66  Myripristis murdjan
+     64  Oreochromis niloticus
+     62  Astatotilapia calliptera
+     62  Callithrix jacchus
+     61  Pongo abelii
+     59  Amphiprion ocellaris
+
+Top 20 genera:
+    277  Mus
+    268  Homo
+    248  Oncorhynchus
+    219  Macaca
+    207  Bos
+    193  Rattus
+    144  Sinocyclocheilus
+    140  Equus
+    111  Oreochromis
+    109  Myotis
+    106  Pan
+    106  Oryzias
+    104  Cyprinus
+    100  Salmo
+     99  Canis
+     95  Panthera
+     92  Amphiprion
+     91  Rhinopithecus
+     81  Oryctolagus
+     79  Poecilia

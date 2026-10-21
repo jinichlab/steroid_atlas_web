@@ -1,0 +1,677 @@
+compound_name	chebi_id	cluster	n_in_cluster	mean_tanimoto_to_cluster	nearest_neighbor_tanimoto_in_cluster
+ chenodeoxycholate	36234.0	0	215	0.4904	1.0
+ ursodeoxycholate	78604.0	0	215	0.4904	1.0
+iso-CDCA		0	215	0.4868	0.8235
+ 3alpha,7alpha,12beta-trihydroxy-5beta-cholanate	15755.0	0	215	0.4823	0.8167
+ lithocholate	29744.0	0	215	0.4768	0.82
+ glycochenodeoxycholate	36252.0	0	215	0.4737	1.0
+ glycoursodeoxycholate	132030.0	0	215	0.4737	1.0
+iso-LCA		0	215	0.4735	1.0
+isoallo-LCA		0	215	0.4735	1.0
+allo-LCA		0	215	0.4735	1.0
+Ala-CDCA		0	215	0.4693	0.8033
+ glycocholate	29746.0	0	215	0.4688	0.8167
+Ala-CA		0	215	0.4667	0.8548
+Ser-CA		0	215	0.4636	0.8615
+Glu-CDCA		0	215	0.4636	0.8387
+ L-alanocholate	229710.0	0	215	0.4631	0.8548
+ deoxycholate	23614.0	0	215	0.4624	0.8136
+Glu-CA		0	215	0.462	0.8788
+ glycolithocholate	60008.0	0	215	0.4604	0.8033
+Thr-CA		0	215	0.4568	0.9032
+Val-CA		0	215	0.4568	0.9032
+Leu-CDCA		0	215	0.4567	0.8387
+Leu-CA		0	215	0.4555	0.8615
+ taurochenodeoxycholate	9407.0	0	215	0.4552	1.0
+ tauroursodeoxycholate	132028.0	0	215	0.4552	1.0
+ L-serocholate	229711.0	0	215	0.4544	0.8615
+ 3beta-hydroxy-7-oxo-5beta-cholan-24-oate	78603.0	0	215	0.453	1.0
+ 7-oxolithocholate	78605.0	0	215	0.453	1.0
+ taurocholate	36257.0	0	215	0.4512	0.8485
+ an N-choloyl-L-alpha-amino acid	229709.0	0	215	0.4503	0.8438
+ glycodeoxycholate	82982.0	0	215	0.4501	0.8525
+7-oxo-LCA		0	215	0.4488	0.8333
+Ala-DCA		0	215	0.4474	0.8387
+ 5beta-cholestane-3alpha,7alpha-diol	28047.0	0	215	0.4464	0.7843
+Gly-DCA		0	215	0.4455	0.8525
+ hyodeoxycholate	58875.0	0	215	0.4453	0.8163
+Ser-CDCA		0	215	0.445	1.0
+Ser-UDCA		0	215	0.445	1.0
+Orn-CA		0	215	0.4444	0.9545
+Gln-CA		0	215	0.4444	0.8788
+Glu-UDCA		0	215	0.4436	0.8889
+Glu-DCA		0	215	0.4434	0.8889
+Putrescine-CA		0	215	0.4425	0.9839
+ taurolithocholate	17179.0	0	215	0.4425	0.8154
+Hyodeoxycholic acid		0	215	0.4419	1.0
+Hyodeoxycholic acid (HDCA)		0	215	0.4419	1.0
+Phe-CDCA		0	215	0.4411	0.8824
+Phe-CA		0	215	0.4403	0.9014
+ hyocholate	133661.0	0	215	0.4396	0.82
+ chenodeoxycholate 7-sulfate	172395.0	0	215	0.4394	0.8254
+ (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oate	58734.0	0	215	0.4393	0.7895
+Lys-CA		0	215	0.4392	0.9545
+Ile-CA		0	215	0.4391	0.8615
+ 3alpha,12alpha-dihydroxy-7-oxo-5beta-cholanate	11893.0	0	215	0.4391	0.8448
+ 7-oxoglycolithocholate	137818.0	0	215	0.4386	0.8154
+ 5beta-cholestane-3alpha,7alpha,12alpha-triol	16496.0	0	215	0.4383	0.8333
+Thr-DCA		0	215	0.438	0.9016
+Val-DCA		0	215	0.438	0.9016
+Cadaverine-CA		0	215	0.4371	0.9839
+Asp-UDCA		0	215	0.4369	0.875
+Leu-DCA		0	215	0.4368	0.8462
+Hyocholic acid (HCA)		0	215	0.4366	1.0
+3-oxoDCA		0	215	0.4366	1.0
+α-Muricholic acid		0	215	0.4366	1.0
+β-Muricholic acid		0	215	0.4366	1.0
+Hyocholic acid		0	215	0.4366	1.0
+ 3alpha,7alpha-dihydroxy-12-oxo-5beta-cholanate	11901.0	0	215	0.436	0.7833
+Tyr-CA		0	215	0.4353	0.9014
+7-oxo-DCA		0	215	0.4353	0.8448
+Tyr-CDCA		0	215	0.4352	0.8824
+ L-phenylalanocholate	229714.0	0	215	0.4344	0.8889
+ cholestanol	86570.0	0	215	0.4335	0.8163
+ taurodeoxycholate	36261.0	0	215	0.4334	0.8261
+ cholate 7-sulfate	172392.0	0	215	0.4321	0.8358
+ 3beta-hydroxy-5-cholenate	195610.0	0	215	0.432	0.7833
+Agmatine-CA		0	215	0.4308	0.8507
+ 3-oxochenodeoxycholate	87731.0	0	215	0.4297	0.8393
+ glycochenodeoxycholate 7-sulfate	58877.0	0	215	0.4281	0.8261
+ 7-oxo-glycodeoxycholate	137824.0	0	215	0.4281	0.8254
+3-oxo-CDCA		0	215	0.4253	0.8393
+Asn-UDCA		0	215	0.4251	0.875
+ glycocholate 7-sulfate	172393.0	0	215	0.4234	0.8358
+Phe-DCA		0	215	0.4228	0.8873
+Tyr-HDCA		0	215	0.4227	0.8551
+ 7-oxotaurolithocholate	137724.0	0	215	0.4222	0.8261
+ 12-dehydrodeoxycholate	233653.0	0	215	0.422	0.8393
+Spermidine-CA (3-trihydroxy-spermidine bile amidate)		0	215	0.4218	0.9385
+ 5alpha-cholestan-7-oxo-3beta-ol	137062.0	0	215	0.4211	0.7636
+Met-CDCA		0	215	0.4202	0.8939
+Met-DCA		0	215	0.4202	0.8939
+ ursodeoxycholate 3-sulfate	234529.0	0	215	0.42	0.8254
+ taurochenodeoxycholate 7-sulfate	172396.0	0	215	0.4199	0.8286
+ 5beta-cholestane-3alpha,7alpha,25-triol	169972.0	0	215	0.4196	0.7843
+Arg-CA		0	215	0.4194	0.8219
+ (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-al	48940.0	0	215	0.4191	0.8036
+12-oxo-LCA		0	215	0.418	0.8393
+Tyr-UDCA		0	215	0.4179	0.9014
+ (25R)-5beta-cholestane-3alpha,7alpha,12alpha,26-tetrol	48939.0	0	215	0.4177	0.8333
+Tyr-DCA		0	215	0.4176	0.9014
+ L-arginocholate	229713.0	0	215	0.4172	0.7722
+ campestanol	36799.0	0	215	0.4165	0.8125
+ taurocholate 7-sulfate	172394.0	0	215	0.4158	0.8286
+ taurohyodeoxycholate	191407.0	0	215	0.4143	0.7937
+ 5beta-cholestane-3alpha,7alpha,12alpha,25-tetrol	169973.0	0	215	0.4136	0.8
+Glycine-7-oxoLCA		0	215	0.4135	0.8095
+ 7-oxo-taurodeoxycholate	137820.0	0	215	0.4129	0.8261
+ (24S)-hydroxycholestanol	137687.0	0	215	0.4128	0.8125
+ (25R)-26-hydroxycholestanol	137688.0	0	215	0.4117	0.8163
+ 7alpha,12alpha-dihydroxy-3-oxo-5beta-cholan-24-oate	87736.0	0	215	0.4111	0.8475
+ glycoursodeoxycholate 3-sulfate	234531.0	0	215	0.4099	0.8254
+His-CA		0	215	0.4099	0.8846
+ taurohyocholate	58874.0	0	215	0.4093	0.7937
+3-oxo-CA		0	215	0.4073	0.8475
+ alpha-muricholate 7-sulfate	172398.0	0	215	0.4067	0.7544
+ L-histidocholate	229712.0	0	215	0.4045	0.8846
+ 7,12-dioxo-lithocholate	137789.0	0	215	0.4043	0.807
+Glycine-7-oxoDCA		0	215	0.4037	0.8095
+iso-DCA		0	215	0.4036	0.7333
+ chenodeoxycholoyl-24-O-(beta-D-glucuronate)	136899.0	0	215	0.4023	0.8116
+Arg-DCA		0	215	0.4023	0.8052
+ taurochenodeoxycholate 3-sulfate	166912.0	0	215	0.402	0.8182
+ cholesterol	16113.0	0	215	0.4003	0.8364
+3-acetyl-CA		0	215	0.3997	0.8525
+ 3-oxo-5beta-cholan-24-oate	11867.0	0	215	0.3997	0.8302
+ 7alpha-hydroxy-5beta-cholestan-3-one	2290.0	0	215	0.3996	0.7759
+ (25S)-3beta-hydroxy-5-cholestenoate	71567.0	0	215	0.3981	0.7931
+ deoxycholate 3-sulfate	195622.0	0	215	0.3975	0.8333
+ lithocholate 3-sulfate	133940.0	0	215	0.397	0.8197
+Trp-CA		0	215	0.3966	0.8902
+ 12alpha-hydroxy-3-oxo-5beta-cholan-24-oate	87734.0	0	215	0.3962	0.8448
+Trp-CDCA		0	215	0.3961	0.8519
+Taurine-7-oxoLCA		0	215	0.3957	0.8209
+3-succinyl-CA		0	215	0.3955	0.8525
+3-oxo-LCA		0	215	0.3953	0.8302
+His-DCA		0	215	0.3938	0.8125
+ 6-oxocampestanol	20747.0	0	215	0.393	0.6885
+ tauronorcholate	191405.0	0	215	0.3924	0.8485
+3-oxo-DCA		0	215	0.3924	0.8448
+ lithocholoyl-24-O-(beta-D-glucuronate)	136902.0	0	215	0.3915	0.8286
+ L-tryptophanocholate	234456.0	0	215	0.3914	0.8902
+ glycodeoxycholate 3-sulfate	195624.0	0	215	0.3905	0.8333
+ glycolithocholate 3-sulfate	60007.0	0	215	0.3879	0.8197
+Taurine-7-oxoDCA		0	215	0.3869	0.8209
+ 7alpha-hydroxy-3-oxochol-4-en-24-oate	87747.0	0	215	0.3865	0.7705
+ campesterol	28623.0	0	215	0.384	0.8333
+ taurodeoxycholate 3-sulfate	195625.0	0	215	0.3832	0.8261
+ deoxycholoyl-24-O-(beta-D-glucuronate)	136901.0	0	215	0.3827	0.8286
+ 7alpha-hydroxycholesterol	17500.0	0	215	0.3824	1.0
+ 7beta-hydroxycholesterol	42989.0	0	215	0.3824	1.0
+ (24S)-hydroxycholesterol	34310.0	0	215	0.382	0.8393
+ (3beta)-hydroxy-cholest-5-en-26-al	84145.0	0	215	0.3816	0.807
+ 26-hydroxycholesterol	17703.0	0	215	0.3811	0.8364
+Trp-UDCA		0	215	0.381	0.8537
+ 7alpha,12alpha-dihydroxy-5beta-cholestan-3-one	2288.0	0	215	0.3807	0.7833
+ taurolithocholate 3-sulfate	58301.0	0	215	0.3802	0.8116
+ 25-hydroxycholesterol	42977.0	0	215	0.3763	0.8036
+ 3beta-sulfo-5-cholenate	195614.0	0	215	0.3744	0.7812
+ 7-oxocholesterol	64294.0	0	215	0.3742	0.8421
+ (24S)-hydroxycholesterol 24-sulfate	136566.0	0	215	0.3728	0.8254
+ 7beta-hydroxy-3,12-dioxo-5beta-cholan-24-oate	137882.0	0	215	0.37	0.7966
+ desmosterol	17737.0	0	215	0.37	0.8596
+ beta-D-glucosyl-(1->3)-O-chenodeoxycholate	142610.0	0	215	0.3687	0.662
+ sitosterol	27693.0	0	215	0.3685	0.8036
+ hyodeoxycholoyl-24-O-(beta-D-glucuronate)	136903.0	0	215	0.3673	0.8209
+ (25R)-3beta-hydroxycholest-5-en-7-one-26-oate	87678.0	0	215	0.3671	0.8136
+ (24S,25R)-24,26-dihydroxycholesterol	86165.0	0	215	0.3668	0.8393
+ hyocholoyl-24-O-(beta-D-glucuronate)	136904.0	0	215	0.3659	0.8209
+ hyocholate 6-O-(beta-D-glucuronate)	136906.0	0	215	0.3659	0.7714
+ hyodeoxycholate 6-O-(beta-D-glucuronate)	136905.0	0	215	0.3654	0.7714
+ (24S)-25-epoxycholesterol	41633.0	0	215	0.3651	0.7414
+ (25R)-cholest-5-en-3beta,7alpha,26-triol	76592.0	0	215	0.3642	0.8364
+ 24S,25-dihydroxycholesterol	86074.0	0	215	0.3638	0.7797
+ (24S)-7alpha-dihydroxycholesterol	37640.0	0	215	0.3638	0.7679
+ 7alpha,12alpha-dihydroxy-3-oxochol-4-en-24-oate	58803.0	0	215	0.3634	0.7778
+ 7alpha-hydroxycholest-4-en-3-one	17899.0	0	215	0.3616	0.8475
+ 7alpha,25-dihydroxycholesterol	37623.0	0	215	0.3598	0.8036
+ 5beta-cholestan-3-one	16074.0	0	215	0.3572	0.7692
+ (25R)-3beta,26-dihydroxycholest-5-en-7-one	87653.0	0	215	0.3571	0.8421
+ (25R)-3beta,4beta-dihydroxycholest-5-en-26-oate	86116.0	0	215	0.3535	0.7931
+ (24Z),26-hydroxydesmosterol	137053.0	0	215	0.3533	0.8596
+ S-choloyl-4'-phosphopantetheine	132020.0	0	215	0.353	0.8696
+ 4beta-hydroxycholesterol	85778.0	0	215	0.3518	0.8364
+ 5alpha-cholestane-3beta,5,6beta-triol	28082.0	0	215	0.3513	0.7069
+ (25R)-3beta-hydroxycholest-5-en-7-one-26-al	87677.0	0	215	0.3504	0.8276
+ (24S,25)-epoxy-7alpha-hydroxycholesterol	86146.0	0	215	0.3487	0.7414
+ 5,6beta-epoxy-5beta-cholestan-3beta-ol	28164.0	0	215	0.3468	0.7069
+ (25R)-7alpha,26-dihydroxycholest-4-en-3-one	87476.0	0	215	0.3453	0.8475
+ (24S)-7alpha,24-dihydroxycholest-4-en-3-one	63838.0	0	215	0.3443	0.7833
+ 4beta,7alpha-dihydroxycholesterol	85779.0	0	215	0.3434	0.7018
+ 5alpha-campestan-3-one	18533.0	0	215	0.3422	0.7692
+ 7alpha,25-dihydroxy-4-cholesten-3-one	81013.0	0	215	0.3412	0.8167
+ cholesterol sulfate	136579.0	0	215	0.3409	0.7778
+ (22S)-22-hydroxycholesterol	1301.0	0	215	0.3403	0.7719
+ (24S)-hydroxycholesterol 3-sulfate	136567.0	0	215	0.3373	0.7969
+ 3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oyl-4'-phosphopantetheine	132021.0	0	215	0.3372	0.8696
+ (25R)-3beta,4beta-dihydroxycholest-5-en-26-al	86115.0	0	215	0.3371	0.807
+ 7alpha,12alpha-dihydroxycholest-4-en-3-one	28477.0	0	215	0.337	0.7778
+ (25R)-4beta,26-dihydroxycholesterol	86113.0	0	215	0.3354	0.8364
+ 4beta,24S-dihydroxycholesterol	86087.0	0	215	0.3346	0.7679
+ 3-oxochola-4,6-dien-24-oate	87748.0	0	215	0.332	0.7344
+ (24S)-hydroxycholesterol 3,24-disulfate	136568.0	0	215	0.3289	0.8254
+ cholesteryl 3-beta-D-xyloside	189067.0	0	215	0.3246	0.7671
+ dehydrocholate	137881.0	0	215	0.3244	0.75
+ 12alpha-hydroxy-3-oxochola-4,6-dien-24-oate	58804.0	0	215	0.3236	0.7344
+ (22R,7alpha)-dihydroxycholesterol	86145.0	0	215	0.3233	0.7544
+ 7alpha,8alpha-epoxy-5alpha-cholestan-3beta-ol	137063.0	0	215	0.3215	0.569
+ (22S)-22-hydroxycampesterol	72331.0	0	215	0.3178	0.8103
+ cholesteryl 3-beta-D-galactoside	189066.0	0	215	0.3149	1.0
+ cholesteryl 3-beta-D-glucoside	17495.0	0	215	0.3149	1.0
+ stigmasterol	28824.0	0	215	0.3095	0.6667
+ (22R,23R)-22,23-dihydroxycampesterol	80401.0	0	215	0.3066	0.7544
+ (22S)-22-hydroxysitosterol	187980.0	0	215	0.3056	0.8103
+ (16S,22S)-dihydroxycholesterol	191938.0	0	215	0.289	0.7288
+ (20R,22R)-20,22-dihydroxycholesterol	1294.0	0	215	0.2847	0.6825
+ stigmasteryl 3-beta-D-glucoside	68383.0	0	215	0.2479	0.7
+ testosterone	17347.0	1	145	0.4112	0.7333
+ progesterone	17026.0	1	145	0.4052	0.7755
+ 21-hydroxyprogesterone	16973.0	1	145	0.3969	0.8039
+ 16alpha,17beta-dihydroxyandrost-4-en-3-one	34172.0	1	145	0.3831	0.7708
+ (20S)-hydroxypregn-4-en-3-one	28453.0	1	145	0.3815	0.78
+ 3-oxochol-4-en-22-oate	83777.0	1	145	0.3745	0.7647
+ 16alpha-hydroxyprogesterone	15826.0	1	145	0.374	0.7708
+ 4-pregnen-20,21-diol-3-one	87841.0	1	145	0.3739	0.78
+ a 3-oxo-Delta(4)-steroid	47909.0	1	145	0.3729	0.7333
+ androst-4-ene-3,17-dione	16422.0	1	145	0.3726	0.7442
+ 15beta-hydroxyprogesterone	59418.0	1	145	0.3685	0.6923
+ 17alpha-hydroxyprogesterone	17252.0	1	145	0.3673	1.0
+Hydroxyprogesterone		1	145	0.3673	1.0
+ 11-deoxycortisol	28324.0	1	145	0.367	0.7755
+ 16alpha-hydroxyandrost-4-ene-3,17-dione	27582.0	1	145	0.3651	0.6809
+ epitestosterone 17-sulfate	190485.0	1	145	0.3578	0.66
+ testosterone 17-O-(beta-D-glucuronate)	136639.0	1	145	0.3532	0.8209
+ 16alpha,17alpha-dihydroxyprogesterone	763.0	1	145	0.3521	0.7222
+ 18-hydroxy-11-deoxycorticosterone	195166.0	1	145	0.3516	0.7692
+ 11alpha-hydroxytestosterone	79808.0	1	145	0.3485	0.717
+ (25S)-3-oxocholest-4-en-26-ol	83860.0	1	145	0.3476	0.8214
+ (25S)-3-oxocholest-4-en-26-oate	71541.0	1	145	0.3467	0.7931
+ (22R,23R)-22,23-dihydroxycampest-4-en-3-one	80402.0	1	145	0.3463	0.7586
+ 18-hydroxy-11-deoxycortisol	195179.0	1	145	0.3458	0.7692
+ corticosterone	16827.0	1	145	0.3458	0.8
+ cholest-4-en-3-one	16175.0	1	145	0.3454	0.8214
+ 19-hydroxyandrost-4-ene-3,17-dione	27576.0	1	145	0.3454	0.7442
+ campest-4-en-3-one	18534.0	1	145	0.3441	0.7818
+ 19-hydroxy-11-deoxycorticosterone	195167.0	1	145	0.344	0.8039
+ 2alpha,17beta-dihydroxyandrost-4-en-3-one	83025.0	1	145	0.3432	0.7021
+ (22S)-22-hydroxycampest-4-en-3-one	72330.0	1	145	0.343	0.7586
+ (17R,20S)-17,20-dihydroxypregn-4-en-3-one	16418.0	1	145	0.3428	0.6667
+ cortisol	17650.0	1	145	0.3421	0.7895
+ 17beta-hydroxyandrost-4-ene-3,11-dione	34133.0	1	145	0.341	0.6981
+ 6beta-hydroxyprogesterone	62117.0	1	145	0.3398	0.7551
+ 17beta-hydroxy-androst-5-en-3-one	141179.0	1	145	0.3393	0.7447
+ 11beta-hydroxyandrost-4-ene-3,17-dione	27967.0	1	145	0.3392	0.6939
+ 3beta-hydroxypregn-4-ene-20-one	85899.0	1	145	0.3374	0.6939
+ pregn-5-ene-3,20-dione	63837.0	1	145	0.3367	0.7347
+ 6beta,17beta-dihydroxyandrost-4-en-3-one	34477.0	1	145	0.3365	0.7551
+ 1alpha-hydroxytestosterone	132358.0	1	145	0.3353	0.7021
+ pregnenolone	16581.0	1	145	0.3345	0.7174
+ testosterone 17-O-(3-sulfo-beta-D-glucuronate)	178104.0	1	145	0.3342	0.8209
+ 3beta-hydroxyandrost-5-en-17-one	28689.0	1	145	0.3328	0.6889
+ 11-dehydrocorticosterone	78600.0	1	145	0.3327	0.7455
+ 19-oxo-11-deoxycorticosterone	174650.0	1	145	0.3324	0.7547
+ 1alpha-hydroxyandrost-4-ene-3,17-dione	133778.0	1	145	0.3298	0.7021
+ cortisone	16962.0	1	145	0.3284	0.7636
+ (25R)-3-oxocholest-4-en-26-al	83862.0	1	145	0.3281	0.8214
+ 11beta,17alpha-dihydroxypregn-4-ene-3,20,21-trione	78595.0	1	145	0.3267	0.7679
+ 20beta-dihydrocorticosterone	189050.0	1	145	0.3249	0.7143
+ 18-hydroxycortisol	89455.0	1	145	0.324	0.7895
+ 18-oxocortisol	89213.0	1	145	0.3221	0.7759
+ 18-hydroxycorticosterone	16485.0	1	145	0.3214	0.8
+ 19-oxo-androst-4-ene-3,17-dione	799.0	1	145	0.3189	0.7209
+ androst-5-en-3beta,17beta-diol	2710.0	1	145	0.318	0.7674
+ 6beta-hydroxyandrost-4-ene-3,17-dione	87571.0	1	145	0.3176	0.7174
+ 17beta-hydroxyandrosta-1,4-dien-3-one	34584.0	1	145	0.3169	0.7391
+ 20beta-dihydrocortisol	139311.0	1	145	0.3163	0.6833
+ aldosterone	27584.0	1	145	0.3146	0.7719
+ pregn-4-ene-3,11,20,21-tetraone	78601.0	1	145	0.3143	0.7455
+ 17alpha-hydroxypregn-4-en-3,11,20-trione-21-al	78596.0	1	145	0.3138	0.7636
+ androst-4-ene-3,11,17-trione	2495.0	1	145	0.3134	0.6977
+ androst-5-ene-diol 3-sulfate	190287.0	1	145	0.3129	0.7547
+ pregnenolone sulfate	133000.0	1	145	0.3108	0.7547
+ a 3-oxo-Delta(5)-steroid	47907.0	1	145	0.3058	0.7447
+ a 3beta-hydroxy-Delta(5)-steroid	1722.0	1	145	0.3029	0.7674
+ 5alpha-pregnane-3,20-dione	28952.0	1	145	0.3026	1.0
+5beta-dihydroprogesterone	30154.0	1	145	0.3026	1.0
+5β-dihydroprogesterone		1	145	0.3026	1.0
+ 3beta,16alpha-dihydroxy-androst-5-en-17-one	27771.0	1	145	0.3011	0.7
+ 3beta-androst-5-en-17-one 3-O-(beta-D-glucuronate)	178105.0	1	145	0.3009	0.8154
+ androst-5-ene-3,17-dione	83865.0	1	145	0.3009	0.6739
+ 17alpha-hydroxypregnenolone	28750.0	1	145	0.2993	0.7059
+ 5alpha-dihydrodeoxycorticosterone	81468.0	1	145	0.2975	0.7609
+ dehydroepiandrosterone 3-sulfate	57905.0	1	145	0.2965	0.8298
+Dehydroepiandrosterone Sulfate		1	145	0.2962	0.8298
+Medroxyprogesterone		1	145	0.2957	0.6731
+ 3alpha-hydroxyetiocholan-17-one 3-O-(beta-D-glucuronate)	178197.0	1	145	0.2953	0.803
+ androsta-1,4-diene-3,17-dione	40799.0	1	145	0.2945	0.6383
+ 7-oxopregnenolone	183807.0	1	145	0.294	0.6346
+ 6beta-hydroxycortisol	139271.0	1	145	0.2936	0.7288
+ 3-oxochola-1,4-dien-22-oate	85551.0	1	145	0.293	0.6667
+ 6beta,16alpha,17alpha-trihydroxyprogesterone	137046.0	1	145	0.2908	0.7222
+ androsterone 3alpha-sulfate	133003.0	1	145	0.2903	0.6308
+ 6beta-hydroxycortisone	139269.0	1	145	0.2896	0.7119
+ 3alpha-hydroxyetiocholan-17-one 3-O-(3-sulfo-beta-D-glucuronate)	178198.0	1	145	0.2885	0.803
+ 3beta-hydroxy-5-androstene-7,17-dione	183808.0	1	145	0.2882	0.6444
+ 17beta-hydroxyestr-4-en-3-one	7466.0	1	145	0.2879	0.566
+ 3beta-androst-5-en-17-one 3-O-(3-sulfo-beta-D-glucuronate)	178106.0	1	145	0.2871	0.8154
+ 16alpha-hydroxydehydroepiandrosterone 3-sulfate	87538.0	1	145	0.287	0.7
+6-Dehydroprogesterone		1	145	0.2867	0.5926
+ cholest-5-en-3-one	63906.0	1	145	0.2865	0.6667
+ a 3-oxo-Delta(1,4)-steroid	77166.0	1	145	0.2841	0.7391
+ 16alpha,17alpha-dihydroxypregnenolone	137049.0	1	145	0.2839	0.7059
+ 3beta,7alpha-dihydroxyandrost-5-en-17-one	81471.0	1	145	0.2833	1.0
+ 3beta,7beta-dihydroxyandrost-5-en-17-one	183368.0	1	145	0.2833	1.0
+ 7alpha-hydroxypregnenolone	81467.0	1	145	0.2804	1.0
+ 7beta-hydroxypregnenolone	183806.0	1	145	0.2804	1.0
+ 9alpha-hydroxy-androst-4-ene-3,17-dione	85549.0	1	145	0.2799	0.6042
+ 17alpha-hydroxypregnenolone 3-sulfate	133742.0	1	145	0.2797	0.6981
+Prednisolone		1	145	0.2785	0.6833
+ 5alpha-dihydrotestosterone 17-O-(beta-D-glucuronate)	136914.0	1	145	0.2764	0.9167
+ 5beta-dihydrocortisol	732.0	1	145	0.2696	1.0
+5beta-dihydrocortisol (5b-DHF)		1	145	0.2696	1.0
+ 5beta-dihydrocorticosterone	86381.0	1	145	0.2652	0.7818
+ 9alpha-hydroxy-3-oxochol-4-en-22-oate	85550.0	1	145	0.2639	0.6724
+ diosgenin	4629.0	1	145	0.2636	0.697
+ 5alpha-dihydrotestosterone 17-O-[beta-D-glucuronosyl-(1->2)-glucuronate]	136916.0	1	145	0.2626	0.9167
+ nuatigenin	15574.0	1	145	0.2624	0.6974
+ androst-5-en-3beta,7alpha,17beta-triol	85810.0	1	145	0.2608	0.7174
+ solasodine	145043.0	1	145	0.2596	0.6923
+ 4,5beta-dihydrocortisone	18093.0	1	145	0.258	1.0
+5beta-dihydrocortisone		1	145	0.258	1.0
+ 5alpha-androstane-3alpha,17beta-diol 3-O-(beta-D-glucuronate)	191859.0	1	145	0.2569	0.7833
+ solanidine	166996.0	1	145	0.2541	0.6486
+ diosgenin 3-O-beta-D-glucoside	74020.0	1	145	0.2532	0.7778
+ nuatigenin 3-beta-D-glucopyranoside	15575.0	1	145	0.2505	0.8372
+ solasodine 3-beta-D-glucoside	145042.0	1	145	0.2498	0.7561
+ 9alpha-hydroxyandrosta-1,4-diene-3,17-dione	63641.0	1	145	0.2479	0.6042
+ 3alpha,20alpha-dihydroxy-5beta-pregnane 3-O-(beta-D-glucuronate)	178102.0	1	145	0.2479	0.803
+ 3alpha-hydroxy-5alpha-androstane 17-O-(beta-D-glucuronate)	133519.0	1	145	0.2466	0.7377
+ 5beta-dihydroaldosterone	86389.0	1	145	0.246	0.7818
+Norethindrone		1	145	0.2452	0.717
+ 3alpha,20alpha-dihydroxy-5beta-pregnane 3-O-(3-sulfo-beta-D-glucuronate)	178103.0	1	145	0.2437	0.803
+ solanidine 3-O-beta-D-glucopyranoside	166997.0	1	145	0.2434	0.6706
+ 3alpha,17alpha-dihydroxy-5beta-androstane-11-one-17beta-carboxylate 3-O-(beta-D-glucuronate)	178107.0	1	145	0.2418	0.8194
+ 3alpha,17alpha-dihydroxy-5beta-androstane-11-one-17beta-carboxylate 3-O-(3-sulfo-beta-D-glucuronate)	178108.0	1	145	0.2388	0.8194
+ lithocholoyl-3-O-(beta-D-glucuronate)	136965.0	1	145	0.2385	0.8116
+ 9alpha-hydroxy-3-oxochola-1,4-dien-22-oate	85553.0	1	145	0.2366	0.6724
+ beta-D-glucosyl-(1->3)-O-lithocholate	142611.0	1	145	0.2355	0.8116
+5beta-dihydro-medroxyprogesterone acetate		1	145	0.2331	0.5
+ a sterol 3-beta-D-glucoside	37424.0	1	145	0.2309	0.6522
+ 26-deglucoprotodioscin	74026.0	1	145	0.2277	0.8804
+ 26-desgluco-avenacoside B	75931.0	1	145	0.2248	0.9022
+Levonorgestrel		1	145	0.2211	0.717
+ protodioscin	8588.0	1	145	0.22	0.8804
+ avenacoside B	2938.0	1	145	0.2185	0.9022
+5beta-dihydro-norethindrone acetate		1	145	0.2171	0.5246
+ (25S)-5beta-spirostan-3beta-yl beta-D-glucoside	15579.0	1	145	0.2135	0.7368
+ tigogenin	9595.0	1	145	0.211	0.661
+ tomatidine 3-O-beta-D-glucopyranoside	166998.0	1	145	0.2105	0.7368
+ tomatidine	166999.0	1	145	0.2077	0.661
+5beta-dihydro-levonorgestrel		1	145	0.201	0.5862
+Desogestrel		1	145	0.1653	0.4848
+ 4,4-dimethyl-5alpha-cholesta-8,24-dien-3beta-ol	18364.0	2	96	0.3812	0.8036
+ 4,4-dimethyl-5alpha-cholest-8-en-3beta-ol	87044.0	2	96	0.3764	0.7544
+ lanosterol	16521.0	2	96	0.3601	0.8545
+ 24,25-dihydrolanosterol	28113.0	2	96	0.3533	0.7636
+ 4,4-dimethyl-5alpha-cholest-7-en-3beta-ol	16455.0	2	96	0.3528	0.7544
+ 4alpha-hydroxymethyl-4beta-methylzymosterol	87289.0	2	96	0.351	0.8036
+ 4beta-methylzymosterol-4alpha-carbaldehyde	87287.0	2	96	0.3465	0.7895
+ 4beta-methylzymosterol-4alpha-carboxylate	64925.0	2	96	0.3454	0.7705
+ eburicol	70315.0	2	96	0.343	0.7857
+ 32-oxolanosterol	166681.0	2	96	0.3423	0.7759
+ 4alpha-carboxy-4beta-methyl-5alpha-cholest-8-en-3beta-ol	87047.0	2	96	0.3411	0.7705
+ 4alpha-methylzymosterol	1949.0	2	96	0.3401	0.7627
+ zymosterol	18252.0	2	96	0.3397	0.7455
+ 26-hydroxylanosterol	178023.0	2	96	0.3389	0.8545
+ 32-oxo-24,25-dihydrolanosterol	87060.0	2	96	0.3384	0.7759
+ 32-hydroxylanosterol	166806.0	2	96	0.338	0.7719
+ 11-hydroxycucurbitadienol	138972.0	2	96	0.3371	0.75
+ 4alpha-methyl-5alpha-cholest-8-en-3beta-ol	87051.0	2	96	0.3366	0.7544
+ 26-oxolanosterol	178024.0	2	96	0.3364	0.8393
+ 5alpha-cholest-8-en-3beta-ol	16608.0	2	96	0.3361	0.7455
+ (24Z)-ethylidenelanosterol	138589.0	2	96	0.333	0.7857
+ mogroside I-A1	229951.0	2	96	0.3329	0.9211
+ cucurbitadienol	62456.0	2	96	0.3326	0.75
+ 3beta-hydroxy-lanosta-8, 24-dien-26-oate	178025.0	2	96	0.3326	0.8103
+ 32-hydroxy-24,25-dihydrolanosterol	87057.0	2	96	0.332	0.7636
+ mogroside IIE	145198.0	2	96	0.3318	0.9367
+ 32-oxoeburicol	194329.0	2	96	0.329	0.7627
+ mogroside II-A	229960.0	2	96	0.3289	0.9259
+ 4alpha-methyl-5alpha-cholest-7-en-3beta-ol	18378.0	2	96	0.3285	0.7544
+ zymosterone	52386.0	2	96	0.3282	0.7414
+ lathosterol	17168.0	2	96	0.3281	0.7455
+ mogroside IIIE	232044.0	2	96	0.3279	0.9747
+ 5alpha-cholesta-7,24-dien-3beta-ol	16290.0	2	96	0.3275	0.7455
+ 7-dehydrodesmosterol	27910.0	2	96	0.3268	0.75
+ mogroside IVA	229958.0	2	96	0.3261	1.0
+ mogroside IIIX	229952.0	2	96	0.3261	1.0
+ mogroside III-C3(1->6)	229961.0	2	96	0.3261	1.0
+ 7-dehydrocholesterol	17759.0	2	96	0.3261	0.8
+ mogroside II-A1	232043.0	2	96	0.3258	0.9211
+ 4alpha-carboxy-4beta-methyl-5alpha-cholest-7-ene-3beta-ol	58387.0	2	96	0.3257	0.7544
+ 3-dehydro-4-methylzymosterol	50593.0	2	96	0.3245	0.7586
+ mogroside III-A1	230511.0	2	96	0.3227	0.9259
+ mogroside IV	230514.0	2	96	0.3227	1.0
+ siamenoside I	228908.0	2	96	0.3227	1.0
+ mogroside V	229959.0	2	96	0.3227	1.0
+ 32-hydroxyeburicol	194328.0	2	96	0.3226	0.7759
+ 4alpha-carboxyzymosterol	143575.0	2	96	0.3225	0.7705
+ 4,4-dimethyl-5alpha-cholesta-8,14,24-trien-3beta-ol	17813.0	2	96	0.3221	0.7586
+ isomogroside IV	230512.0	2	96	0.3218	0.9747
+ fecosterol	17038.0	2	96	0.3214	0.7321
+ mogroside IE	138975.0	2	96	0.32	0.8608
+ mogroside VI	232052.0	2	96	0.3195	0.988
+ 4alpha-carboxy-5alpha-cholest-8-ene-3beta-ol	87055.0	2	96	0.3192	0.7705
+ 4,4-dimethyl-8,14-cholestadien-3beta-ol	78904.0	2	96	0.3181	0.7586
+ mogrol	138974.0	2	96	0.3173	0.7581
+ isomogroside V	230513.0	2	96	0.3168	0.9762
+ 24-methylidenelophenol	29107.0	2	96	0.3161	0.7857
+ episterol	23929.0	2	96	0.3149	0.7321
+ 5-dehydroepisterol	52972.0	2	96	0.3137	0.7544
+ 4alpha-carboxy-5alpha-cholest-7-en-3beta-ol	145943.0	2	96	0.3113	0.7581
+ lanosteryl ester	52394.0	2	96	0.311	0.7377
+ (24R)-24,25-dihydroxycucurbitadienol	229950.0	2	96	0.3096	0.7581
+ 11-oxocucurbitadienol	138973.0	2	96	0.3083	0.7143
+ 14-demethyleburicol	194330.0	2	96	0.3077	0.7458
+ zymosterol ester	52322.0	2	96	0.307	0.7258
+ (Z)-24-ethylidenelophenol	33203.0	2	96	0.3061	0.7857
+ cholesta-5,7-dien-3beta,25-diol	137057.0	2	96	0.3043	0.8
+ 5alpha-cholest-8-en-3-one	87056.0	2	96	0.3018	0.7241
+ cholesta-5,7-dien-3beta,24S-diol	137061.0	2	96	0.3016	0.7636
+ 5alpha-cholest-7-en-3-one	71550.0	2	96	0.3009	0.7931
+ obtusifoliol	17791.0	2	96	0.3005	0.6833
+ 4alpha-carboxy-ergosta-7,24(24(1))-dien-3beta-ol	142850.0	2	96	0.2998	0.7667
+ 4alpha-methyl-5alpha-cholest-8-en-3-one	87050.0	2	96	0.2984	0.7288
+ (24S)-24,25-epoxycucurbitadienol	229949.0	2	96	0.2968	0.7213
+ 4alpha-methyl-5alpha-cholest-7-en-3-one	16495.0	2	96	0.2967	0.7018
+ isomotiol	232471.0	2	96	0.2926	0.7647
+ cycloartenol	17030.0	2	96	0.2918	0.7037
+ (25S)-Delta7-dafachronate	71542.0	2	96	0.2876	0.7931
+ 24-methylenecycloartanol	1307.0	2	96	0.2833	0.7544
+ 19beta-hydroxyisomotiol	232481.0	2	96	0.2813	0.7843
+ 5alpha-cholest-8,14-dien-3beta-ol	86131.0	2	96	0.2777	0.6949
+ 3-O-(beta-D-glucopyranosyl)-isomotiol	232474.0	2	96	0.2719	0.7887
+ 2alpha-hydroxyisomotiol	232472.0	2	96	0.2652	0.7692
+ 3-O-(beta-D-glucopyranosyl)-2alpha-hydroxyisomotiol	232475.0	2	96	0.2635	0.8026
+ cycloeucalenol	16653.0	2	96	0.2612	0.7193
+ 4alpha-carboxy-4beta,14alpha-dimethyl-9beta,19-cyclo-5alpha-ergost-24(24(1))-en-3beta-ol	142916.0	2	96	0.2595	0.7544
+ 2alpha-hydroxyismotiol-19-one	232483.0	2	96	0.2557	0.7018
+ 2alpha,19beta-dihydroxyisomotiol	232482.0	2	96	0.2553	0.7843
+ 3-O-(beta-D-glucopyranosyl)-2alpha-acetoxyisomotiol	232477.0	2	96	0.252	0.8026
+ cycloeucalenone	142915.0	2	96	0.2518	0.6935
+ ergosta-5,7,22,24(28)-tetraen-3beta-ol	18249.0	2	96	0.2512	0.7368
+ ergosterol	16933.0	2	96	0.2506	0.7368
+ ergosteryl 3-beta-D-glucoside	52973.0	2	96	0.246	0.6286
+ ergosteryl ester	52320.0	2	96	0.2173	0.7049
+ a Delta(5),Delta(7)-sterol	138131.0	2	96	0.2087	0.5926
+ a Delta(7)-sterol	138130.0	2	96	0.2072	0.5849
+ 3-oxochol-4-en-24-oyl-CoA	86412.0	3	32	0.7851	0.9147
+ lithocholoyl-CoA	87438.0	3	32	0.7616	0.9113
+ chenodeoxycholoyl-CoA	62989.0	3	32	0.7577	0.9127
+ 7alpha-hydroxy-3-oxochol-4-en-24-oyl-CoA	140636.0	3	32	0.7571	0.8872
+ (25S)-3-oxocholest-4-en-26-oyl-CoA	83819.0	3	32	0.7526	0.9147
+ 3-oxochol-4-en-22-oyl-CoA	83792.0	3	32	0.7524	0.9134
+ 3-oxocholan-24-oyl-CoA	136703.0	3	32	0.7498	0.8984
+ 7alpha-hydroxy-3-oxochol-24-oyl-CoA	136698.0	3	32	0.7444	0.9077
+ choloyl-CoA	57373.0	3	32	0.7439	0.9231
+ 3beta-hydroxy-chol-5-ene-24-oyl-CoA	86018.0	3	32	0.7436	0.9147
+ 3,22-dioxochol-4-en-24-oyl-CoA	86014.0	3	32	0.7415	0.9134
+ beta-muricholoyl-CoA	137668.0	3	32	0.7408	0.8871
+ deoxycholoyl-CoA	58810.0	3	32	0.739	0.9113
+ 3-oxochol-4,6-dien-24-oyl-CoA	140634.0	3	32	0.7348	0.8939
+ 7alpha,12alpha-dihydroxy-3-oxochol-4-en-24-oyl-CoA	132977.0	3	32	0.7343	0.8872
+ 3-oxo-cholest-4,24-dien-26-oyl-CoA	86414.0	3	32	0.7338	0.8931
+ (22R)-hydroxy-3-oxo-chol-4-ene-24-oyl-CoA	192383.0	3	32	0.7332	0.8992
+ 7alpha,12alpha-dihydroxy-3-oxochol-24-oyl-CoA	136700.0	3	32	0.7264	0.9077
+ 12alpha-hydroxy-3-oxocholan-24-oyl-CoA	136701.0	3	32	0.7237	0.8984
+ (22E)-3-oxochola-4,22-dien-24-oyl-CoA	136759.0	3	32	0.72	0.8702
+ (25S)-3beta-hydroxy-5-cholestenoyl-CoA	83783.0	3	32	0.7134	0.9147
+ (25R)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholestan-26-oyl-CoA	58677.0	3	32	0.713	0.916
+ 3alpha,7alpha,12alpha-trihydroxy-24-oxo-5beta-cholestan-26-oyl-CoA	58507.0	3	32	0.7117	0.9231
+ 12alpha-hydroxy-3-oxochola-4,6-dien-24-oyl-CoA	132978.0	3	32	0.7074	0.8939
+ 3-oxochola-1,4-dien-22-oyl-CoA	83793.0	3	32	0.7042	0.8538
+ (24R,25R)-3alpha,7alpha,12alpha,24-tetrahydroxy-5beta-cholestan-26-oyl-CoA	59807.0	3	32	0.7027	0.903
+ (24E)-3alpha,7alpha,12alpha-trihydroxy-5beta-cholest-24-en-26-oyl-CoA	59879.0	3	32	0.6954	0.8881
+ 3-oxochola-4,17-dien-22-oyl-CoA	86020.0	3	32	0.6929	0.8413
+ 17-hydroxy-3-oxochol-4-en-22-oyl-CoA	86028.0	3	32	0.6913	0.845
+ 9alpha-hydroxy-3-oxochol-4-en-22-oyl-CoA	85548.0	3	32	0.6906	0.8561
+ 3beta-hydroxy-chol-5,22-dien-24-oyl-CoA	86037.0	3	32	0.6813	0.8636
+ 9alpha-hydroxy-3-oxochola-1,4-dien-22-oyl-CoA	85547.0	3	32	0.6695	0.8561
+ androstan-3alpha,17beta-diol	18011.0	4	112	0.3668	0.7297
+ a sterol	15889.0	4	112	0.3635	0.7297
+ 3alpha,20alpha-dihydroxy-5beta-pregnane	8387.0	4	112	0.3599	0.7174
+ 5beta-dihydrotestosterone	2150.0	4	112	0.3578	0.7333
+ 3alpha-hydroxy-5beta-pregnan-20-one	1712.0	4	112	0.3564	1.0
+allopregnanolone (3alpha,5alpha-THP, brexanolone)	50169.0	4	112	0.3564	1.0
+isoallopregnanolone (3beta,5alpha-THP)	11909.0	4	112	0.3564	1.0
+epipregnanolone (3beta,5beta-THP)	16229.0	4	112	0.3564	1.0
+pregnanolone (3alpha,5beta-THP)	1712.0	4	112	0.3564	1.0
+Epipregnanolone		4	112	0.3564	1.0
+ 6-deoxoteasterone	20716.0	4	112	0.3517	0.7755
+ 6-deoxo-28-norteasterone	188985.0	4	112	0.3494	0.7843
+ androsterone	16032.0	4	112	0.3487	0.6957
+ 6-deoxycathasterone	20714.0	4	112	0.3439	0.7451
+ 5alpha-pregnan-20beta-ol-3-one	78594.0	4	112	0.3429	0.74
+ (22S)-22-hydroxycholestanol	188465.0	4	112	0.34	0.7451
+ 3alpha,21-dihydroxy-5alpha-pregnane-20-one	34461.0	4	112	0.3387	1.0
+3alpha,5alpha-tetrahydrodeoxycorticosterone (THDOC)	34461.0	4	112	0.3387	1.0
+ 3-dehydro-6-deoxoteasterone	20710.0	4	112	0.337	0.7455
+ 3-dehydro-6-deoxo-28-norteasterone	188989.0	4	112	0.335	0.75
+ a 3-oxo-5beta-steroid	1624.0	4	112	0.3332	0.7143
+ (22S,24R)-22-hydroxy-5alpha-ergostan-3-one	59411.0	4	112	0.3298	0.75
+ a 3alpha-hydroxysteroid	36835.0	4	112	0.3226	0.6667
+ a steroid	35341.0	4	112	0.322	0.641
+ 6-deoxocastasterone	20712.0	4	112	0.321	0.7755
+ 6-deoxo-28-norcastasterone	188995.0	4	112	0.3197	0.7843
+ (3alpha,5alpha,17beta)-3-hydroxy-androstan-17-yl sulfate	133105.0	4	112	0.3186	0.64
+ 17beta,19-dihydroxy-3-oxo-5alpha-androstanone	137031.0	4	112	0.3177	0.75
+ a (22S)-22-hydroxy C28-steroid	188922.0	4	112	0.3175	0.7843
+ 3alpha,17beta-dihydroxy-5alpha-androstan-11-one	234449.0	4	112	0.3164	0.6809
+ a (22S)-22-hydroxy C27-steroid	188920.0	4	112	0.3135	0.74
+ 17beta,18-dihydroxy-3-oxo-5alpha-androstanone	137037.0	4	112	0.3131	0.75
+ a 17beta-hydroxy steroid	35343.0	4	112	0.3105	0.5854
+ 17beta-hydroxy-3,19-dioxo-5alpha-androstanone	137032.0	4	112	0.3095	0.7333
+ teasterone	26863.0	4	112	0.3064	0.7963
+ 28-norteasterone	188988.0	4	112	0.3055	0.8036
+ 3-dehydro-6alpha-hydroxyteasterone	188496.0	4	112	0.3039	0.75
+ Delta(1)-dihydrotestosterone	59714.0	4	112	0.3037	0.7391
+ 3-dehydro-6alpha-hydroxy-28-norteasterone	188990.0	4	112	0.303	0.75
+ a 3beta-hydroxy-4,4-dimethylsteroid	143563.0	4	112	0.3021	0.7073
+ a (22S)-22-hydroxy C29-steroid	188924.0	4	112	0.2995	0.7843
+ cathasterone	23057.0	4	112	0.2994	0.7544
+ a 3beta-hydroxysteroid ester	13610.0	4	112	0.2988	0.6222
+ 6alpha-hydroxytyphasterol	188495.0	4	112	0.2978	0.7872
+ 5alpha-androstane-3beta,6alpha,17beta-triol	85809.0	4	112	0.2976	0.6486
+ 6alpha-hydroxy-28-norteasterone	188987.0	4	112	0.297	0.7959
+ a C28-steroid	188921.0	4	112	0.2941	0.7708
+ 5alpha-androstan-3,17-dione	15994.0	4	112	0.2938	0.6818
+ a C21-steroid	61313.0	4	112	0.2931	0.641
+ castasterone	23051.0	4	112	0.2929	0.7963
+ 28-norcastasterone	188997.0	4	112	0.2924	0.8036
+ a C27-steroid	188919.0	4	112	0.2904	0.7447
+ a 3beta-hydroxy-4beta-formyl-4alpha-methylsteroid	143568.0	4	112	0.2888	0.6905
+ a 3beta-hydroxy-4beta-hydroxymethyl-4alpha-methylsteroid	143566.0	4	112	0.2883	0.7073
+ 5alpha-dihydrotestosterone sulfate	136982.0	4	112	0.2877	0.64
+ 17beta-hydroxy-5alpha-androstan-3,11-dione	234448.0	4	112	0.2869	0.6889
+ 3-dehydroteasterone	20000.0	4	112	0.2843	0.75
+ 6-dehydro-28-norteasterone	188991.0	4	112	0.2839	0.7544
+ a 3-oxosteroid	47788.0	4	112	0.2835	0.6512
+ 3alpha-hydroxy-5alpha-androstan-11,17-dione	34134.0	4	112	0.2827	0.6957
+ a 3-oxo-Delta(1)-steroid	20156.0	4	112	0.2826	0.7391
+ 6alpha-hydroxycastasterone	20760.0	4	112	0.2823	0.7872
+ 6alpha-hydroxy-28-norcastasterone	188996.0	4	112	0.2821	0.7959
+ a 7beta-hydroxysteroid	35349.0	4	112	0.282	0.6098
+ a 3beta-hydroxy-4alpha-methylsteroid-4beta-carboxylate	143569.0	4	112	0.28	0.6744
+ a C29-steroid	188923.0	4	112	0.2788	0.7708
+ a 3beta-hydroxysteroid-4alpha-carboxylate	136966.0	4	112	0.2786	0.5833
+ a 4alpha-methyl-3-oxosteroid	143570.0	4	112	0.2779	0.6136
+ 3beta,7alpha-dihydroxy-5alpha-androstan-17-one	85816.0	4	112	0.2768	1.0
+ 3beta,7beta-dihydroxy-5alpha-androstan-17-one	183809.0	4	112	0.2768	1.0
+ a 11alpha-hydroxy steroid	19129.0	4	112	0.2759	0.619
+ 3beta-hydroxy-5alpha-androstane-7,17-dione	79834.0	4	112	0.2749	0.6522
+ 17beta-hydroxy-5beta-estran-3-one	87333.0	4	112	0.2743	0.587
+ a 17alpha-hydroxy-C21-steroid	138141.0	4	112	0.2705	0.5682
+ a 7-oxosteroid	47789.0	4	112	0.2669	0.5952
+ dihydrodigoxigenin	71004.0	4	112	0.2661	0.625
+ an 11-oxosteroid	47787.0	4	112	0.2637	0.6047
+ 17beta-hydroxy-3-oxo-19-nor-5alpha-androst-1-ene	137110.0	4	112	0.2501	0.4808
+ a 14alpha-methyl steroid	138029.0	4	112	0.2477	0.6829
+ digoxigenin	145797.0	4	112	0.2445	0.6486
+ a 14alpha-hydroxymethyl steroid	176901.0	4	112	0.2438	0.6829
+ a 17-oxo steroid	19168.0	4	112	0.2414	0.5556
+ 5alpha-androstan-3,11,17-trione	34463.0	4	112	0.2345	0.6818
+ a 14alpha-formyl steroid	176902.0	4	112	0.2323	0.6829
+ dammarenediol-II	62416.0	4	112	0.2252	0.7273
+ dihydrodigitoxin	282234.0	4	112	0.2251	0.8108
+ 5alpha-androst-1-ene-3,17-dione	133930.0	4	112	0.225	0.625
+ dihydrodigoxin	71002.0	4	112	0.2204	0.8108
+ digitoxin	145796.0	4	112	0.2183	0.8052
+ (20S)-protopanaxadiol	75950.0	4	112	0.2129	0.7719
+ (20S)-20-O-(beta-D-glucosyl)-3-hydroxydammarene	142484.0	4	112	0.2127	0.7971
+ a Delta(14) steroid	138031.0	4	112	0.2109	0.4783
+ hopan-22-ol	36484.0	4	112	0.2102	0.6
+ lupan-3beta,20-diol	62735.0	4	112	0.2098	0.6604
+ (20S)-ginsenoside C-K	77146.0	4	112	0.2068	0.8571
+ digoxin	145795.0	4	112	0.206	0.8052
+ lupeol	6570.0	4	112	0.2039	0.6604
+ hop-22(29)-ene	4648.0	4	112	0.2035	0.6
+ (20S)-protopanaxatriol	75951.0	4	112	0.1992	0.7719
+ (20S)-ginsenoside F2	77145.0	4	112	0.1983	0.9306
+ (20S)-ginsenoside Rh2	77147.0	4	112	0.1983	0.9296
+ (17Z)-protosta-17(20),24-dien-3beta-ol	62457.0	4	112	0.1955	0.5246
+ (20S)-ginsenoside F1	77150.0	4	112	0.195	0.8649
+ (20S)-ginsenoside Rd	67988.0	4	112	0.1916	0.9306
+ (20S)-ginsenoside Rg3	67991.0	4	112	0.1914	0.9296
+ (20S)-ginsenoside Rh1	142487.0	4	112	0.191	0.8553
+ (20S)-ginsenoside Rg1	67987.0	4	112	0.1908	0.8649
+ dihydroouabagenin	145789.0	4	112	0.1901	0.6986
+ ouabagenin	145799.0	4	112	0.1838	0.7143
+ (20S)-ginsenoside Rc	77154.0	4	112	0.1808	0.9231
+ dihydroouabain	131146.0	4	112	0.1736	0.6986
+ ouabain	145798.0	4	112	0.1692	0.7143
+ cholesteryl (9Z-octadecenoate)	46898.0	5	27	0.6444	1.0
+ cholesteryl (11Z)-octadecenoate	88768.0	5	27	0.6444	1.0
+ cholesteryl (7Z)-octadecenoate	152049.0	5	27	0.6444	1.0
+ cholesteryl (9Z)-hexadecenoate	84323.0	5	27	0.6444	1.0
+ cholesteryl (8Z,11Z,14Z)-eicosatrienoate	84346.0	5	27	0.6444	1.0
+ cholesteryl (9Z,12Z)-octadecadienoate	41509.0	5	27	0.6444	1.0
+ (6Z,9Z,12Z-octadecatrienoyl)-cholesterol	88756.0	5	27	0.6411	0.9859
+ cholesteryl (5Z,8Z,11Z)-eicosatrienoate	88752.0	5	27	0.6352	0.9859
+ cholesteryl (5Z,8Z,11Z,14Z)-eicosatetraenoate	82751.0	5	27	0.632	0.9859
+ (11Z,14Z,17Z-eicosatrienoyl)-cholesterol	137412.0	5	27	0.6174	1.0
+ (9Z,12Z,15Z-octadecatrienoyl)-cholesterol	84341.0	5	27	0.6174	1.0
+ cholesteryl hexadecanoate	3663.0	5	27	0.617	1.0
+ cholesteryl octadecanoate	82750.0	5	27	0.617	1.0
+ (5Z,8Z,11Z,14Z,17Z-eicosapentaenoyl)-cholesterol	84969.0	5	27	0.6016	0.9444
+ (24S)-hydroxycholesterol 3-linoleoate	82875.0	5	27	0.5581	0.8462
+ a cholesterol ester	17002.0	5	27	0.5337	0.8281
+	143135.0	5	27	0.5335	0.803
+ (24S)-24-hydroxycholesterol ester	82869.0	5	27	0.4884	0.8281
+ 2,22,25-trideoxyecdysone	19290.0	5	27	0.3699	0.8136
+ 2,22-dideoxyecdysone	80530.0	5	27	0.3669	0.8136
+ 22-deoxyecdysone	232767.0	5	27	0.3564	0.8033
+ 2-deoxyecdysone	19566.0	5	27	0.3297	0.8095
+ 2-deoxyecdysone 22-phosphate	147386.0	5	27	0.3281	0.8286
+ ecdysone	16688.0	5	27	0.3215	0.8095
+ ecdysone 22-phosphate	147380.0	5	27	0.3206	0.8286
+ 20-hydroxyecdysone 22-phosphate	147382.0	5	27	0.2873	0.7391
+ 20-hydroxyecdysone	16587.0	5	27	0.2863	0.7391
+ 17alpha-estradiol 3-O-(beta-D-glucuronate)	57529.0	6	27	0.6617	0.8235
+ estrone 3-O-(beta-D-glucuronate)	136634.0	6	27	0.6347	0.8235
+ 17beta-estradiol 3-O-(beta-D-glucuronate) 17-sulfate	178095.0	6	27	0.6317	0.8841
+ 16alpha,17beta-estriol 3-O-(beta-D-glucuronate)	136649.0	6	27	0.6286	0.8261
+ 17beta-estradiol 3-O-(3-sulfo-beta-D-glucuronate)	178093.0	6	27	0.6162	0.8714
+ 17beta-estradiol 17-O-(beta-D-glucuronate)	82961.0	6	27	0.6158	0.8116
+ 2-hydroxy-17beta-estradiol 3-O-(beta-D-glucuronate)	136931.0	6	27	0.6124	0.9355
+ 17beta-estradiol 2-O-(beta-D-glucuronate)	136933.0	6	27	0.6104	0.9355
+ 17beta-estradiol 3-O-(3-sulfo-beta-D-glucuronate) 17-sulfate	178094.0	6	27	0.5992	0.8841
+ 16alpha-hydroxyestrone 3-O-(beta-D-glucuronate)	136635.0	6	27	0.5989	0.791
+ 2-methoxy-17beta-estradiol 3-O-(beta-D-glucuronate)	136974.0	6	27	0.5985	0.8333
+ 16alpha,17beta-estriol 16-O-(beta-D-glucuronate)	136650.0	6	27	0.596	0.8143
+ 17beta-estradiol 4-O-(beta-D-glucuronate)	136937.0	6	27	0.5934	0.8281
+ 16alpha,17alpha-estriol 17-O-(beta-D-glucuronate)	136883.0	6	27	0.5912	0.8169
+ 4-hydroxy-17beta-estradiol 3-O-(beta-D-glucuronate)	136936.0	6	27	0.5904	0.8308
+ estrone 3-O-(3-sulfo-beta-D-glucuronate)	178101.0	6	27	0.5902	0.8235
+ 16alpha,17beta-estriol 3-O-(3-sulfo-beta-D-glucuronate)	178097.0	6	27	0.589	0.8261
+ 2-hydroxyestrone 3-O-(beta-D-glucuronate)	136967.0	6	27	0.5866	0.8333
+ 4-methoxy-17beta-estradiol 3-O-(beta-D-glucuronate)	136976.0	6	27	0.5798	0.8308
+ 17beta-estradiol 17-O-(3-sulfo-beta-D-glucuronate)	178096.0	6	27	0.5777	0.8116
+ 2-methoxyestrone 3-O-(beta-D-glucuronate)	136971.0	6	27	0.5739	0.8333
+ estrone 4-O-(beta-D-glucuronate)	136970.0	6	27	0.5694	0.8281
+ 4-hydroxyestrone 3-O-(beta-D-glucuronate)	136969.0	6	27	0.5668	0.8308
+ 16alpha-hydroxyestrone 16-O-(beta-D-glucuronate)	136636.0	6	27	0.5656	0.7286
+ 16alpha,17beta-estriol 16-O-(3-sulfo-beta-D-glucuronate)	178098.0	6	27	0.5603	0.8243
+ 4-methoxyestrone 3-O-(beta-D-glucuronate)	136973.0	6	27	0.557	0.8308
+ 16alpha,17beta-estriol 17-O-(3-sulfo-beta-D-glucuronate)	178099.0	6	27	0.5564	0.8243
+ 17beta-estradiol	16469.0	7	22	0.5734	0.75
+ estrone	17263.0	7	22	0.5546	0.75
+ 2-hydroxy-17beta-estradiol	28744.0	7	22	0.5247	0.7826
+ 2-hydroxy-3-methoxy-17beta-estradiol	89268.0	7	22	0.5111	0.913
+ 2-methoxy-17beta-estradiol	28955.0	7	22	0.5101	0.913
+ 2-hydroxyestrone	1156.0	7	22	0.5095	0.7826
+ 16alpha,17beta-estriol	27974.0	7	22	0.5019	0.7174
+ 2-hydroxy-3-methoxy-estrone	136980.0	7	22	0.4976	0.913
+ 2-methoxyestrone	1189.0	7	22	0.4964	0.913
+ 16alpha-hydroxyestrone	776.0	7	22	0.4929	0.6875
+ 17beta-estradiol 3-sulfate	136582.0	7	22	0.4845	0.6863
+ 4-hydroxy-17beta-estradiol	62845.0	7	22	0.4787	0.766
+ 17beta-estradiol 17-sulfate	190469.0	7	22	0.4784	0.6538
+ 15alpha-hydroxyestrone	87618.0	7	22	0.4731	0.6667
+ 15alpha-hydroxy-17beta-estradiol	87593.0	7	22	0.4649	0.6875
+ 4-methoxy-17beta-estradiol	136975.0	7	22	0.4645	0.766
+ 4-hydroxyestrone	87602.0	7	22	0.464	0.766
+ 4-methoxyestrone	136972.0	7	22	0.4512	0.766
+ estrone 3-sulfate	60050.0	7	22	0.4503	0.68
+ 6alpha-hydroxyestrone	87605.0	7	22	0.4483	0.6667
+ 6beta-hydroxyestradiol-17beta	16784.0	7	22	0.4415	0.6596
+ 7alpha-hydroxy-17beta-estradiol	87598.0	7	22	0.4055	0.6458

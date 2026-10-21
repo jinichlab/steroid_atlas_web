@@ -1,0 +1,39 @@
+# Python dependencies for everything outside the Next.js app:
+# analysis/, scripts/ (data build, structures) and rag/ (retrieval service, corpus + index).
+#
+#   python -m venv .venv && source .venv/bin/activate
+#   pip install -r requirements.txt
+#
+# Versions are the ones the published outputs were produced with (Python 3.13).
+# The numeric stack is pinned exactly because k-means, UMAP and the Tanimoto
+# statistics can shift between releases.
+
+# ── analysis + data build ─────────────────────────────────────────────────
+pandas==2.3.1
+numpy==2.2.6
+scipy==1.16.1
+scikit-learn==1.7.1
+matplotlib==3.10.0
+rdkit==2026.3.4
+umap-learn==0.5.9.post2
+joblib==1.5.1
+h5py>=3.0          # ProtT5 embeddings for analysis/scripts/19_highdim_kmeans.py
+
+# ── network steps (UniProt / Europe PMC / PubChem fetches) ───────────────
+requests>=2.32
+tqdm>=4.67
+
+# ── RAG retrieval service + index build (rag/) ───────────────────
+faiss-cpu>=1.8
+openai>=1.40
+python-dotenv>=1.0
+huggingface_hub>=0.34
+
+# ── only for analysis/historical/scripts/11_sequence_similarity.py ────
+# biopython>=1.83     # plus the CD-HIT binary on PATH (conda install -c bioconda cd-hit)
+
+# ── only for regenerating ProtT5 embeddings (GPU; upstream, not in repo) ─
+# torch>=2.0
+# transformers>=4.30
+# sentencepiece
+# h5py>=3.0

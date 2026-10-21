@@ -1,0 +1,83 @@
+cluster	family	n_proteins	pct_enzyme	pct_transporter	pct_receptor	pct_other	dominant_type	dominant_frac
+0	Hedgehog protein	224	0.0	0.0	0.0	100.0	Other	100.0
+1	Carboxylic ester hydrolase	368	99.5	0.5	0.0	0.0	Enzyme	99.5
+2	Sterol carrier protein 2	496	100.0	0.0	0.0	0.0	Enzyme	100.0
+3	G-protein coupled estrogen receptor 1	66	62.1	0.0	34.8	3.0	Enzyme	62.1
+4	Broad substrate specificity ATP-binding cassette transp	265	0.0	100.0	0.0	0.0	Transporter	100.0
+5	Cholesterol 24-hydroxylase	713	100.0	0.0	0.0	0.0	Enzyme	100.0
+6	Non-lysosomal glucosylceramidase	50	0.0	10.0	14.0	76.0	Other	76.0
+7	Glucosylceramidase	281	8.2	0.0	0.0	91.8	Other	91.8
+8	24-hydroxycholesterol 7-alpha-hydroxylase	268	94.4	0.0	0.0	5.6	Enzyme	94.4
+9	Peroxisomal coenzyme A diphosphatase NUDT7	388	0.0	0.0	0.0	100.0	Other	100.0
+10	Acyl-coenzyme A thioesterase 8	572	99.7	0.0	0.3	0.0	Enzyme	99.7
+11	Acyl-coenzyme A diphosphatase NUDT19	252	4.4	0.0	0.0	95.6	Other	95.6
+12	Bile salt export pump	83	0.0	100.0	0.0	0.0	Transporter	100.0
+13	Glucosylceramidase	186	2.7	0.0	1.1	96.2	Other	96.2
+14	Hormone-sensitive lipase	383	0.0	0.3	0.0	99.7	Other	99.7
+15	Oxysterol-binding protein-related protein 8	110	34.5	48.2	0.0	17.3	Mixed	0.0
+16	Hormone-sensitive lipase	220	0.0	0.0	0.0	100.0	Other	100.0
+17	Cholesterol 24-hydroxylase	182	69.8	0.5	0.5	29.1	Enzyme	69.8
+18	11-beta-hydroxysteroid dehydrogenase 1	204	85.3	0.5	0.0	14.2	Enzyme	85.3
+19	Cytochrome P450 1A	445	4.3	0.0	0.0	95.7	Other	95.7
+20	Multidrug resistance-associated protein 4	103	0.0	100.0	0.0	0.0	Transporter	100.0
+21	Sterol carrier protein 2	381	94.2	4.5	0.0	1.3	Enzyme	94.2
+22	11-beta-hydroxysteroid dehydrogenase 1	252	100.0	0.0	0.0	0.0	Enzyme	100.0
+23	Non-lysosomal glucosylceramidase	181	18.2	0.0	0.0	81.8	Other	81.8
+24	Apolipoprotein A-II	83	7.2	71.1	16.9	4.8	Transporter	71.1
+25	Cholesterol 24-hydroxylase	200	100.0	0.0	0.0	0.0	Enzyme	100.0
+26	Caveolin	77	0.0	0.0	0.0	100.0	Other	100.0
+27	3-hydroxyacyl-CoA dehydrogenase type-2	313	98.4	0.0	0.0	1.6	Enzyme	98.4
+28	Lanosterol 14-alpha demethylase	164	100.0	0.0	0.0	0.0	Enzyme	100.0
+29	G-protein coupled estrogen receptor 1	159	0.0	1.9	98.1	0.0	Receptor	98.1
+30	Hormone-sensitive lipase	104	4.8	1.0	0.0	94.2	Other	94.2
+31	Delta(24)-sterol reductase	41	17.1	0.0	17.1	65.9	Other	65.9
+32	Carboxylic ester hydrolase	563	99.1	0.5	0.0	0.4	Enzyme	99.1
+33	24-hydroxycholesterol 7-alpha-hydroxylase	56	98.2	0.0	0.0	1.8	Enzyme	98.2
+34	Estrogen receptor	82	0.0	0.0	100.0	0.0	Receptor	100.0
+35	Multidrug resistance-associated protein 1	81	1.2	97.5	0.0	1.2	Transporter	97.5
+36	Glucocorticoid receptor	191	0.0	3.7	91.6	4.7	Receptor	91.6
+37	Multidrug resistance-associated protein 1	43	27.9	72.1	0.0	0.0	Transporter	72.1
+38	Glucosylceramidase	93	7.5	0.0	5.4	87.1	Other	87.1
+39	3-hydroxyacyl-CoA dehydrogenase type-2	168	81.5	6.0	0.0	12.5	Enzyme	81.5
+40	Broad substrate specificity ATP-binding cassette transp	342	0.0	98.5	1.5	0.0	Transporter	98.5
+41	Non-selective voltage-gated ion channel VDAC1	69	0.0	100.0	0.0	0.0	Transporter	100.0
+42	Peroxisomal multifunctional enzyme type 2	82	98.8	0.0	0.0	1.2	Enzyme	98.8
+43	Acyl-coenzyme A diphosphatase NUDT19	205	0.0	0.5	0.0	99.5	Other	99.5
+44	Glucosylceramidase	385	0.8	0.0	0.0	99.2	Other	99.2
+45	Steroid 17-alpha-hydroxylase	144	90.3	0.0	8.3	1.4	Enzyme	90.3
+46	Cytochrome P450 85A1	11	27.3	0.0	0.0	72.7	Other	72.7
+47	Cholesterol 24-hydroxylase	199	75.4	4.0	0.5	20.1	Enzyme	75.4
+48	Sterol O-acyltransferase 1	46	43.5	10.9	0.0	45.7	Mixed	0.0
+49	Non-lysosomal glucosylceramidase	112	0.0	0.0	0.0	100.0	Other	100.0
+50	Apolipoprotein A-I	59	0.0	98.3	0.0	1.7	Transporter	98.3
+51	Broad substrate specificity ATP-binding cassette transp	166	0.0	100.0	0.0	0.0	Transporter	100.0
+52	Non-lysosomal glucosylceramidase	90	0.0	0.0	0.0	100.0	Other	100.0
+53	Multidrug resistance-associated protein 1	40	0.0	67.5	0.0	32.5	Transporter	67.5
+54	Glucosylceramidase	46	0.0	17.4	0.0	82.6	Other	82.6
+55	Organic solute transporter subunit alpha	33	9.1	78.8	0.0	12.1	Transporter	78.8
+56	Cytochrome P450 3A	73	11.0	0.0	0.0	89.0	Other	89.0
+57	Hormone-sensitive lipase	299	7.0	0.0	0.0	93.0	Other	93.0
+58	3-keto-steroid reductase	104	85.6	0.0	0.0	14.4	Enzyme	85.6
+59	Glucosylceramidase	324	0.0	0.0	0.0	100.0	Other	100.0
+60	Hedgehog protein	212	0.0	0.0	0.0	100.0	Other	100.0
+61	3-hydroxyacyl-CoA dehydrogenase type-2	63	58.7	0.0	0.0	41.3	Mixed	0.0
+62	Bile acid receptor	82	24.4	0.0	41.5	34.1	Mixed	0.0
+63	Patched 1	89	28.1	0.0	71.9	0.0	Receptor	71.9
+64	Aldo-keto reductase family 1 member C1	148	87.8	0.0	0.0	12.2	Enzyme	87.8
+65	Non-lysosomal glucosylceramidase	68	29.4	1.5	0.0	69.1	Other	69.1
+66	Androgen receptor	105	2.9	1.0	84.8	11.4	Receptor	84.8
+67	Sterol carrier protein 2	311	89.4	8.7	0.0	1.9	Enzyme	89.4
+68	Sterol carrier protein 2	69	100.0	0.0	0.0	0.0	Enzyme	100.0
+69	Sterol carrier protein 2	310	95.5	0.0	0.0	4.5	Enzyme	95.5
+70	(3R)-3-hydroxyacyl-CoA dehydrogenase	16	100.0	0.0	0.0	0.0	Enzyme	100.0
+71	Non-lysosomal glucosylceramidase	82	14.6	0.0	0.0	85.4	Other	85.4
+72	Bile acid receptor	58	0.0	0.0	98.3	1.7	Receptor	98.3
+73	Multidrug resistance-associated protein 1	35	54.3	31.4	0.0	14.3	Mixed	0.0
+74	Carboxylic ester hydrolase	198	94.4	1.0	0.5	4.0	Enzyme	94.4
+75	Cholesterol 24-hydroxylase	59	49.2	16.9	0.0	33.9	Mixed	0.0
+76	Caveolin	13	0.0	46.2	0.0	53.8	Mixed	0.0
+77	Microsomal triglyceride transfer protein large subunit	9	0.0	100.0	0.0	0.0	Transporter	100.0
+78	Sodium/potassium-transporting ATPase subunit alpha	75	0.0	100.0	0.0	0.0	Transporter	100.0
+79	(3R)-3-hydroxyacyl-CoA dehydrogenase	67	86.6	0.0	0.0	13.4	Enzyme	86.6
+80	Tetraspanin	58	0.0	0.0	1.7	98.3	Other	98.3
+81	Phosphatidylcholine-sterol acyltransferase	42	64.3	19.0	0.0	16.7	Enzyme	64.3

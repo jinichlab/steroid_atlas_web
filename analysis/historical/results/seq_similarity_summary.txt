@@ -1,0 +1,28 @@
+==============================================================================
+SEQUENCE-SIMILARITY CHARACTERIZATION — all 35,117 atlas proteins
+==============================================================================
+
+[A] Per-protein nearest-neighbor identity  (100% coverage — every
+    protein contributes one value):
+    min           0.0%
+    5%            50.9%
+    25%           55.5%
+    median        62.7%
+    75%           73.7%
+    95%           89.5%
+    max           100.0%
+    mean          65.8%
+
+    Fraction of atlas whose NN identity is ≥ threshold:
+      ≥ 30%       99.9%
+      ≥ 50%       99.9%
+      ≥ 70%       32.2%
+      ≥ 90%        4.7%
+
+    Coverage note: 35,117 / 35,117 proteins covered (singleton reps backfilled by 500-protein alignment sample).
+
+[B] CD-HIT redundancy at multiple identity thresholds (clustering on all sequences):
+       threshold     clusters    reduction
+       90%           11,283       67.9%
+       75%            4,258       87.9%
+       50%            1,118       96.8%

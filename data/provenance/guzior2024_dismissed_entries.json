@@ -1,0 +1,27 @@
+{
+  "decision": "Not added to atlas",
+  "date_decided": "2026-07-23",
+  "reason": "No direct protein-level biochemical evidence in Guzior et al. 2024. Only CpBSH/T (WP_243289361) was purified, kinetically characterized, and mutagenized (N82Y, C2A). All other Table 1 entries carry only species-level MCBA-culture activity, which cannot be unambiguously attributed to a specific paralog protein. Kept in literature/guzior2024_review_ready.json for future reference if additional experimental evidence emerges.",
+  "n_dismissed": 18,
+  "dismissed_accessions": [
+    "WP_219649723",
+    "WP_092364887",
+    "WP_165640901",
+    "WP_002565680",
+    "WP_002587930",
+    "WP_092240532",
+    "WP_173900661",
+    "OCR29502",
+    "ABC26910",
+    "ACJ52536",
+    "QIB57271",
+    "WP_007861063",
+    "SET75766",
+    "WP_138313413",
+    "WP_100306104",
+    "WP_024291983",
+    "ACL98169",
+    "EOL33562"
+  ],
+  "paper_doi": "https://doi.org/10.1038/s41586-024-07017-8"
+}

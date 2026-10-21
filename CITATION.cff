@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this atlas, please cite it as below and cite the underlying source papers listed in README.md."
+title: "Steroid Atlas: an interactive UMAP visualization of steroid-metabolizing enzymes and their substrates"
+authors:
+  - family-names: "Sierra Ordieres"
+    given-names: "Andres"
+    email: "adsiordia@ucsd.edu"
+    affiliation: "Jinich Lab, University of California San Diego"
+  - family-names: "Uppal"
+    given-names: "Akshay"
+    email: "akuppal@ucsd.edu"
+    affiliation: "Jinich Lab, University of California San Diego"
+version: "0.1.0"
+date-released: "2026-07-23"
+license: MIT
+repository-code: "https://github.com/jinichlab/steroid_atlas"

@@ -52,7 +52,7 @@ and a multi-column search bar.
 
 ```bash
 git clone https://github.com/jinichlab/steroid_atlas_web.git
-cd steroid_atlas_web
+cd steroid_atlas_web/web
 npm install
 npm run dev -- --port 3000
 ```
@@ -63,13 +63,13 @@ npm run dev -- --port 3000
 prebuilt corpus of ChEBI compound records and UniProt protein literature. On an
 Explore page it also sees your current selection (lasso / search / cluster), so
 "what are these?" works — the selected items are shared with the chat via
-`src/lib/selection-context.tsx` and shown as a "N selected" chip in the widget.
+`web/src/lib/selection-context.tsx` and shown as a "N selected" chip in the widget.
 
 Two processes:
 
 1. **Retrieval sidecar** — a local Python service that owns the 2 GB FAISS index.
    ```bash
-   npm run dev:rag          # loads the index (~20 s), serves 127.0.0.1:8000
+   npm run dev:rag          # from web/; loads the index (~20 s), serves 127.0.0.1:8000
    ```
 2. **Next.js** — `npm run dev` as usual. `/api/chat` embeds each question, asks
    the sidecar for the top passages, and prompts OpenAI with them + a
@@ -78,10 +78,10 @@ Two processes:
 
 Setup:
 
-- `cp .env.example .env.local` and set `OPENAI_API_KEY`.
+- `cp web/.env.example web/.env.local` and set `OPENAI_API_KEY`.
 - The vector store lives in `rag_data/rag_store/` (`index.faiss` + `catalog.jsonl`,
   ~2.2 GB, gitignored — copy it in out of band). Details and a systemd unit for
-  deployment: [`scripts/rag/README.md`](scripts/rag/README.md).
+  deployment: [`rag/README.md`](rag/README.md).
 - Needs a persistent host (~4 GB RAM) — **not** Vercel serverless.
 
 ## Routes
@@ -96,49 +96,37 @@ Setup:
 ## Repo layout
 
 ```
-src/
-  app/
-    page.tsx                        Landing page
-    explore/[view]/                 Three views share one dynamic route
-      page.tsx                      Loads per-view cluster metadata
-      explore-client.tsx            All interaction logic (client component)
-  components/
-    UmapPlot.tsx                    deck.gl scatter + icon + text layers
-  lib/
-    palette.ts                      Golden-angle palette + spatial re-mapping
-    types.ts                        Protein / Molecule / ClusterMeta types
-public/
-  atlas/
-    proteins.json                   14,089 rows  (~23 MB)
-    molecules.json                    676 rows   (~3 MB)
-    natsyn.json                     2,976 rows   (~4 MB)
-    protein_clusters.json              82 clusters (fingerprint stems + top GO)
-    molecule_clusters.json              8 clusters (Bile acids, Estrogens, …)
-    natsyn_clusters.json                2 clusters (natural / synthetic)
-    structures/                    ~2,441 pre-rendered 260×260 PNGs
-    structures_index.json          name / CHEBI → PNG filename lookup
-    summary.json                   Landing-page counts
-scripts/
-  build_atlas_data.py              CSV → JSON pre-processing
-  build_structures.py              RDKit renders 2D structure PNGs
-  rag/rag_server.py                RAG retrieval sidecar (FAISS + OpenAI embeddings)
-rag_data/rag_store/                index.faiss + catalog.jsonl (gitignored, ~2.2 GB)
+web/                     Next.js web app — run npm commands from here
+  src/app/               pages + API routes (/api/chat, /api/config)
+  src/components/        UmapPlot (deck.gl), ChatWidget, API-key UI
+  src/lib/               palette, types, key mode, RAG client
+  public/atlas/          generated web data: JSON + 2,441 structure PNGs
+rag/                     "Ask the Atlas" retrieval service + corpus/index builders
+data/                    canonical CSVs (proteins, molecules, natural + synthetic)
+  provenance/            paper-audit record for the literature-recruited entries
+analysis/                every paper analysis — see analysis/README.md
+  scripts/  results/  figures/       reproducible from data/
+  historical/                        how proteins.csv was built (record only)
+scripts/                 reproduce_analysis.sh, build_atlas_data.py,
+                         build_structures.py, deploy_space.sh, start_space.sh
+docs/                    methods + changelog
+rag_data/                gitignored: 2.1 GB index + raw corpus
+Dockerfile               Hugging Face Space image (web/ + rag/)
+requirements.txt         Python deps for analysis/, scripts/, rag/
 ```
 
 ## Rebuilding the data
 
-The bundled JSON + PNGs are regenerated from the marimo repo's CSVs whenever
-they change. Clone both repos side-by-side and run:
+Everything downstream of `data/*.csv` — analyses, figures and the web app's
+`web/public/atlas/` — rebuilds with one command:
 
 ```bash
-# from steroid_atlas_web/
-LD_LIBRARY_PATH=~/miniconda3/lib ~/miniconda3/bin/python3 scripts/build_atlas_data.py
-LD_LIBRARY_PATH=~/miniconda3/lib ~/miniconda3/bin/python3 scripts/build_structures.py
+pip install -r requirements.txt
+sh scripts/reproduce_analysis.sh          # ~2 min; add --no-web to skip web/public/atlas/
 ```
 
-`build_atlas_data.py` reads from `../steroid_atlas/data/` and writes to
-`public/atlas/`; `build_structures.py` needs RDKit (available in the
-project's miniconda env).
+To rebuild only the web data: `python3 scripts/build_atlas_data.py` and
+`python3 scripts/build_structures.py` (needs RDKit).
 
 ## UMAP interactions
 

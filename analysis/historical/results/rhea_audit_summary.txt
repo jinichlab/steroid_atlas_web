@@ -1,0 +1,49 @@
+============================================================================
+RHEA RE-AUDIT — 32,869 Rhea-source entries
+============================================================================
+
+Decision counts:
+  27,914  KEEP_RHEA
+   3,524  DROP_STALE
+   1,423  KEEP_ANNOTATION
+       8  MISSING
+
+Recommended action:  drop 3,524 stale entries → Rhea corpus shrinks from 32,869 → 29,345
+
+--- Top protein-name substrings in KEEP_RHEA (27,914) ---
+     2271  Glucosylceramidase
+     1461  Sterol carrier protein 2
+     1339  Lanosterol 14-alpha demethylase
+     1329  Hedgehog protein
+     1201  Cholesterol 24-hydroxylase
+     1170  Bile salt export pump
+     1018  Carboxylic ester hydrolase
+     1012  Hormone-sensitive lipase
+      945  11-beta-hydroxysteroid dehydrogenase 1
+      944  Multidrug resistance-associated protein 1
+      916  3-hydroxyacyl-CoA dehydrogenase type-2
+      861  3-keto-steroid reductase/17-beta-hydroxysteroid dehydrogenase 7
+
+--- Top protein-name substrings in DROP_STALE (3,524) ---
+     1313  Multidrug resistance-associated protein 4
+      482  Cystic fibrosis transmembrane conductance regulator
+      232  Hormone-sensitive lipase
+      220  Multidrug resistance-associated protein 1
+      153  Bile salt export pump
+      122  Hedgehog protein
+      104  Carboxylic ester hydrolase
+       96  Glucosylceramidase
+       96  Cytosolic beta-glucosidase
+       96  Cytochrome P450 1A
+       93  Carbonyl reductase
+       74  Broad substrate specificity ATP-binding cassette transporter ABCG2
+
+--- Top protein-name substrings in MISSING (8) ---
+        2  Δ4-3-ketosteroid 5β-reductase
+        1  OsrC
+        1  OsrA
+        1  OsrB
+        1  Fused Δ4-3-ketosteroid 5β-reductase / 3β-HSDH-Δ5-4 isomerase
+        1  Δ6-3-ketosteroid reductase
+        1  Bile salt hydrolase/transferase
+

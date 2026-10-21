@@ -1,0 +1,83 @@
+cluster	family	original_type	refined_category	refined_frac	observed	n_proteins
+0	Hedgehog protein	Other	Other		0.6567	224
+1	Carboxylic ester hydrolase	Enzyme	EC 3	0.973	0.2758	368
+2	Sterol carrier protein 2	Enzyme	EC 2	0.992	0.282	496
+3	G-protein coupled estrogen receptor 1	Enzyme	EC 1	1.0	0.2581	66
+4	Broad substrate specificity ATP-binding cassette transporter ABCG2	Transporter	Transporter		0.323	265
+5	Cholesterol 24-hydroxylase	Enzyme	EC 1	1.0	0.3781	713
+6	Non-lysosomal glucosylceramidase	Other	Other		0.4206	50
+7	Glucosylceramidase	Other	Other		0.2823	281
+8	24-hydroxycholesterol 7-alpha-hydroxylase	Enzyme	EC 1	1.0	0.2772	268
+9	Peroxisomal coenzyme A diphosphatase NUDT7	Other	Other		0.3558	388
+10	Acyl-coenzyme A thioesterase 8	Enzyme	EC 3	0.988	0.3104	572
+11	Acyl-coenzyme A diphosphatase NUDT19	Other	Other		0.5737	252
+12	Bile salt export pump	Transporter	Transporter		0.5805	83
+13	Glucosylceramidase	Other	Other		0.5434	186
+14	Hormone-sensitive lipase	Other	Other		0.4531	383
+15	Oxysterol-binding protein-related protein 8	Mixed	Mixed		0.2551	110
+16	Hormone-sensitive lipase	Other	Other		0.6656	220
+17	Cholesterol 24-hydroxylase	Enzyme	EC 1	1.0	0.2717	182
+18	11-beta-hydroxysteroid dehydrogenase 1	Enzyme	EC 1	0.96	0.2535	204
+19	Cytochrome P450 1A	Other	Other		0.3188	445
+20	Multidrug resistance-associated protein 4	Transporter	Transporter		0.4848	103
+21	Sterol carrier protein 2	Enzyme	EC 2	0.969	0.284	381
+22	11-beta-hydroxysteroid dehydrogenase 1	Enzyme	EC 1	1.0	0.3111	252
+23	Non-lysosomal glucosylceramidase	Other	Other		0.2775	181
+24	Apolipoprotein A-II	Transporter	Transporter		0.3573	83
+25	Cholesterol 24-hydroxylase	Enzyme	EC 1	1.0	0.4341	200
+26	Caveolin	Other	Other		0.4006	77
+27	3-hydroxyacyl-CoA dehydrogenase type-2	Enzyme	EC 1	1.0	0.3235	313
+28	Lanosterol 14-alpha demethylase	Enzyme	EC 1	1.0	0.3678	164
+29	G-protein coupled estrogen receptor 1	Receptor	Receptor		0.4925	159
+30	Hormone-sensitive lipase	Other	Other		0.3008	104
+31	Delta(24)-sterol reductase	Other	Other		0.3269	41
+32	Carboxylic ester hydrolase	Enzyme	EC 3	1.0	0.3612	563
+33	24-hydroxycholesterol 7-alpha-hydroxylase	Enzyme	EC 1	1.0	0.2911	56
+34	Estrogen receptor	Receptor	Receptor			82
+35	Multidrug resistance-associated protein 1	Transporter	Transporter		0.3125	81
+36	Glucocorticoid receptor	Receptor	Receptor		0.7414	191
+37	Multidrug resistance-associated protein 1	Transporter	Transporter		0.3143	43
+38	Glucosylceramidase	Other	Other		0.2823	93
+39	3-hydroxyacyl-CoA dehydrogenase type-2	Enzyme	EC 1	0.993	0.2989	168
+40	Broad substrate specificity ATP-binding cassette transporter ABCG2	Transporter	Transporter		0.323	342
+41	Non-selective voltage-gated ion channel VDAC1	Transporter	Transporter			69
+42	Peroxisomal multifunctional enzyme type 2	Enzyme	EC 4	0.728	0.3192	82
+43	Acyl-coenzyme A diphosphatase NUDT19	Other	Other		0.656	205
+44	Glucosylceramidase	Other	Other		0.3558	385
+45	Steroid 17-alpha-hydroxylase	Enzyme	EC 1	1.0	0.2954	144
+46	Cytochrome P450 85A1	Other	Other		0.4529	11
+47	Cholesterol 24-hydroxylase	Enzyme	EC 1	1.0	0.3011	199
+48	Sterol O-acyltransferase 1	Mixed	Mixed		0.4012	46
+49	Non-lysosomal glucosylceramidase	Other	Other		0.5072	112
+50	Apolipoprotein A-I	Transporter	Transporter		0.6567	59
+51	Broad substrate specificity ATP-binding cassette transporter ABCG2	Transporter	Transporter		0.323	166
+52	Non-lysosomal glucosylceramidase	Other	Other		0.5072	90
+53	Multidrug resistance-associated protein 1	Transporter	Transporter		0.3687	40
+54	Glucosylceramidase	Other	Other		0.4055	46
+55	Organic solute transporter subunit alpha	Transporter	Transporter		0.3089	33
+56	Cytochrome P450 3A	Other	Other		0.263	73
+57	Hormone-sensitive lipase	Other	Other		0.2727	299
+58	3-keto-steroid reductase	Enzyme	EC 1	1.0	0.3275	104
+59	Glucosylceramidase	Other	Other		0.7486	324
+60	Hedgehog protein	Other	Other		0.6567	212
+61	3-hydroxyacyl-CoA dehydrogenase type-2	Mixed	Mixed		0.2615	63
+62	Bile acid receptor	Mixed	Mixed		0.2694	82
+63	Patched 1	Receptor	Receptor		0.3364	89
+64	Aldo-keto reductase family 1 member C1	Enzyme	EC 1	1.0	0.3386	148
+65	Non-lysosomal glucosylceramidase	Other	Other		0.356	68
+66	Androgen receptor	Receptor	Receptor		0.324	105
+67	Sterol carrier protein 2	Enzyme	EC 2	0.971	0.3481	311
+68	Sterol carrier protein 2	Enzyme	EC 2	0.58	0.3183	69
+69	Sterol carrier protein 2	Enzyme	EC 2	1.0	0.3529	310
+70	(3R)-3-hydroxyacyl-CoA dehydrogenase	Enzyme	EC 1	1.0	0.2823	16
+71	Non-lysosomal glucosylceramidase	Other	Other		0.3004	82
+72	Bile acid receptor	Receptor	Receptor		0.6567	58
+73	Multidrug resistance-associated protein 1	Mixed	Mixed		0.3123	35
+74	Carboxylic ester hydrolase	Enzyme	EC 3	0.909	0.277	198
+75	Cholesterol 24-hydroxylase	Mixed	Mixed		0.2786	59
+76	Caveolin	Mixed	Mixed			13
+77	Microsomal triglyceride transfer protein large subunit	Transporter	Transporter		0.7862	9
+78	Sodium/potassium-transporting ATPase subunit alpha	Transporter	Transporter			75
+79	(3R)-3-hydroxyacyl-CoA dehydrogenase	Enzyme	EC 1	1.0	0.3448	67
+80	Tetraspanin	Other	Other			58
+81	Phosphatidylcholine-sterol acyltransferase	Enzyme	EC 2	1.0	0.3675	42

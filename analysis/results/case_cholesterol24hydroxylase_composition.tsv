@@ -1,0 +1,6 @@
+cluster	n_proteins	median_length	length_p10	length_p90	umap_cx	umap_cy	top_kingdom	top_kingdom_pct	top_organism	top_organism_n	substrate_pool_size
+6	713	501	463	510	16.264	5.038	Other/unknown	89	Oncorhynchus mykiss (Rainbow trout) (Salmo gairdneri)	33	26
+18	182	500	221	587	13.683	1.592	Other/unknown	84	Macaca mulatta (Rhesus macaque)	4	44
+26	200	394	373	401	13.871	-0.367	Other/unknown	94	Thamnophis sirtalis	2	20
+48	199	394	394	531	11.961	-1.318	Other/unknown	81	Rattus norvegicus (Rat)	10	66
+76	59	445	237	542	-2.559	7.11	Other/unknown	59	Homo sapiens (Human)	8	64
