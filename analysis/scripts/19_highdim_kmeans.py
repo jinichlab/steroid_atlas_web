@@ -12,12 +12,18 @@ compared directly:
     data/embeddings/prott5.h5, L2-normalised so Euclidean k-means ranks
     neighbours like cosine similarity. Skipped (with a message) when the file
     is absent; proteins without a vector get cluster_hd = -1.
+    Literature-recruited proteins added after that matrix was built have
+    their vectors in data/embeddings/literature_recruited.h5 (copied from
+    jinichlab/steroid_atlas literature/embeddings/). k-means is fit on the
+    atlas matrix only and they are assigned to the nearest centroid, so the
+    original clusters (and their names) don't move.
 
 KMeans(k, random_state=42, n_init=10) everywhere. Agreement with the 2D
 clusters is reported as the adjusted Rand index (ARI).
 
 Reads:  ../../data/molecules.csv, ../../data/proteins.csv,
         ../../data/embeddings/prott5.h5 (optional)
+        ../../data/embeddings/literature_recruited.h5 (optional)
 Writes: ../results/molecule_clusters_hd.tsv   row-aligned with molecules.csv → cluster_hd
         ../results/protein_clusters_hd.tsv    accession → cluster_hd  (if .h5 present)
         ../results/highdim_kmeans_report.md
@@ -43,6 +49,7 @@ RDLogger.DisableLog("rdApp.*")
 MOLECULES = ROOT / "data" / "molecules.csv"
 PROTEINS = ROOT / "data" / "proteins.csv"
 EMBEDDINGS = ROOT / "data" / "embeddings" / "prott5.h5"
+RECRUITED = ROOT / "data" / "embeddings" / "literature_recruited.h5"
 K_MOLECULES, K_PROTEINS = 8, 82
 FP_RADIUS, FP_BITS = 2, 2048
 RANDOM_STATE, N_INIT = 42, 10
@@ -65,11 +72,12 @@ def crosstab_lines(umap_labels: pd.Series, hd_labels: pd.Series, top: int = 10) 
     return lines
 
 
-def load_embeddings(accessions: list[str]) -> tuple[np.ndarray, list[str]]:
+def load_embeddings(accessions: list[str], path: Path = EMBEDDINGS) -> tuple[np.ndarray, list[str]]:
     """Vectors for the accessions present in the .h5. Keys are FASTA headers:
     "ACCESSION ENTRY_NAME | Organism" in the lab's file (first whitespace
-    token = accession, as build_protein_centric_v2.py reads it), or the UniProt
-    style "sp|P12345|NAME ..." (middle field)."""
+    token = accession, as build_protein_centric_v2.py reads it),
+    "ACCESSION|ENTRY|gene|Organism|len=N" in literature_recruited.h5 (first
+    field), or the UniProt style "sp|P12345|NAME ..." (middle field)."""
     import h5py
 
     vecs: dict[str, np.ndarray] = {}
@@ -78,12 +86,15 @@ def load_embeddings(accessions: list[str]) -> tuple[np.ndarray, list[str]]:
         # makes HDF5 nest it in groups, so top-level keys alone can miss some.
         if isinstance(obj, h5py.Dataset):
             first = name.split()[0]
-            acc = first.split("|")[1] if first.count("|") >= 2 else first
+            parts = first.split("|")
+            acc = parts[1] if parts[0] in ("sp", "tr") else parts[0]
             vecs[acc] = np.asarray(obj, dtype=np.float32).reshape(-1)
 
-    with h5py.File(EMBEDDINGS, "r") as f:
+    with h5py.File(path, "r") as f:
         f.visititems(take)
     found = [a for a in accessions if a in vecs]
+    if not found:
+        return np.empty((0, 0), dtype=np.float32), []
     return np.stack([vecs[a] for a in found]), found
 
 
@@ -119,17 +130,31 @@ def main() -> int:
     else:
         V, found = load_embeddings(prot["accession"].tolist())
         V /= np.linalg.norm(V, axis=1, keepdims=True)  # cosine geometry
-        hd = pd.Series(kmeans(V, K_PROTEINS), index=found)
+        km = KMeans(n_clusters=K_PROTEINS, random_state=RANDOM_STATE, n_init=N_INIT).fit(V)
+        hd = pd.Series(km.labels_, index=found)
+        # Recruited proteins: nearest centroid of the clusters fit above.
+        recruited: list[str] = []
+        if RECRUITED.exists():
+            rest = prot.loc[~prot["accession"].isin(found), "accession"].tolist()
+            R, recruited = load_embeddings(rest, RECRUITED)
+            if recruited:
+                R /= np.linalg.norm(R, axis=1, keepdims=True)
+                hd = pd.concat([hd, pd.Series(km.predict(R), index=recruited)])
         prot["cluster_hd"] = prot["accession"].map(hd).fillna(-1).astype(int)
         prot[["accession", "cluster_hd"]].to_csv(
             output("protein_clusters_hd.tsv"), sep="\t", index=False)
         have = prot[prot["cluster_hd"] >= 0]
         missing = prot.loc[prot["cluster_hd"] < 0, "accession"].tolist()
-        ari = adjusted_rand_score(have["cluster"], have["cluster_hd"])
-        print(f"proteins: {len(have)}/{len(prot)} embedded, k={K_PROTEINS}, ARI vs 2D = {ari:.3f}")
+        fit = have[have["accession"].isin(found)]  # ARI over the fit set only
+        ari = adjusted_rand_score(fit["cluster"], fit["cluster_hd"])
+        print(f"proteins: {len(have)}/{len(prot)} embedded ({len(recruited)} recruited, "
+              f"nearest-centroid), k={K_PROTEINS}, ARI vs 2D = {ari:.3f}")
         lines += [f"## Proteins ({len(have):,} of {len(prot):,} embedded, k = {K_PROTEINS})", "",
                   f"- Space: ProtT5 (`{EMBEDDINGS.name}`, {V.shape[1]}-d, L2-normalised)",
                   f"- ARI vs 2D UMAP clusters: **{ari:.3f}**",
+                  f"- Assigned to nearest centroid (vectors from `{RECRUITED.name}`, "
+                  f"not used to fit): {len(recruited)}"
+                  + (f" — {', '.join(recruited)}" if recruited else ""),
                   f"- No vector (cluster_hd = -1): {len(missing)}"
                   + (f" — {', '.join(missing[:20])}" if missing else ""), "",
                   *crosstab_lines(have["cluster"], have["cluster_hd"]), ""]

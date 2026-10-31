@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased — 2026-10-31 — Literature recruits in the high-dim clustering
+
+- **Recruited proteins now carry a high-dim cluster:** 14 of the 15 literature-recruited proteins had `cluster_hd = -1` (grey in the full-embedding view) because their ProtT5 vectors were never in `data/embeddings/prott5.h5`. Their vectors (`literature_recruited.h5`, from jinichlab/steroid_atlas `literature/embeddings/`) now sit in `data/embeddings/`. `analysis/scripts/19_highdim_kmeans.py` fits k-means on the atlas matrix as before and assigns the recruits to the nearest centroid, so all other labels, cluster names and the ARI (0.647) are unchanged. The bile-salt hydrolases Q5LF84 and WP_243289361 join HD cluster 45 with P0DXD2. The other 12 join HD cluster 8. Unlabeled proteins: 14 → **0**.
+- **Cluster colors:** the full-embedding views (82 clusters) now use a maximally distinct palette (`web/src/lib/palette.ts`). Before, some clusters far apart on the map got near-identical colors.
+
 ## v0.2.2 — 2026-10-12 — Steroid set sync + natural/synthetic UMAP refit
 
 Applied by `analysis/scripts/18_sync_steroid_sets.py` (summary in `analysis/results/natsyn_umap_report.txt`).

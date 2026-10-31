@@ -18,11 +18,12 @@ Same k as the published clusters; only the space differs. ARI = adjusted Rand in
 | 4 | 32 | 4 (100%) | 1 |
 | 6 | 27 | 3 (63%) | 2 |
 
-## Proteins (14,075 of 14,089 embedded, k = 82)
+## Proteins (14,089 of 14,089 embedded, k = 82)
 
 - Space: ProtT5 (`prott5.h5`, 1024-d, L2-normalised)
 - ARI vs 2D UMAP clusters: **0.647**
-- No vector (cluster_hd = -1): 14 — C8WL28, C8WL29, C8WL30, C8WL31, MFU7515415, MFU7516964, MFU7517346, dw0526, cp1309, mf2052, mf0519, Q8A6H3, Q5LF84, WP_243289361
+- Assigned to nearest centroid (vectors from `literature_recruited.h5`, not used to fit): 14 — C8WL28, C8WL29, C8WL30, C8WL31, MFU7515415, MFU7516964, MFU7517346, dw0526, cp1309, mf2052, mf0519, Q8A6H3, Q5LF84, WP_243289361
+- No vector (cluster_hd = -1): 0
 
 | High-dim cluster | Size | Main 2D cluster (share) | 2D clusters spanned |
 |---:|---:|---|---:|

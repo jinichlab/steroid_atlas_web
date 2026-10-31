@@ -51,4 +51,6 @@ data/*.bak
 data/*.pre_*_backup
 .venv/
 # ProtT5 vectors (~160 MB) — fetch separately, see analysis/README.md
-data/embeddings/
+data/embeddings/*
+# …except the literature recruits' vectors (72 KB), used by 19_highdim_kmeans.py
+!data/embeddings/literature_recruited.h5
