@@ -51,7 +51,7 @@ export default function ApiKeyForm({ compact = false }: { compact?: boolean }) {
     return (
       <div className={`flex flex-wrap items-center gap-2 ${text}`}>
         <span className="text-slate-600">
-          🔑 {mode === "user" ? "Using your key" : "Key saved"} ({hint})
+          {mode === "user" ? "Using your key" : "Key saved"} ({hint})
         </span>
         <button
           className="rounded border border-slate-300 bg-white px-2 py-0.5 text-slate-700 hover:bg-slate-100 disabled:opacity-50"
