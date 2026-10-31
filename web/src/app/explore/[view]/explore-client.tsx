@@ -17,6 +17,7 @@ import { useSelection, type SelectionItem } from "@/lib/selection-context";
 // Cap on how many selected items we hand to the chat assistant — keeps the
 // /api/chat payload and prompt size bounded on huge lasso selections.
 const MAX_SELECTION_ITEMS = 80;
+const STEROID_PAGE = 60; // steroid tiles shown per "show more" step
 
 const UmapPlot = dynamic(() => import("@/components/UmapPlot"), { ssr: false });
 
@@ -480,6 +481,11 @@ export default function ExploreClient({ kind, clusters: clustersUmap, clustersHd
     }
     return [];
   }, [rows, highlight, selectionSet, searchMatchKeys, incomingKeys, kind, mode]);
+
+  // Steroid tile grid shows STEROID_PAGE tiles at a time (each loads a
+  // structure image); "show more" extends it. Reset whenever the pool changes.
+  const [steroidLimit, setSteroidLimit] = useState(STEROID_PAGE);
+  useEffect(() => setSteroidLimit(STEROID_PAGE), [pool]);
 
   // ── Publish a *local* selection to the shared context (chat + other views).
   //  Incoming cross-view highlights are display-only and never written back.
@@ -991,7 +997,7 @@ export default function ExploreClient({ kind, clusters: clustersUmap, clustersHd
             </div>
             <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
               {(pool as (Molecule | NatsynEntry)[])
-                .slice(0, 60)
+                .slice(0, steroidLimit)
                 .map((m) => {
                   const nm = m.compound_name;
                   const cb = m.chebi_id;
@@ -1022,6 +1028,7 @@ export default function ExploreClient({ kind, clusters: clustersUmap, clustersHd
                           <img
                             src={src}
                             alt={nm}
+                            loading="lazy"
                             className="h-full w-full object-contain"
                           />
                         ) : (
@@ -1042,9 +1049,24 @@ export default function ExploreClient({ kind, clusters: clustersUmap, clustersHd
                   );
                 })}
             </div>
-            {pool.length > 60 && (
-              <div className="mt-2 text-xs text-slate-500">
-                …and {pool.length - 60} more compounds
+            {pool.length > steroidLimit && (
+              <div className="mt-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
+                <span>
+                  showing {steroidLimit.toLocaleString()} of{" "}
+                  {pool.length.toLocaleString()} compounds
+                </span>
+                <button
+                  className="rounded-md border border-slate-300 bg-white px-2 py-1 text-slate-700 hover:bg-slate-100"
+                  onClick={() => setSteroidLimit((n) => n + STEROID_PAGE)}
+                >
+                  show {Math.min(STEROID_PAGE, pool.length - steroidLimit)} more
+                </button>
+                <button
+                  className="rounded-md border border-slate-300 bg-white px-2 py-1 text-slate-700 hover:bg-slate-100"
+                  onClick={() => setSteroidLimit(pool.length)}
+                >
+                  show all {pool.length.toLocaleString()}
+                </button>
               </div>
             )}
           </div>
